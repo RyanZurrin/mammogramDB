@@ -1,0 +1,26 @@
+DeepSVDD & Gaussian + Histogram & $0.6667\pm0.1105$ & LOF & Min-Max + SIFT & $0.6923$ & COF & Max + SIFT & $0.8750$ \\
+HBOS & Gaussian + Histogram & $0.6250$ & KNN & Gaussian + Histogram & $0.6923$ & LOF & Min-Max + SIFT & $0.8333$ \\
+LOF & Min-Max + SIFT & $0.6250$ & AvgKNN & Gaussian + Histogram & $0.6923$ & OCSVM & Gaussian + Histogram & $0.8333$ \\
+CBLOF & Gaussian + Histogram & $0.6250$ & MedKNN & Gaussian + Histogram & $0.6923$ & KDE & Gaussian + Histogram & $0.8333$ \\
+COF & Gaussian + Histogram & $0.6250$ & DeepSVDD & Gaussian + Histogram & $0.6205 \pm0.1603$ & KNN & Gaussian + Histogram & $0.8333$ \\
+KNN & Gaussian + Histogram & $0.6250$ & OCSVM & Gaussian + Histogram & $0.6154$ & AvgKNN & Gaussian + Histogram & $0.8333$ \\
+AvgKNN & Gaussian + Histogram & $0.6250$ & IForest & Gaussian + Histogram & $0.6154$ & MedKNN & Gaussian + Histogram & $0.8333$ \\
+MedKNN & Gaussian + Histogram & $0.6250$ & KDE & Gaussian + Histogram & $0.6154$ & CBLOF & Gaussian + Histogram & $0.8153 \pm0.0374$ \\
+INNE & Max + SIFT & $0.5542 \pm0.0630$ & COF & Min-Max + SIFT & $0.6154$ & HBOS & Gaussian + Histogram & $0.7917$ \\
+SUOD & Gaussian + Histogram & $0.5042 \pm0.0228$ & ECOD & Gaussian + Histogram & $0.6154$ & SOS & Min-Max + SIFT & $0.7917$ \\
+OCSVM & Gaussian + Histogram & $0.5000$ & CBLOF & Gaussian + Histogram & $0.5385$ & INNE & Min-Max + SIFT & $0.7889 \pm0.0423$ \\
+IForest & Gaussian + Histogram & $0.5000$ & SOS & Max + SIFT & $0.5385$ & SUOD & Gaussian + Histogram & $0.6861 \pm0.0390$ \\
+SOS & Max + SIFT & $0.5000$ & INNE & Min-Max + SIFT & $0.5385 \pm0.0202$ & SOD & Min-Max + SIFT & $0.6667$ \\
+KDE & Gaussian + Histogram & $0.5000$ & SUOD & Gaussian + Histogram & $0.5385$ & Sampling & Gaussian + Histogram & $0.6597 \pm0.0805$ \\
+ECOD & Gaussian + Histogram & $0.5000$ & Sampling & Gaussian + Histogram & $0.4744 \pm0.1326$ & VAE & Min-Max + SIFT & $0.6250$ \\
+LODA & Gaussian + Histogram & $0.4333 \pm0.0913$ & HBOS & Max + Histogram & $0.4615$ & COPOD & Gaussian + Histogram & $0.6250$ \\
+Sampling & Gaussian + Histogram & $0.4250 \pm0.2143$ & PCA & Gaussian + Histogram & $0.4615$ & ECOD & Gaussian + Histogram & $0.6250$ \\
+COPOD & Gaussian + Histogram & $0.3750$ & LODA & Gaussian + Histogram & $0.4205 \pm0.0390$ & FB & Gaussian + Histogram & $0.6250$ \\
+PCA & Gaussian + Histogram & $0.3750$ & COPOD & Gaussian + Histogram & $0.3846$ & IForest & Gaussian + Histogram & $0.6236 \pm0.0785$ \\
+SOD & Min-Max + SIFT & $0.3750$ & SOD & Min-Max + SIFT & $0.3846$ & LODA & Gaussian + Histogram & $0.5472 \pm0.0144$ \\
+SOGAAL & Max + SIFT & $0.3042 \pm0.1122$ & AE & Max + SIFT & $0.3077$ & PCA & Gaussian + Histogram & $0.5417$ \\
+FB & Max + SIFT & $0.3042 \pm0.0630$ & VAE & Max + SIFT & $0.3077$ & AE & Max + SIFT & $0.5000$ \\
+VAE & Min-Max + Histogram & $0.2792 \pm0.0538$ & LMDD & Max + SIFT & $0.3077$ & DeepSVDD & Gaussian + Histogram & $0.4708 \pm0.2932$ \\
+AE & Max + Histogram & $0.2500$ & FB & Gaussian + Histogram & $0.3077$ & LMDD & Min-Max + SIFT & $0.4167$ \\
+AnoGAN & Gaussian + Histogram & $0.1250$ & SOGAAL & Gaussian + ORB & $0.2538 \pm0.1163$ & SOGAAL & Max + Histogram & $0.3528 \pm0.0764$ \\
+LMDD & Gaussian + Histogram & $0.1250$ & AnoGAN & Max + SIFT & $0.1538$ & AnoGAN & Max + ORB & $0.2083$ \\

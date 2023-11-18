@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/cornerstone-core/dist/cornerstone.min.js"></script>
+    <script src="https://unpkg.com/cornerstone-wado-image-loader@3.1.2/dist/cornerstoneWADOImageLoader.min.js"></script>
+    <script src="https://unpkg.com/dicom-parser"></script>
+    <script src="https://unpkg.com/cornerstone-math"></script>
+    <script src="https://unpkg.com/cornerstone-tools"></script>
+    <script src="https://unpkg.com/hammerjs"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+      body {
+        margin:0px;padding:0px;background:black;
+      }
+
+      #searchbtn {
+        display: none;cursor: pointer;border: 1px solid grey;padding: 10px;background: #2196F3;font-size: 17px;position:absolute;top:10px;right:10px;
+      }
+
+      #searchbtn:hover {
+        background: #0b7dda;
+      }
+    </style>
+
+    <script>
+      cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
+      cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
+      cornerstoneTools.external.Hammer = Hammer;
+      cornerstoneTools.external.cornerstone = cornerstone;
+      cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
+
+      function onDragOver(e) {
+
+          // stop browser processing right away
+          e.stopPropagation();
+          e.preventDefault();
+
+      };
+
+      function onDrop(e) {
+          // stop browser processing right away
+          e.stopPropagation();
+          e.preventDefault();
+
+          imageIds = [];
+
+          for(var i=0; i<e.dataTransfer.files.length; i++) {
+
+            var f = e.dataTransfer.files[i];
+            imageIds.push( cornerstoneWADOImageLoader.wadouri.fileManager.add(f) );
+
+          }
+
+          cornerstone.loadImage(imageIds[0]).then(function(image) {
+
+            console.log('Loaded', image);
+
+            cornerstoneTools.init();  
+
+            var viewer = document.getElementById('viewer');
+            
+            cornerstone.enable(viewer);
+            cornerstone.displayImage(viewer, image);
+            
+            // this depends on the data, i am testing with a single file
+            var stack = { currentImageIdIndex: 0, imageIds: imageIds };
+            cornerstoneTools.addStackStateManager(viewer, ["stack"]);
+            cornerstoneTools.addToolState(viewer, "stack", stack);         
+                        
+            cornerstoneTools.addTool(cornerstoneTools.StackScrollMouseWheelTool)
+            cornerstoneTools.addTool(cornerstoneTools.RectangleRoiTool);
+
+            cornerstoneTools.setToolActive('RectangleRoi', { mouseButtonMask: 1});
+            cornerstoneTools.setToolActive('StackScrollMouseWheel', {});
+
+
+          });
+
+          document.getElementById('searchbtn').style.display = 'block';
+
+      };
+
+      window.onload = function() {
+
+        document.body.addEventListener('dragover', onDragOver);
+        document.body.addEventListener('drop', onDrop);
+
+        document.getElementById('searchbtn').onclick = function() {
+
+
+            var element = cornerstone.getEnabledElements()[0]
+
+            var w = element.image.width
+            var h = element.image.height
+
+            var toolState = cornerstoneTools.globalImageIdSpecificToolStateManager.saveToolState();
+
+            var box_startx = Math.floor(toolState["dicomfile:0"].RectangleRoi.data[0].handles.start.x)
+            var box_starty = Math.floor(toolState["dicomfile:0"].RectangleRoi.data[0].handles.start.y)
+            var box_endx = Math.floor(toolState["dicomfile:0"].RectangleRoi.data[0].handles.end.x)
+            var box_endy = Math.floor(toolState["dicomfile:0"].RectangleRoi.data[0].handles.end.y)
+
+            var roi= new Uint8Array((box_endx-box_startx)*(box_endy-box_starty))
+            var p = 0;
+            for (var x = box_startx; x < box_endx; x++) {
+              for (var y = box_starty; y < box_endy; y++) {
+                roi[p] = element.image.getPixelData()[x * w + y];
+                p++;
+              }
+            }
+
+            function tob64( buffer ) {
+                var binary = '';
+                var bytes = new Uint8Array( buffer );
+                var len = bytes.byteLength;
+                for (var i = 0; i < len; i++) {
+                    binary += String.fromCharCode( bytes[ i ] );
+                }
+                return window.btoa( binary );
+            }
+
+            var base64 = tob64(roi.buffer);
+            var dict = {
+              image: base64,
+              row: box_endx-box_startx,
+              col: box_endy-box_starty,
+              coords: [box_startx, box_starty, box_endx, box_endy]
+            };
+            // print the box start x,y and end x,y
+            console.log("(", box_startx, ",", box_starty,
+                    "), (", box_endx, ",", box_endy, ")");
+
+            var url = ""; // might work like this
+
+            jsondata = JSON.stringify(dict);
+            console.log(jsondata);
+
+            var x = new XMLHttpRequest();
+            x.open("GET", "http://localhost:8888/roi?data="+jsondata, true);
+            x.send();
+        };
+      };
+
+
+    </script>
+  </head>
+  <body style=''>
+    
+    <div id='viewer' style='width:100%;height:100%;'></div>
+    <button type="submit" id='searchbtn'><i class="fa fa-search"></i></button>
+
+  </body>
+</html>

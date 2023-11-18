@@ -1,0 +1,1804 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>omama.analysis.data_selection_algo.src.data_selector API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>omama.analysis.data_selection_algo.src.data_selector</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import glob
+import os
+import pandas as pd
+import numpy as np
+from multiprocessing import Pool, Process, Queue
+from itertools import repeat
+import time
+import pydicom
+from pathlib import Path
+from collections import defaultdict
+
+
+class DataSelector:
+    def __init__(self, path_database=None, path_labels=None, directories=None):
+        self.files_2D = []
+        self.files_3D = []
+        self.df_labels = None
+        self.df_omama = pd.DataFrame()
+        self.path_database = path_database
+        self.subsetting_fields = [
+            &#34;FilePath&#34;,
+            &#34;StudyInstanceUID&#34;,
+            &#34;image&#34;,
+            &#34;Imagelaterality&#34;,
+            &#34;label&#34;,
+            &#34;PatientAge&#34;,
+            &#34;PatientName&#34;,
+            &#34;PatientBirthDate&#34;,
+            &#34;PatientSex&#34;,
+            &#34;PatientID&#34;,
+            &#34;Shape&#34;,
+            &#34;Manufacturer&#34;,
+            &#34;Modality&#34;,
+            &#34;SeriesInstanceUID&#34;,
+            &#34;SOPInstanceUID&#34;,
+        ]
+        if self.path_database is None:
+            self.path_database = &#34;/raid/data01/deephealth&#34;
+        self.path_labels = path_labels
+        if self.path_labels is None:
+            self.path_labels = &#34;/raid/data01/deephealth/labels/&#34;
+        self.directories = directories
+        if self.directories is None:
+            self.directories = [&#34;dh_dh2&#34;, &#34;dh_dh0new&#34;, &#34;dh_dcm_ast&#34;]
+
+    def scrape_and_store_database(self, tasks=24, timeit=False):
+        if not os.path.isdir(os.path.join(os.getcwd(), &#34;df_omama.plk&#34;)):
+            directories_paths_tuples = [
+                (directory, os.path.join(self.path_database, directory))
+                for directory in self.directories
+            ]
+            result_dfs_holder = []
+            queue = Queue()
+            for tuple in directories_paths_tuples:
+                print(f&#34;Loading {tuple[0]} directory contents into memory&#34;)
+                self.folder = tuple[0]
+                self.df_labels = pd.read_csv(f&#34;{self.path_labels}{tuple[0]}_labels.csv&#34;)
+                self.df_labels = self.df_labels.drop_duplicates()
+                p1 = Process(
+                    target=self._generate_files,
+                    args=(1, str(tuple[1]) + &#34;/*/DXm*&#34;, queue),
+                )
+                p2 = Process(
+                    target=self._generate_files,
+                    args=(2, str(tuple[1]) + &#34;/*/BT*&#34;, queue),
+                )
+                p1.start()
+                p2.start()
+                if timeit:
+                    t0 = time.time()
+                while True:
+                    msg = queue.get()
+                    if msg[0] == 1:
+                        self.files_2D = msg[1]
+                        df_2D = self._create_dataset(tasks, 1)
+                    else:
+                        self.files_3D = msg[1]
+                        df_3D = self._create_dataset(tasks, 2)
+                    if self.files_2D and self.files_3D:
+                        result_df = pd.concat([df_2D, df_3D], ignore_index=True)
+                        result_df.to_pickle(
+                            os.path.join(os.getcwd(), f&#34;{tuple[0]}.pkl&#34;)
+                        )
+                        if timeit:
+                            print(
+                                f&#34;Completed loading {tuple[0]} directory contents into memory ...took &#34;,
+                                time.time() - t0,
+                                &#34;seconds &#34;,
+                            )
+                        else:
+                            print(
+                                f&#34;Completed loading {tuple[0]} directory contents into memory&#34;
+                            )
+                        result_dfs_holder.append(result_df)
+                        break
+                # flush out the queue
+                if not queue.empty():
+                    r = queue.get()
+                p1.join()
+                p2.join()
+            for df in result_dfs_holder:
+                self.df_omama = pd.concat([self.df_omama, df], ignore_index=True)
+            self.df_omama.to_pickle(os.path.join(os.getcwd(), &#34;df_omama.pkl&#34;))
+            print(&#34;Contents of all directories loaded into memory&#34;)
+        else:
+            print(&#34;Omama Dataframe pickle file detected, no need to scrape database&#34;)
+
+    def _create_dataset(self, task_num, image_type_flag):
+        def create_dataset_aux(method, list_elems, flag, task_num):
+            with Pool(task_num) as pool:
+                df = pool.starmap(method, zip(list_elems, repeat(flag)))
+                result_df = pd.concat(df)
+                return result_df
+
+        if image_type_flag == 1:
+            return create_dataset_aux(
+                self._build_dataframe, self.files_2D, image_type_flag, task_num
+            )
+        return create_dataset_aux(
+            self._build_dataframe, self.files_3D, image_type_flag, task_num
+        )
+
+    def _generate_files(self, ind, path_to_hospital, q):
+        list = sorted([f for f in glob.glob(path_to_hospital)])
+        q.put((ind, list))
+
+    def _build_dataframe(self, file, image_flag):
+        def getLabel(studyInstanceUID, imageLaterality):
+            value = self.df_labels[
+                (self.df_labels[&#34;StudyInstanceUID&#34;] == str(studyInstanceUID))
+            ]
+            if value.shape[0] != 0:
+                # required when same study instance UID has two cancer laterality information stored in the csv file
+                value = value[value[&#34;CancerLaterality&#34;] == str(imageLaterality)]
+                if value.shape[0] != 0:
+                    return str(value[&#34;Label&#34;].values[0])
+                else:
+                    return &#34;NonCancer&#34;
+            elif value.shape[0] == 0:
+                return &#34;No Label information&#34;
+            else:
+                print(value)
+                print(&#34;error&#34;)
+
+        db = []
+        ds = pydicom.filereader.dcmread(file, stop_before_pixels=True, force=False)
+        if image_flag == 1:
+            studyInstanceUID = ds.get(&#34;StudyInstanceUID&#34;)
+            image_type = &#34;2D&#34;
+            imageLaterality = ds.get(&#34;ImageLaterality&#34;)
+            shape = (ds.Rows, ds.Columns)
+        else:
+            studyInstanceUID = ds.get(&#34;StudyInstanceUID&#34;)
+            image_type = &#34;3D&#34;
+            imageLaterality = (
+                ds.SharedFunctionalGroupsSequence[0]
+                .FrameAnatomySequence[0]
+                .FrameLaterality
+            )
+            shape = (ds.Rows, ds.Columns, ds.NumberOfFrames)
+
+        h = {
+            &#34;filePath&#34;: file,
+            &#34;image&#34;: image_type,
+            &#34;StudyInstanceUID&#34;: str(studyInstanceUID),
+            &#34;Imagelaterality&#34;: str(imageLaterality),
+            &#34;label&#34;: str(getLabel(str(studyInstanceUID), str(imageLaterality))),
+            &#34;PatientAge&#34;: str(ds.get(&#34;PatientAge&#34;)),
+            &#34;PatientName&#34;: str(ds.get(&#34;PatientName&#34;)),
+            &#34;PatientBirthDate&#34;: str(ds.get(&#34;PatientBirthDate&#34;)),
+            &#34;PatientSex&#34;: str(ds.get(&#34;Patient&#39;sSex&#34;)),
+            &#34;PatientID&#34;: str(ds.get(&#34;PatientID&#34;)),
+            &#34;Shape&#34;: shape,
+            &#34;Manufacturer&#34;: str(ds.get(&#34;Manufacturer&#34;)),
+            &#34;Modality&#34;: str(ds.get(&#34;Modality&#34;)),
+            &#34;SeriesInstanceUID&#34;: str(ds.get(&#34;SeriesInstanceUID&#34;)),
+            &#34;SOPInstanceUID&#34;: str(ds.get(&#34;SOPInstanceUID&#34;)),
+        }
+        for k in ds.keys():
+            # Skip images
+            if (k.group, k.elem) == (0x7FE0, 0x0010):
+                continue
+            # Checks in case underlying int is &gt;32 bits, DICOM does not allow this
+            #             if (not -2**31 &lt;= k &lt; 2**31):
+            #                 continue
+            try:
+                v = ds[k]
+            except:
+                continue
+            key = (
+                v.name.replace(&#34; &#34;, &#34;&#34;)
+                .replace(&#34;&#39;&#34;, &#34;&#34;)
+                .replace(&#34;/&#34;, &#34;&#34;)
+                .replace(&#34;[&#34;, &#34;&#34;)
+                .replace(&#34;]&#34;, &#34;&#34;)
+                .replace(&#34;(&#34;, &#34;&#34;)
+                .replace(&#34;)&#34;, &#34;&#34;)
+                .replace(&#34;-&#34;, &#34;&#34;)
+            )
+
+            value = v.value  # Do I need to encode to bytes?
+            if value is None:
+                continue
+            # Conversions that are necessary
+            if (k.group, k.elem) in [
+                (0x20, 0x1041),  # group and elem for Slice location
+                (0x18, 0x50),  # group and elem for Slice thickness
+            ]:
+                value = float(value)
+            elif (k.group, k.elem) in [
+                (0x28, 0x30),  # Pixel spacing is a pair value
+            ]:
+                value = tuple(float(f) for f in v.value)
+
+            elif not (&#34;\\&#34; in str(value) or &#34;[&#34; in str(value)):
+                if v.VR in [&#34;IS&#34;, &#34;SL&#34;, &#34;US&#34;]:
+                    try:
+                        value = int(value)
+                    except ValueError:
+                        continue
+                elif isinstance(value, pydicom.valuerep.DSfloat):
+                    value = float(value)
+                elif isinstance(value, bytes):
+                    value = value.decode(&#34;utf-8&#34;)
+                else:
+                    value = str(value)
+
+            # coerce to string if prev conditions unmet. Important for pickling
+            if not type(value) in [str, list, dict, tuple, int, float]:
+                value = str(value)
+            # Turn lists to tuples to make immutable
+            if type(value) == list:
+                value = tuple(value)
+            h[key] = value
+            h[&#34;X%04x_%04x&#34; % (k.group, k.elem)] = h[
+                key
+            ]  # Use both name and group,element syntax
+        db += [h]
+        df = pd.DataFrame(db)
+        return df
+
+    def load_dataset(self, filepath=&#34;df_omama.pkl&#34;):
+        &#34;&#34;&#34;Load database file from disk&#34;&#34;&#34;
+        return pd.read_pickle(filepath)
+
+    def fill_na_dataset(self, df):
+        df_omama = df
+        df_omama.drop(
+            [&#34;PatientsName&#34;, &#34;PatientsAge&#34;, &#34;PatientsSex&#34;, &#34;PatientsBirthDate&#34;],
+            axis=1,
+            inplace=True,
+        )
+        # extract Patient Age numeric value and convert to float
+        df_omama[&#34;PatientAge&#34;] = df_omama[&#34;PatientAge&#34;].str.extract(
+            &#34;(\d+)&#34;, expand=False
+        )
+        df_omama[&#34;PatientAge&#34;] = df_omama[&#34;PatientAge&#34;].apply(lambda x: float(x) // 12)
+        df_omama = df_omama.sort_values(&#34;PatientID&#34;)
+        # replace empty string with nan
+        df_omama.replace(r&#34;^\s*$&#34;, np.NaN, regex=True, inplace=True)
+        # replace None value with nan
+        df_omama.fillna(value=np.NaN, inplace=True)
+        df_omama.replace(&#34;None&#34;, np.NaN, inplace=True)
+        return df_omama
+
+    def check_percent_missing_values_by_field(self, df):
+        df_omama = df
+        # check percentage missing values across columns
+        percent_missing = df_omama.isnull().sum() * 100 / len(df_omama)
+        # missing_value_df = pd.DataFrame({&#39;column_name&#39;: df_omama.columns,
+        #                                  &#39;percent_missing&#39;: percent_missing})
+        missing_value_df = pd.DataFrame({&#34;percent_missing&#34;: percent_missing})
+        # missing_value_df.sort_values(&#39;column_name&#39;, inplace=True)
+        missing_value_df.sort_index(axis=0, inplace=True)
+        print(missing_value_df)
+
+    def subset_by_fields(self, df):
+        # subset dataframe by fields of interest and sort on SOP ID
+        df_omama_reduced = df[self.subsetting_fields]
+        df_omama_reduced = df_omama_reduced.sort_values(&#34;SOPInstanceUID&#34;)
+        return df_omama_reduced
+
+    def store_dataset(self, df, path_to_store=None):
+        if path_to_store is None:
+            path_to_store = os.path.join(os.getcwd())
+        file_path = os.path.join(path_to_store, &#34;df_omama_reduced.pkl&#34;)
+        df.to_pickle(file_path)
+        assert Path(file_path).is_file()
+        return df
+
+    def subset_pipeline_to_manufacturer_step(self, df=None, filepath=&#34;df_omama.pkl&#34;):
+        df_omama = df
+        if df is None:
+            df_omama = self.load_dataset(filepath)
+        # Removal of No Label and Both values subset
+        df_omama = df_omama[df_omama.label != &#34;No Label information&#34;]
+        df_omama = df_omama[df_omama.Imagelaterality != &#34;B&#34;]
+        # Shape subsetting steps
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].astype(str)
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2457, 1890,.*)&#34;, &#34;2457, 1890, x)&#34;
+        )
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2457, 1996,.*)&#34;, &#34;2457, 1996, x)&#34;
+        )
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2059, 652,.*)&#34;, &#34;2059, 652, x)&#34;
+        )
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2023, 918,.*)&#34;, &#34;2023, 918, x)&#34;
+        )
+        # remove shape less than (1024, 1024)
+        pattern = &#34;(2059, 652,.*)|(2023, 918,.*)|(512, 512)|(707, 989)|(794, 990)&#34;
+        df_omama = df_omama[~df_omama[&#34;Shape&#34;].str.contains(pattern)]
+        # Non-dominant Manufacturers removal
+        df_omama[&#34;Manufacturer&#34;] = df_omama[&#34;Manufacturer&#34;].replace(
+            [
+                &#34;HOLOGIC, Inc.&#34;,
+                &#34;Hologic, Inc.&#34;,
+                &#34;HOLOGIC, INC.&#34;,
+                &#34;LORAD&#34;,
+                &#34;Lorad&#34;,
+                &#34;LORAD.&#34;,
+                &#34;Lorad, A Hologic Company&#34;,
+            ],
+            &#34;HOLOGIC, INC.&#34;,
+        )
+        manu_keep = [&#34;GE MEDICAL SYSTEMS&#34;, &#34;HOLOGIC, INC.&#34;]
+        df_omama = df_omama.loc[df_omama[&#34;Manufacturer&#34;].isin(manu_keep)]
+        return df_omama
+
+    def subset_pipeline_post_manufacturer_step(
+        self, df=None, by=&#34;StudyInstanceUID&#34;, filepath=&#34;df_omama.pkl&#34;
+    ):
+        if df is not None:
+            df_omama = df
+        else:
+            df_omama = self.subset_pipeline_to_manufacturer_step(filepath=filepath)
+        print(&#34;After Manufacturer Subsetting Step: &#34;)
+        self.check_metrics(df_omama)
+        df_omama_copy = df_omama.copy()
+        df_3d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;2D&#34;]
+        dfCancer = dfnonCancer = df_omama_copy
+        dfCancer = dfCancer[dfCancer[&#34;label&#34;] != &#34;NonCancer&#34;]
+        dfnonCancer = dfnonCancer[dfnonCancer[&#34;label&#34;] == &#34;NonCancer&#34;]
+
+        df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;2D&#34;]
+        df_2d_cancer_pre = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;PreIndexCancer&#34;]
+        df_2d_cancer_index = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;IndexCancer&#34;]
+
+        df_3d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;2D&#34;]
+
+        df_2d_noncancer_dropped = df_2d_noncancer.drop_duplicates([by])
+        df_2d_noncancer_no_overlap = df_2d_noncancer_dropped[
+            ~df_2d_noncancer_dropped[by].isin(df_3d[by].values)
+        ]
+        merged_noncancer_dfs_no_overlap = pd.concat(
+            [df_2d_noncancer_no_overlap, df_3d_noncancer]
+        )
+        df_omama = pd.concat([dfCancer, merged_noncancer_dfs_no_overlap])
+        print(f&#34;After {by} Duplicate Removal for 2D NonCancer Subsetting Step: &#34;)
+        self.check_metrics(df_omama)
+        return df_omama
+
+    def make_caselist(self, df):
+        path = &#34;/tmp/test/&#34;
+        filename = &#34;whitelist.txt&#34;
+        with open(path + filename, &#34;w&#34;) as f:
+            for file_path in df[&#34;FilePath&#34;]:
+                f.write(file_path + &#34;\n&#34;)
+        return path + filename
+
+    def get_study_to_sop_dict(self, df):
+        sop_to_study_dict = pd.Series(
+            df.StudyInstanceUID.values, index=df.SOPInstanceUID
+        ).to_dict()
+        swapped = defaultdict(set)
+        for k, v in sop_to_study_dict.items():
+            swapped[v].add(k)
+        return swapped
+
+    def check_metrics(self, df):
+        df_omama_copy = df
+        print(f&#34;Total cases count: {len(df_omama_copy.index)}&#34;)
+        print(f&#34;Total studies count: {df_omama_copy.StudyInstanceUID.nunique()}&#34;)
+        print(f&#34;Total patients count: {df_omama_copy.PatientID.nunique()}\n&#34;)
+
+        df_3d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;2D&#34;]
+
+        print(f&#34;Total 2D cases count: {len(df_2d.index)}&#34;)
+        print(f&#34;Total 2D studies count: {df_2d.StudyInstanceUID.nunique()}\n&#34;)
+        print(f&#34;Total 2D patients count: {df_2d.PatientID.nunique()}\n&#34;)
+
+        print(f&#34;Total 3D cases count: {len(df_3d.index)}&#34;)
+        print(f&#34;Total 3D studies count: {df_3d.StudyInstanceUID.nunique()}&#34;)
+        print(f&#34;Total 3D patient count: {df_3d.PatientID.nunique()}&#34;)
+        merged = df_3d.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D studies that match with those of 2D: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d.merge(df_2d, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D patients that match with those of 2D: {merged.PatientID.nunique()}\n&#34;
+        )
+        dfCancer = dfnonCancer = df_omama_copy
+        dfCancer = dfCancer[dfCancer[&#34;label&#34;] != &#34;NonCancer&#34;]
+        dfnonCancer = dfnonCancer[dfnonCancer[&#34;label&#34;] == &#34;NonCancer&#34;]
+
+        df_2d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;2D&#34;]
+        df_2d_cancer_cases_counts = len(df_2d_cancer.index)
+        df_2d_cancer_unique_counts = df_2d_cancer[&#34;StudyInstanceUID&#34;].nunique()
+        df_2d_cancer_unique_patients = df_2d_cancer[&#34;PatientID&#34;].nunique()
+        df_2d_cancer_pre = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;PreIndexCancer&#34;]
+        df_2d_cancer_index = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;IndexCancer&#34;]
+        df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;2D&#34;]
+        df_3d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;3D&#34;]
+
+        df_2d_cancer_pre_cases_counts = len(df_2d_cancer_pre.index)
+        df_2d_cancer_pre_unique_counts = df_2d_cancer_pre[&#34;StudyInstanceUID&#34;].nunique()
+        df_2d_cancer_pre_unique_patients = df_2d_cancer_pre[&#34;PatientID&#34;].nunique()
+        df_2d_cancer_pre_nonunique_counts = (
+            df_2d_cancer_pre_cases_counts - df_2d_cancer_pre_unique_counts
+        )
+
+        df_2d_cancer_index_cases_counts = len(df_2d_cancer_index.index)
+        df_2d_cancer_index_unique_counts = df_2d_cancer_index[
+            &#34;StudyInstanceUID&#34;
+        ].nunique()
+        df_2d_cancer_index_unique_patients = df_2d_cancer_index[&#34;PatientID&#34;].nunique()
+        df_2d_cancer_index_nonunique_counts = (
+            df_2d_cancer_index_cases_counts - df_2d_cancer_index_unique_counts
+        )
+
+        print(f&#34;2d Cancer cases count: {df_2d_cancer_cases_counts}&#34;)
+        print(f&#34;Unique 2D Cancer Study instances count: {df_2d_cancer_unique_counts}&#34;)
+        print(
+            f&#34;Unique 2D Cancer Patient instances count: {df_2d_cancer_unique_patients}&#34;
+        )
+        merged = df_2d_cancer.merge(df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        print(f&#34;2d Cancer -Pre- cases count: {df_2d_cancer_pre_cases_counts}&#34;)
+        print(
+            f&#34;Unique 2D Cancer -Pre- Study instances count: {df_2d_cancer_pre_unique_counts}&#34;
+        )
+        print(
+            f&#34;Unique 2D Cancer -Pre- Patient instances count: {df_2d_cancer_pre_unique_patients}&#34;
+        )
+        print(
+            f&#34;Nonunique 2D Cancer -Pre- Study instances count: {df_2d_cancer_pre_nonunique_counts}&#34;
+        )
+        merged = df_2d_cancer_pre.merge(
+            df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 2D pre cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer_pre.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D pre cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        print(f&#34;2d Cancer -Index- cases count: {df_2d_cancer_index_cases_counts}&#34;)
+        print(
+            f&#34;Unique 2D Cancer -Index- Study instances count: {df_2d_cancer_index_unique_counts}&#34;
+        )
+        print(
+            f&#34;Unique 2D Cancer -Index- Patient instances count: {df_2d_cancer_index_unique_patients}&#34;
+        )
+        print(
+            f&#34;Nonunique 2D Cancer -Index- Study instances count: {df_2d_cancer_index_nonunique_counts}&#34;
+        )
+        merged = df_2d_cancer_index.merge(
+            df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 2D index cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer_index.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D index cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        merged = df_2d_cancer_pre.merge(
+            df_2d_cancer_index, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 2D precancer studies that match with those of 2D indexcancer cases: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer_pre.merge(df_2d_cancer_index, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D precancer patients that match with those of 2D indexcancer cases: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+        print(f&#34;3d Cancer -Index- cases count: {len(df_3d_cancer.index)}&#34;)
+        print(
+            f&#34;unique 3D Cancer Study instances count {df_3d_cancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;unique 3D Cancer Patient instances count {df_3d_cancer[&#39;PatientID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Nonunique 3D Cancer study instances count {len(df_3d_cancer.index) - df_3d_cancer[&#39;StudyInstanceUID&#39;].nunique()}\n&#34;
+        )
+
+        merged = df_3d_cancer.merge(df_3d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 3D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 2D noncancer:&#34;
+            f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d_cancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 2D Cancer:&#34;
+            f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 2D:&#34;
+            f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_3d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 3D noncancer: {merged.PatientID.nunique()}&#34;
+        )
+
+        merged = df_3d_cancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 2D noncancer:&#34;
+            f&#34; {merged.PatientID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d_cancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 2D Cancer:&#34;
+            f&#34; {merged.PatientID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 2D:&#34;
+            f&#34; {merged.PatientID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_3d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;Sanity Check: number of 3D cancer Studies that match with 3D: {merged.StudyInstanceUID.nunique()}\n&#34;
+        )
+
+        print(f&#34;2d Noncancer cases count: {len(df_2d_noncancer.index)}&#34;)
+        print(
+            f&#34;Unique 2D Noncancer study instances count: {df_2d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Unique 2D Noncancer patient instances count: {df_2d_noncancer[&#39;PatientID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Nonunique 2D Noncancer study instances count: {len(df_2d_noncancer.index) - df_2d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        merged = df_2d_noncancer.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;Sanity Check: number of 2D noncancer Studies that match with 2D: {merged.StudyInstanceUID.nunique()}\n&#34;
+        )
+
+        print(f&#34;3d Noncancer cases count: {len(df_3d_noncancer.index)}&#34;)
+        print(
+            f&#34;Unique 3D Noncancer study instances count {df_3d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Unique 3D Noncancer patient instances count {df_3d_noncancer[&#39;PatientID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Nonunique 3D Noncancer study instances count {len(df_3d_noncancer.index) - df_3d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        merged = df_3d_noncancer.merge(
+            df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 3D noncancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_noncancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D noncancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector"><code class="flex name class">
+<span>class <span class="ident">DataSelector</span></span>
+<span>(</span><span>path_database=None, path_labels=None, directories=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataSelector:
+    def __init__(self, path_database=None, path_labels=None, directories=None):
+        self.files_2D = []
+        self.files_3D = []
+        self.df_labels = None
+        self.df_omama = pd.DataFrame()
+        self.path_database = path_database
+        self.subsetting_fields = [
+            &#34;FilePath&#34;,
+            &#34;StudyInstanceUID&#34;,
+            &#34;image&#34;,
+            &#34;Imagelaterality&#34;,
+            &#34;label&#34;,
+            &#34;PatientAge&#34;,
+            &#34;PatientName&#34;,
+            &#34;PatientBirthDate&#34;,
+            &#34;PatientSex&#34;,
+            &#34;PatientID&#34;,
+            &#34;Shape&#34;,
+            &#34;Manufacturer&#34;,
+            &#34;Modality&#34;,
+            &#34;SeriesInstanceUID&#34;,
+            &#34;SOPInstanceUID&#34;,
+        ]
+        if self.path_database is None:
+            self.path_database = &#34;/raid/data01/deephealth&#34;
+        self.path_labels = path_labels
+        if self.path_labels is None:
+            self.path_labels = &#34;/raid/data01/deephealth/labels/&#34;
+        self.directories = directories
+        if self.directories is None:
+            self.directories = [&#34;dh_dh2&#34;, &#34;dh_dh0new&#34;, &#34;dh_dcm_ast&#34;]
+
+    def scrape_and_store_database(self, tasks=24, timeit=False):
+        if not os.path.isdir(os.path.join(os.getcwd(), &#34;df_omama.plk&#34;)):
+            directories_paths_tuples = [
+                (directory, os.path.join(self.path_database, directory))
+                for directory in self.directories
+            ]
+            result_dfs_holder = []
+            queue = Queue()
+            for tuple in directories_paths_tuples:
+                print(f&#34;Loading {tuple[0]} directory contents into memory&#34;)
+                self.folder = tuple[0]
+                self.df_labels = pd.read_csv(f&#34;{self.path_labels}{tuple[0]}_labels.csv&#34;)
+                self.df_labels = self.df_labels.drop_duplicates()
+                p1 = Process(
+                    target=self._generate_files,
+                    args=(1, str(tuple[1]) + &#34;/*/DXm*&#34;, queue),
+                )
+                p2 = Process(
+                    target=self._generate_files,
+                    args=(2, str(tuple[1]) + &#34;/*/BT*&#34;, queue),
+                )
+                p1.start()
+                p2.start()
+                if timeit:
+                    t0 = time.time()
+                while True:
+                    msg = queue.get()
+                    if msg[0] == 1:
+                        self.files_2D = msg[1]
+                        df_2D = self._create_dataset(tasks, 1)
+                    else:
+                        self.files_3D = msg[1]
+                        df_3D = self._create_dataset(tasks, 2)
+                    if self.files_2D and self.files_3D:
+                        result_df = pd.concat([df_2D, df_3D], ignore_index=True)
+                        result_df.to_pickle(
+                            os.path.join(os.getcwd(), f&#34;{tuple[0]}.pkl&#34;)
+                        )
+                        if timeit:
+                            print(
+                                f&#34;Completed loading {tuple[0]} directory contents into memory ...took &#34;,
+                                time.time() - t0,
+                                &#34;seconds &#34;,
+                            )
+                        else:
+                            print(
+                                f&#34;Completed loading {tuple[0]} directory contents into memory&#34;
+                            )
+                        result_dfs_holder.append(result_df)
+                        break
+                # flush out the queue
+                if not queue.empty():
+                    r = queue.get()
+                p1.join()
+                p2.join()
+            for df in result_dfs_holder:
+                self.df_omama = pd.concat([self.df_omama, df], ignore_index=True)
+            self.df_omama.to_pickle(os.path.join(os.getcwd(), &#34;df_omama.pkl&#34;))
+            print(&#34;Contents of all directories loaded into memory&#34;)
+        else:
+            print(&#34;Omama Dataframe pickle file detected, no need to scrape database&#34;)
+
+    def _create_dataset(self, task_num, image_type_flag):
+        def create_dataset_aux(method, list_elems, flag, task_num):
+            with Pool(task_num) as pool:
+                df = pool.starmap(method, zip(list_elems, repeat(flag)))
+                result_df = pd.concat(df)
+                return result_df
+
+        if image_type_flag == 1:
+            return create_dataset_aux(
+                self._build_dataframe, self.files_2D, image_type_flag, task_num
+            )
+        return create_dataset_aux(
+            self._build_dataframe, self.files_3D, image_type_flag, task_num
+        )
+
+    def _generate_files(self, ind, path_to_hospital, q):
+        list = sorted([f for f in glob.glob(path_to_hospital)])
+        q.put((ind, list))
+
+    def _build_dataframe(self, file, image_flag):
+        def getLabel(studyInstanceUID, imageLaterality):
+            value = self.df_labels[
+                (self.df_labels[&#34;StudyInstanceUID&#34;] == str(studyInstanceUID))
+            ]
+            if value.shape[0] != 0:
+                # required when same study instance UID has two cancer laterality information stored in the csv file
+                value = value[value[&#34;CancerLaterality&#34;] == str(imageLaterality)]
+                if value.shape[0] != 0:
+                    return str(value[&#34;Label&#34;].values[0])
+                else:
+                    return &#34;NonCancer&#34;
+            elif value.shape[0] == 0:
+                return &#34;No Label information&#34;
+            else:
+                print(value)
+                print(&#34;error&#34;)
+
+        db = []
+        ds = pydicom.filereader.dcmread(file, stop_before_pixels=True, force=False)
+        if image_flag == 1:
+            studyInstanceUID = ds.get(&#34;StudyInstanceUID&#34;)
+            image_type = &#34;2D&#34;
+            imageLaterality = ds.get(&#34;ImageLaterality&#34;)
+            shape = (ds.Rows, ds.Columns)
+        else:
+            studyInstanceUID = ds.get(&#34;StudyInstanceUID&#34;)
+            image_type = &#34;3D&#34;
+            imageLaterality = (
+                ds.SharedFunctionalGroupsSequence[0]
+                .FrameAnatomySequence[0]
+                .FrameLaterality
+            )
+            shape = (ds.Rows, ds.Columns, ds.NumberOfFrames)
+
+        h = {
+            &#34;filePath&#34;: file,
+            &#34;image&#34;: image_type,
+            &#34;StudyInstanceUID&#34;: str(studyInstanceUID),
+            &#34;Imagelaterality&#34;: str(imageLaterality),
+            &#34;label&#34;: str(getLabel(str(studyInstanceUID), str(imageLaterality))),
+            &#34;PatientAge&#34;: str(ds.get(&#34;PatientAge&#34;)),
+            &#34;PatientName&#34;: str(ds.get(&#34;PatientName&#34;)),
+            &#34;PatientBirthDate&#34;: str(ds.get(&#34;PatientBirthDate&#34;)),
+            &#34;PatientSex&#34;: str(ds.get(&#34;Patient&#39;sSex&#34;)),
+            &#34;PatientID&#34;: str(ds.get(&#34;PatientID&#34;)),
+            &#34;Shape&#34;: shape,
+            &#34;Manufacturer&#34;: str(ds.get(&#34;Manufacturer&#34;)),
+            &#34;Modality&#34;: str(ds.get(&#34;Modality&#34;)),
+            &#34;SeriesInstanceUID&#34;: str(ds.get(&#34;SeriesInstanceUID&#34;)),
+            &#34;SOPInstanceUID&#34;: str(ds.get(&#34;SOPInstanceUID&#34;)),
+        }
+        for k in ds.keys():
+            # Skip images
+            if (k.group, k.elem) == (0x7FE0, 0x0010):
+                continue
+            # Checks in case underlying int is &gt;32 bits, DICOM does not allow this
+            #             if (not -2**31 &lt;= k &lt; 2**31):
+            #                 continue
+            try:
+                v = ds[k]
+            except:
+                continue
+            key = (
+                v.name.replace(&#34; &#34;, &#34;&#34;)
+                .replace(&#34;&#39;&#34;, &#34;&#34;)
+                .replace(&#34;/&#34;, &#34;&#34;)
+                .replace(&#34;[&#34;, &#34;&#34;)
+                .replace(&#34;]&#34;, &#34;&#34;)
+                .replace(&#34;(&#34;, &#34;&#34;)
+                .replace(&#34;)&#34;, &#34;&#34;)
+                .replace(&#34;-&#34;, &#34;&#34;)
+            )
+
+            value = v.value  # Do I need to encode to bytes?
+            if value is None:
+                continue
+            # Conversions that are necessary
+            if (k.group, k.elem) in [
+                (0x20, 0x1041),  # group and elem for Slice location
+                (0x18, 0x50),  # group and elem for Slice thickness
+            ]:
+                value = float(value)
+            elif (k.group, k.elem) in [
+                (0x28, 0x30),  # Pixel spacing is a pair value
+            ]:
+                value = tuple(float(f) for f in v.value)
+
+            elif not (&#34;\\&#34; in str(value) or &#34;[&#34; in str(value)):
+                if v.VR in [&#34;IS&#34;, &#34;SL&#34;, &#34;US&#34;]:
+                    try:
+                        value = int(value)
+                    except ValueError:
+                        continue
+                elif isinstance(value, pydicom.valuerep.DSfloat):
+                    value = float(value)
+                elif isinstance(value, bytes):
+                    value = value.decode(&#34;utf-8&#34;)
+                else:
+                    value = str(value)
+
+            # coerce to string if prev conditions unmet. Important for pickling
+            if not type(value) in [str, list, dict, tuple, int, float]:
+                value = str(value)
+            # Turn lists to tuples to make immutable
+            if type(value) == list:
+                value = tuple(value)
+            h[key] = value
+            h[&#34;X%04x_%04x&#34; % (k.group, k.elem)] = h[
+                key
+            ]  # Use both name and group,element syntax
+        db += [h]
+        df = pd.DataFrame(db)
+        return df
+
+    def load_dataset(self, filepath=&#34;df_omama.pkl&#34;):
+        &#34;&#34;&#34;Load database file from disk&#34;&#34;&#34;
+        return pd.read_pickle(filepath)
+
+    def fill_na_dataset(self, df):
+        df_omama = df
+        df_omama.drop(
+            [&#34;PatientsName&#34;, &#34;PatientsAge&#34;, &#34;PatientsSex&#34;, &#34;PatientsBirthDate&#34;],
+            axis=1,
+            inplace=True,
+        )
+        # extract Patient Age numeric value and convert to float
+        df_omama[&#34;PatientAge&#34;] = df_omama[&#34;PatientAge&#34;].str.extract(
+            &#34;(\d+)&#34;, expand=False
+        )
+        df_omama[&#34;PatientAge&#34;] = df_omama[&#34;PatientAge&#34;].apply(lambda x: float(x) // 12)
+        df_omama = df_omama.sort_values(&#34;PatientID&#34;)
+        # replace empty string with nan
+        df_omama.replace(r&#34;^\s*$&#34;, np.NaN, regex=True, inplace=True)
+        # replace None value with nan
+        df_omama.fillna(value=np.NaN, inplace=True)
+        df_omama.replace(&#34;None&#34;, np.NaN, inplace=True)
+        return df_omama
+
+    def check_percent_missing_values_by_field(self, df):
+        df_omama = df
+        # check percentage missing values across columns
+        percent_missing = df_omama.isnull().sum() * 100 / len(df_omama)
+        # missing_value_df = pd.DataFrame({&#39;column_name&#39;: df_omama.columns,
+        #                                  &#39;percent_missing&#39;: percent_missing})
+        missing_value_df = pd.DataFrame({&#34;percent_missing&#34;: percent_missing})
+        # missing_value_df.sort_values(&#39;column_name&#39;, inplace=True)
+        missing_value_df.sort_index(axis=0, inplace=True)
+        print(missing_value_df)
+
+    def subset_by_fields(self, df):
+        # subset dataframe by fields of interest and sort on SOP ID
+        df_omama_reduced = df[self.subsetting_fields]
+        df_omama_reduced = df_omama_reduced.sort_values(&#34;SOPInstanceUID&#34;)
+        return df_omama_reduced
+
+    def store_dataset(self, df, path_to_store=None):
+        if path_to_store is None:
+            path_to_store = os.path.join(os.getcwd())
+        file_path = os.path.join(path_to_store, &#34;df_omama_reduced.pkl&#34;)
+        df.to_pickle(file_path)
+        assert Path(file_path).is_file()
+        return df
+
+    def subset_pipeline_to_manufacturer_step(self, df=None, filepath=&#34;df_omama.pkl&#34;):
+        df_omama = df
+        if df is None:
+            df_omama = self.load_dataset(filepath)
+        # Removal of No Label and Both values subset
+        df_omama = df_omama[df_omama.label != &#34;No Label information&#34;]
+        df_omama = df_omama[df_omama.Imagelaterality != &#34;B&#34;]
+        # Shape subsetting steps
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].astype(str)
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2457, 1890,.*)&#34;, &#34;2457, 1890, x)&#34;
+        )
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2457, 1996,.*)&#34;, &#34;2457, 1996, x)&#34;
+        )
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2059, 652,.*)&#34;, &#34;2059, 652, x)&#34;
+        )
+        df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+            &#34;(2023, 918,.*)&#34;, &#34;2023, 918, x)&#34;
+        )
+        # remove shape less than (1024, 1024)
+        pattern = &#34;(2059, 652,.*)|(2023, 918,.*)|(512, 512)|(707, 989)|(794, 990)&#34;
+        df_omama = df_omama[~df_omama[&#34;Shape&#34;].str.contains(pattern)]
+        # Non-dominant Manufacturers removal
+        df_omama[&#34;Manufacturer&#34;] = df_omama[&#34;Manufacturer&#34;].replace(
+            [
+                &#34;HOLOGIC, Inc.&#34;,
+                &#34;Hologic, Inc.&#34;,
+                &#34;HOLOGIC, INC.&#34;,
+                &#34;LORAD&#34;,
+                &#34;Lorad&#34;,
+                &#34;LORAD.&#34;,
+                &#34;Lorad, A Hologic Company&#34;,
+            ],
+            &#34;HOLOGIC, INC.&#34;,
+        )
+        manu_keep = [&#34;GE MEDICAL SYSTEMS&#34;, &#34;HOLOGIC, INC.&#34;]
+        df_omama = df_omama.loc[df_omama[&#34;Manufacturer&#34;].isin(manu_keep)]
+        return df_omama
+
+    def subset_pipeline_post_manufacturer_step(
+        self, df=None, by=&#34;StudyInstanceUID&#34;, filepath=&#34;df_omama.pkl&#34;
+    ):
+        if df is not None:
+            df_omama = df
+        else:
+            df_omama = self.subset_pipeline_to_manufacturer_step(filepath=filepath)
+        print(&#34;After Manufacturer Subsetting Step: &#34;)
+        self.check_metrics(df_omama)
+        df_omama_copy = df_omama.copy()
+        df_3d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;2D&#34;]
+        dfCancer = dfnonCancer = df_omama_copy
+        dfCancer = dfCancer[dfCancer[&#34;label&#34;] != &#34;NonCancer&#34;]
+        dfnonCancer = dfnonCancer[dfnonCancer[&#34;label&#34;] == &#34;NonCancer&#34;]
+
+        df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;2D&#34;]
+        df_2d_cancer_pre = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;PreIndexCancer&#34;]
+        df_2d_cancer_index = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;IndexCancer&#34;]
+
+        df_3d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;2D&#34;]
+
+        df_2d_noncancer_dropped = df_2d_noncancer.drop_duplicates([by])
+        df_2d_noncancer_no_overlap = df_2d_noncancer_dropped[
+            ~df_2d_noncancer_dropped[by].isin(df_3d[by].values)
+        ]
+        merged_noncancer_dfs_no_overlap = pd.concat(
+            [df_2d_noncancer_no_overlap, df_3d_noncancer]
+        )
+        df_omama = pd.concat([dfCancer, merged_noncancer_dfs_no_overlap])
+        print(f&#34;After {by} Duplicate Removal for 2D NonCancer Subsetting Step: &#34;)
+        self.check_metrics(df_omama)
+        return df_omama
+
+    def make_caselist(self, df):
+        path = &#34;/tmp/test/&#34;
+        filename = &#34;whitelist.txt&#34;
+        with open(path + filename, &#34;w&#34;) as f:
+            for file_path in df[&#34;FilePath&#34;]:
+                f.write(file_path + &#34;\n&#34;)
+        return path + filename
+
+    def get_study_to_sop_dict(self, df):
+        sop_to_study_dict = pd.Series(
+            df.StudyInstanceUID.values, index=df.SOPInstanceUID
+        ).to_dict()
+        swapped = defaultdict(set)
+        for k, v in sop_to_study_dict.items():
+            swapped[v].add(k)
+        return swapped
+
+    def check_metrics(self, df):
+        df_omama_copy = df
+        print(f&#34;Total cases count: {len(df_omama_copy.index)}&#34;)
+        print(f&#34;Total studies count: {df_omama_copy.StudyInstanceUID.nunique()}&#34;)
+        print(f&#34;Total patients count: {df_omama_copy.PatientID.nunique()}\n&#34;)
+
+        df_3d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;2D&#34;]
+
+        print(f&#34;Total 2D cases count: {len(df_2d.index)}&#34;)
+        print(f&#34;Total 2D studies count: {df_2d.StudyInstanceUID.nunique()}\n&#34;)
+        print(f&#34;Total 2D patients count: {df_2d.PatientID.nunique()}\n&#34;)
+
+        print(f&#34;Total 3D cases count: {len(df_3d.index)}&#34;)
+        print(f&#34;Total 3D studies count: {df_3d.StudyInstanceUID.nunique()}&#34;)
+        print(f&#34;Total 3D patient count: {df_3d.PatientID.nunique()}&#34;)
+        merged = df_3d.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D studies that match with those of 2D: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d.merge(df_2d, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D patients that match with those of 2D: {merged.PatientID.nunique()}\n&#34;
+        )
+        dfCancer = dfnonCancer = df_omama_copy
+        dfCancer = dfCancer[dfCancer[&#34;label&#34;] != &#34;NonCancer&#34;]
+        dfnonCancer = dfnonCancer[dfnonCancer[&#34;label&#34;] == &#34;NonCancer&#34;]
+
+        df_2d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;2D&#34;]
+        df_2d_cancer_cases_counts = len(df_2d_cancer.index)
+        df_2d_cancer_unique_counts = df_2d_cancer[&#34;StudyInstanceUID&#34;].nunique()
+        df_2d_cancer_unique_patients = df_2d_cancer[&#34;PatientID&#34;].nunique()
+        df_2d_cancer_pre = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;PreIndexCancer&#34;]
+        df_2d_cancer_index = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;IndexCancer&#34;]
+        df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+        df_2d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;2D&#34;]
+        df_3d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;3D&#34;]
+
+        df_2d_cancer_pre_cases_counts = len(df_2d_cancer_pre.index)
+        df_2d_cancer_pre_unique_counts = df_2d_cancer_pre[&#34;StudyInstanceUID&#34;].nunique()
+        df_2d_cancer_pre_unique_patients = df_2d_cancer_pre[&#34;PatientID&#34;].nunique()
+        df_2d_cancer_pre_nonunique_counts = (
+            df_2d_cancer_pre_cases_counts - df_2d_cancer_pre_unique_counts
+        )
+
+        df_2d_cancer_index_cases_counts = len(df_2d_cancer_index.index)
+        df_2d_cancer_index_unique_counts = df_2d_cancer_index[
+            &#34;StudyInstanceUID&#34;
+        ].nunique()
+        df_2d_cancer_index_unique_patients = df_2d_cancer_index[&#34;PatientID&#34;].nunique()
+        df_2d_cancer_index_nonunique_counts = (
+            df_2d_cancer_index_cases_counts - df_2d_cancer_index_unique_counts
+        )
+
+        print(f&#34;2d Cancer cases count: {df_2d_cancer_cases_counts}&#34;)
+        print(f&#34;Unique 2D Cancer Study instances count: {df_2d_cancer_unique_counts}&#34;)
+        print(
+            f&#34;Unique 2D Cancer Patient instances count: {df_2d_cancer_unique_patients}&#34;
+        )
+        merged = df_2d_cancer.merge(df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        print(f&#34;2d Cancer -Pre- cases count: {df_2d_cancer_pre_cases_counts}&#34;)
+        print(
+            f&#34;Unique 2D Cancer -Pre- Study instances count: {df_2d_cancer_pre_unique_counts}&#34;
+        )
+        print(
+            f&#34;Unique 2D Cancer -Pre- Patient instances count: {df_2d_cancer_pre_unique_patients}&#34;
+        )
+        print(
+            f&#34;Nonunique 2D Cancer -Pre- Study instances count: {df_2d_cancer_pre_nonunique_counts}&#34;
+        )
+        merged = df_2d_cancer_pre.merge(
+            df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 2D pre cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer_pre.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D pre cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        print(f&#34;2d Cancer -Index- cases count: {df_2d_cancer_index_cases_counts}&#34;)
+        print(
+            f&#34;Unique 2D Cancer -Index- Study instances count: {df_2d_cancer_index_unique_counts}&#34;
+        )
+        print(
+            f&#34;Unique 2D Cancer -Index- Patient instances count: {df_2d_cancer_index_unique_patients}&#34;
+        )
+        print(
+            f&#34;Nonunique 2D Cancer -Index- Study instances count: {df_2d_cancer_index_nonunique_counts}&#34;
+        )
+        merged = df_2d_cancer_index.merge(
+            df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 2D index cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer_index.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D index cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        merged = df_2d_cancer_pre.merge(
+            df_2d_cancer_index, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 2D precancer studies that match with those of 2D indexcancer cases: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_2d_cancer_pre.merge(df_2d_cancer_index, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 2D precancer patients that match with those of 2D indexcancer cases: {merged.PatientID.nunique()}\n&#34;
+        )
+
+        df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+        print(f&#34;3d Cancer -Index- cases count: {len(df_3d_cancer.index)}&#34;)
+        print(
+            f&#34;unique 3D Cancer Study instances count {df_3d_cancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;unique 3D Cancer Patient instances count {df_3d_cancer[&#39;PatientID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Nonunique 3D Cancer study instances count {len(df_3d_cancer.index) - df_3d_cancer[&#39;StudyInstanceUID&#39;].nunique()}\n&#34;
+        )
+
+        merged = df_3d_cancer.merge(df_3d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 3D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 2D noncancer:&#34;
+            f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d_cancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 2D Cancer:&#34;
+            f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Studies that match with 2D:&#34;
+            f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_3d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 3D noncancer: {merged.PatientID.nunique()}&#34;
+        )
+
+        merged = df_3d_cancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 2D noncancer:&#34;
+            f&#34; {merged.PatientID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d_cancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 2D Cancer:&#34;
+            f&#34; {merged.PatientID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_2d, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D cancer Patients that match with 2D:&#34;
+            f&#34; {merged.PatientID.nunique()}&#34;
+        )
+        merged = df_3d_cancer.merge(df_3d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;Sanity Check: number of 3D cancer Studies that match with 3D: {merged.StudyInstanceUID.nunique()}\n&#34;
+        )
+
+        print(f&#34;2d Noncancer cases count: {len(df_2d_noncancer.index)}&#34;)
+        print(
+            f&#34;Unique 2D Noncancer study instances count: {df_2d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Unique 2D Noncancer patient instances count: {df_2d_noncancer[&#39;PatientID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Nonunique 2D Noncancer study instances count: {len(df_2d_noncancer.index) - df_2d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        merged = df_2d_noncancer.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;Sanity Check: number of 2D noncancer Studies that match with 2D: {merged.StudyInstanceUID.nunique()}\n&#34;
+        )
+
+        print(f&#34;3d Noncancer cases count: {len(df_3d_noncancer.index)}&#34;)
+        print(
+            f&#34;Unique 3D Noncancer study instances count {df_3d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Unique 3D Noncancer patient instances count {df_3d_noncancer[&#39;PatientID&#39;].nunique()}&#34;
+        )
+        print(
+            f&#34;Nonunique 3D Noncancer study instances count {len(df_3d_noncancer.index) - df_3d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+        )
+        merged = df_3d_noncancer.merge(
+            df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+        )
+        print(
+            f&#34;number of 3D noncancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+        )
+        merged = df_3d_noncancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+        print(
+            f&#34;number of 3D noncancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+        )</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.check_metrics"><code class="name flex">
+<span>def <span class="ident">check_metrics</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_metrics(self, df):
+    df_omama_copy = df
+    print(f&#34;Total cases count: {len(df_omama_copy.index)}&#34;)
+    print(f&#34;Total studies count: {df_omama_copy.StudyInstanceUID.nunique()}&#34;)
+    print(f&#34;Total patients count: {df_omama_copy.PatientID.nunique()}\n&#34;)
+
+    df_3d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;3D&#34;]
+    df_2d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;2D&#34;]
+
+    print(f&#34;Total 2D cases count: {len(df_2d.index)}&#34;)
+    print(f&#34;Total 2D studies count: {df_2d.StudyInstanceUID.nunique()}\n&#34;)
+    print(f&#34;Total 2D patients count: {df_2d.PatientID.nunique()}\n&#34;)
+
+    print(f&#34;Total 3D cases count: {len(df_3d.index)}&#34;)
+    print(f&#34;Total 3D studies count: {df_3d.StudyInstanceUID.nunique()}&#34;)
+    print(f&#34;Total 3D patient count: {df_3d.PatientID.nunique()}&#34;)
+    merged = df_3d.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D studies that match with those of 2D: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_3d.merge(df_2d, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D patients that match with those of 2D: {merged.PatientID.nunique()}\n&#34;
+    )
+    dfCancer = dfnonCancer = df_omama_copy
+    dfCancer = dfCancer[dfCancer[&#34;label&#34;] != &#34;NonCancer&#34;]
+    dfnonCancer = dfnonCancer[dfnonCancer[&#34;label&#34;] == &#34;NonCancer&#34;]
+
+    df_2d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;2D&#34;]
+    df_2d_cancer_cases_counts = len(df_2d_cancer.index)
+    df_2d_cancer_unique_counts = df_2d_cancer[&#34;StudyInstanceUID&#34;].nunique()
+    df_2d_cancer_unique_patients = df_2d_cancer[&#34;PatientID&#34;].nunique()
+    df_2d_cancer_pre = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;PreIndexCancer&#34;]
+    df_2d_cancer_index = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;IndexCancer&#34;]
+    df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+    df_2d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;2D&#34;]
+    df_3d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;3D&#34;]
+
+    df_2d_cancer_pre_cases_counts = len(df_2d_cancer_pre.index)
+    df_2d_cancer_pre_unique_counts = df_2d_cancer_pre[&#34;StudyInstanceUID&#34;].nunique()
+    df_2d_cancer_pre_unique_patients = df_2d_cancer_pre[&#34;PatientID&#34;].nunique()
+    df_2d_cancer_pre_nonunique_counts = (
+        df_2d_cancer_pre_cases_counts - df_2d_cancer_pre_unique_counts
+    )
+
+    df_2d_cancer_index_cases_counts = len(df_2d_cancer_index.index)
+    df_2d_cancer_index_unique_counts = df_2d_cancer_index[
+        &#34;StudyInstanceUID&#34;
+    ].nunique()
+    df_2d_cancer_index_unique_patients = df_2d_cancer_index[&#34;PatientID&#34;].nunique()
+    df_2d_cancer_index_nonunique_counts = (
+        df_2d_cancer_index_cases_counts - df_2d_cancer_index_unique_counts
+    )
+
+    print(f&#34;2d Cancer cases count: {df_2d_cancer_cases_counts}&#34;)
+    print(f&#34;Unique 2D Cancer Study instances count: {df_2d_cancer_unique_counts}&#34;)
+    print(
+        f&#34;Unique 2D Cancer Patient instances count: {df_2d_cancer_unique_patients}&#34;
+    )
+    merged = df_2d_cancer.merge(df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 2D cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_2d_cancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 2D cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+    )
+
+    print(f&#34;2d Cancer -Pre- cases count: {df_2d_cancer_pre_cases_counts}&#34;)
+    print(
+        f&#34;Unique 2D Cancer -Pre- Study instances count: {df_2d_cancer_pre_unique_counts}&#34;
+    )
+    print(
+        f&#34;Unique 2D Cancer -Pre- Patient instances count: {df_2d_cancer_pre_unique_patients}&#34;
+    )
+    print(
+        f&#34;Nonunique 2D Cancer -Pre- Study instances count: {df_2d_cancer_pre_nonunique_counts}&#34;
+    )
+    merged = df_2d_cancer_pre.merge(
+        df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+    )
+    print(
+        f&#34;number of 2D pre cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_2d_cancer_pre.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 2D pre cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+    )
+
+    print(f&#34;2d Cancer -Index- cases count: {df_2d_cancer_index_cases_counts}&#34;)
+    print(
+        f&#34;Unique 2D Cancer -Index- Study instances count: {df_2d_cancer_index_unique_counts}&#34;
+    )
+    print(
+        f&#34;Unique 2D Cancer -Index- Patient instances count: {df_2d_cancer_index_unique_patients}&#34;
+    )
+    print(
+        f&#34;Nonunique 2D Cancer -Index- Study instances count: {df_2d_cancer_index_nonunique_counts}&#34;
+    )
+    merged = df_2d_cancer_index.merge(
+        df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+    )
+    print(
+        f&#34;number of 2D index cancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_2d_cancer_index.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 2D index cancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+    )
+
+    merged = df_2d_cancer_pre.merge(
+        df_2d_cancer_index, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+    )
+    print(
+        f&#34;number of 2D precancer studies that match with those of 2D indexcancer cases: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_2d_cancer_pre.merge(df_2d_cancer_index, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 2D precancer patients that match with those of 2D indexcancer cases: {merged.PatientID.nunique()}\n&#34;
+    )
+
+    df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+    print(f&#34;3d Cancer -Index- cases count: {len(df_3d_cancer.index)}&#34;)
+    print(
+        f&#34;unique 3D Cancer Study instances count {df_3d_cancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+    )
+    print(
+        f&#34;unique 3D Cancer Patient instances count {df_3d_cancer[&#39;PatientID&#39;].nunique()}&#34;
+    )
+    print(
+        f&#34;Nonunique 3D Cancer study instances count {len(df_3d_cancer.index) - df_3d_cancer[&#39;StudyInstanceUID&#39;].nunique()}\n&#34;
+    )
+
+    merged = df_3d_cancer.merge(df_3d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Studies that match with 3D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Studies that match with 2D noncancer:&#34;
+        f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_2d_cancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Studies that match with 2D Cancer:&#34;
+        f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Studies that match with 2D:&#34;
+        f&#34; {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_3d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Patients that match with 3D noncancer: {merged.PatientID.nunique()}&#34;
+    )
+
+    merged = df_3d_cancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Patients that match with 2D noncancer:&#34;
+        f&#34; {merged.PatientID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_2d_cancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Patients that match with 2D Cancer:&#34;
+        f&#34; {merged.PatientID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_2d, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D cancer Patients that match with 2D:&#34;
+        f&#34; {merged.PatientID.nunique()}&#34;
+    )
+    merged = df_3d_cancer.merge(df_3d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;Sanity Check: number of 3D cancer Studies that match with 3D: {merged.StudyInstanceUID.nunique()}\n&#34;
+    )
+
+    print(f&#34;2d Noncancer cases count: {len(df_2d_noncancer.index)}&#34;)
+    print(
+        f&#34;Unique 2D Noncancer study instances count: {df_2d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+    )
+    print(
+        f&#34;Unique 2D Noncancer patient instances count: {df_2d_noncancer[&#39;PatientID&#39;].nunique()}&#34;
+    )
+    print(
+        f&#34;Nonunique 2D Noncancer study instances count: {len(df_2d_noncancer.index) - df_2d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+    )
+    merged = df_2d_noncancer.merge(df_2d, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;Sanity Check: number of 2D noncancer Studies that match with 2D: {merged.StudyInstanceUID.nunique()}\n&#34;
+    )
+
+    print(f&#34;3d Noncancer cases count: {len(df_3d_noncancer.index)}&#34;)
+    print(
+        f&#34;Unique 3D Noncancer study instances count {df_3d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+    )
+    print(
+        f&#34;Unique 3D Noncancer patient instances count {df_3d_noncancer[&#39;PatientID&#39;].nunique()}&#34;
+    )
+    print(
+        f&#34;Nonunique 3D Noncancer study instances count {len(df_3d_noncancer.index) - df_3d_noncancer[&#39;StudyInstanceUID&#39;].nunique()}&#34;
+    )
+    merged = df_3d_noncancer.merge(
+        df_2d_noncancer, on=&#34;StudyInstanceUID&#34;, how=&#34;inner&#34;
+    )
+    print(
+        f&#34;number of 3D noncancer studies that match with those of 2D noncancer: {merged.StudyInstanceUID.nunique()}&#34;
+    )
+    merged = df_3d_noncancer.merge(df_2d_noncancer, on=&#34;PatientID&#34;, how=&#34;inner&#34;)
+    print(
+        f&#34;number of 3D noncancer patients that match with those of 2D noncancer: {merged.PatientID.nunique()}\n&#34;
+    )</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.check_percent_missing_values_by_field"><code class="name flex">
+<span>def <span class="ident">check_percent_missing_values_by_field</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_percent_missing_values_by_field(self, df):
+    df_omama = df
+    # check percentage missing values across columns
+    percent_missing = df_omama.isnull().sum() * 100 / len(df_omama)
+    # missing_value_df = pd.DataFrame({&#39;column_name&#39;: df_omama.columns,
+    #                                  &#39;percent_missing&#39;: percent_missing})
+    missing_value_df = pd.DataFrame({&#34;percent_missing&#34;: percent_missing})
+    # missing_value_df.sort_values(&#39;column_name&#39;, inplace=True)
+    missing_value_df.sort_index(axis=0, inplace=True)
+    print(missing_value_df)</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.fill_na_dataset"><code class="name flex">
+<span>def <span class="ident">fill_na_dataset</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_na_dataset(self, df):
+    df_omama = df
+    df_omama.drop(
+        [&#34;PatientsName&#34;, &#34;PatientsAge&#34;, &#34;PatientsSex&#34;, &#34;PatientsBirthDate&#34;],
+        axis=1,
+        inplace=True,
+    )
+    # extract Patient Age numeric value and convert to float
+    df_omama[&#34;PatientAge&#34;] = df_omama[&#34;PatientAge&#34;].str.extract(
+        &#34;(\d+)&#34;, expand=False
+    )
+    df_omama[&#34;PatientAge&#34;] = df_omama[&#34;PatientAge&#34;].apply(lambda x: float(x) // 12)
+    df_omama = df_omama.sort_values(&#34;PatientID&#34;)
+    # replace empty string with nan
+    df_omama.replace(r&#34;^\s*$&#34;, np.NaN, regex=True, inplace=True)
+    # replace None value with nan
+    df_omama.fillna(value=np.NaN, inplace=True)
+    df_omama.replace(&#34;None&#34;, np.NaN, inplace=True)
+    return df_omama</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.get_study_to_sop_dict"><code class="name flex">
+<span>def <span class="ident">get_study_to_sop_dict</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_study_to_sop_dict(self, df):
+    sop_to_study_dict = pd.Series(
+        df.StudyInstanceUID.values, index=df.SOPInstanceUID
+    ).to_dict()
+    swapped = defaultdict(set)
+    for k, v in sop_to_study_dict.items():
+        swapped[v].add(k)
+    return swapped</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.load_dataset"><code class="name flex">
+<span>def <span class="ident">load_dataset</span></span>(<span>self, filepath='df_omama.pkl')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load database file from disk</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_dataset(self, filepath=&#34;df_omama.pkl&#34;):
+    &#34;&#34;&#34;Load database file from disk&#34;&#34;&#34;
+    return pd.read_pickle(filepath)</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.make_caselist"><code class="name flex">
+<span>def <span class="ident">make_caselist</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_caselist(self, df):
+    path = &#34;/tmp/test/&#34;
+    filename = &#34;whitelist.txt&#34;
+    with open(path + filename, &#34;w&#34;) as f:
+        for file_path in df[&#34;FilePath&#34;]:
+            f.write(file_path + &#34;\n&#34;)
+    return path + filename</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.scrape_and_store_database"><code class="name flex">
+<span>def <span class="ident">scrape_and_store_database</span></span>(<span>self, tasks=24, timeit=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def scrape_and_store_database(self, tasks=24, timeit=False):
+    if not os.path.isdir(os.path.join(os.getcwd(), &#34;df_omama.plk&#34;)):
+        directories_paths_tuples = [
+            (directory, os.path.join(self.path_database, directory))
+            for directory in self.directories
+        ]
+        result_dfs_holder = []
+        queue = Queue()
+        for tuple in directories_paths_tuples:
+            print(f&#34;Loading {tuple[0]} directory contents into memory&#34;)
+            self.folder = tuple[0]
+            self.df_labels = pd.read_csv(f&#34;{self.path_labels}{tuple[0]}_labels.csv&#34;)
+            self.df_labels = self.df_labels.drop_duplicates()
+            p1 = Process(
+                target=self._generate_files,
+                args=(1, str(tuple[1]) + &#34;/*/DXm*&#34;, queue),
+            )
+            p2 = Process(
+                target=self._generate_files,
+                args=(2, str(tuple[1]) + &#34;/*/BT*&#34;, queue),
+            )
+            p1.start()
+            p2.start()
+            if timeit:
+                t0 = time.time()
+            while True:
+                msg = queue.get()
+                if msg[0] == 1:
+                    self.files_2D = msg[1]
+                    df_2D = self._create_dataset(tasks, 1)
+                else:
+                    self.files_3D = msg[1]
+                    df_3D = self._create_dataset(tasks, 2)
+                if self.files_2D and self.files_3D:
+                    result_df = pd.concat([df_2D, df_3D], ignore_index=True)
+                    result_df.to_pickle(
+                        os.path.join(os.getcwd(), f&#34;{tuple[0]}.pkl&#34;)
+                    )
+                    if timeit:
+                        print(
+                            f&#34;Completed loading {tuple[0]} directory contents into memory ...took &#34;,
+                            time.time() - t0,
+                            &#34;seconds &#34;,
+                        )
+                    else:
+                        print(
+                            f&#34;Completed loading {tuple[0]} directory contents into memory&#34;
+                        )
+                    result_dfs_holder.append(result_df)
+                    break
+            # flush out the queue
+            if not queue.empty():
+                r = queue.get()
+            p1.join()
+            p2.join()
+        for df in result_dfs_holder:
+            self.df_omama = pd.concat([self.df_omama, df], ignore_index=True)
+        self.df_omama.to_pickle(os.path.join(os.getcwd(), &#34;df_omama.pkl&#34;))
+        print(&#34;Contents of all directories loaded into memory&#34;)
+    else:
+        print(&#34;Omama Dataframe pickle file detected, no need to scrape database&#34;)</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.store_dataset"><code class="name flex">
+<span>def <span class="ident">store_dataset</span></span>(<span>self, df, path_to_store=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def store_dataset(self, df, path_to_store=None):
+    if path_to_store is None:
+        path_to_store = os.path.join(os.getcwd())
+    file_path = os.path.join(path_to_store, &#34;df_omama_reduced.pkl&#34;)
+    df.to_pickle(file_path)
+    assert Path(file_path).is_file()
+    return df</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_by_fields"><code class="name flex">
+<span>def <span class="ident">subset_by_fields</span></span>(<span>self, df)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def subset_by_fields(self, df):
+    # subset dataframe by fields of interest and sort on SOP ID
+    df_omama_reduced = df[self.subsetting_fields]
+    df_omama_reduced = df_omama_reduced.sort_values(&#34;SOPInstanceUID&#34;)
+    return df_omama_reduced</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_pipeline_post_manufacturer_step"><code class="name flex">
+<span>def <span class="ident">subset_pipeline_post_manufacturer_step</span></span>(<span>self, df=None, by='StudyInstanceUID', filepath='df_omama.pkl')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def subset_pipeline_post_manufacturer_step(
+    self, df=None, by=&#34;StudyInstanceUID&#34;, filepath=&#34;df_omama.pkl&#34;
+):
+    if df is not None:
+        df_omama = df
+    else:
+        df_omama = self.subset_pipeline_to_manufacturer_step(filepath=filepath)
+    print(&#34;After Manufacturer Subsetting Step: &#34;)
+    self.check_metrics(df_omama)
+    df_omama_copy = df_omama.copy()
+    df_3d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;3D&#34;]
+    df_2d = df_omama_copy[df_omama_copy[&#34;image&#34;] == &#34;2D&#34;]
+    dfCancer = dfnonCancer = df_omama_copy
+    dfCancer = dfCancer[dfCancer[&#34;label&#34;] != &#34;NonCancer&#34;]
+    dfnonCancer = dfnonCancer[dfnonCancer[&#34;label&#34;] == &#34;NonCancer&#34;]
+
+    df_3d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;3D&#34;]
+    df_2d_cancer = dfCancer[dfCancer[&#34;image&#34;] == &#34;2D&#34;]
+    df_2d_cancer_pre = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;PreIndexCancer&#34;]
+    df_2d_cancer_index = df_2d_cancer[df_2d_cancer[&#34;label&#34;] == &#34;IndexCancer&#34;]
+
+    df_3d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;3D&#34;]
+    df_2d_noncancer = dfnonCancer[dfnonCancer[&#34;image&#34;] == &#34;2D&#34;]
+
+    df_2d_noncancer_dropped = df_2d_noncancer.drop_duplicates([by])
+    df_2d_noncancer_no_overlap = df_2d_noncancer_dropped[
+        ~df_2d_noncancer_dropped[by].isin(df_3d[by].values)
+    ]
+    merged_noncancer_dfs_no_overlap = pd.concat(
+        [df_2d_noncancer_no_overlap, df_3d_noncancer]
+    )
+    df_omama = pd.concat([dfCancer, merged_noncancer_dfs_no_overlap])
+    print(f&#34;After {by} Duplicate Removal for 2D NonCancer Subsetting Step: &#34;)
+    self.check_metrics(df_omama)
+    return df_omama</code></pre>
+</details>
+</dd>
+<dt id="omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_pipeline_to_manufacturer_step"><code class="name flex">
+<span>def <span class="ident">subset_pipeline_to_manufacturer_step</span></span>(<span>self, df=None, filepath='df_omama.pkl')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def subset_pipeline_to_manufacturer_step(self, df=None, filepath=&#34;df_omama.pkl&#34;):
+    df_omama = df
+    if df is None:
+        df_omama = self.load_dataset(filepath)
+    # Removal of No Label and Both values subset
+    df_omama = df_omama[df_omama.label != &#34;No Label information&#34;]
+    df_omama = df_omama[df_omama.Imagelaterality != &#34;B&#34;]
+    # Shape subsetting steps
+    df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].astype(str)
+    df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+        &#34;(2457, 1890,.*)&#34;, &#34;2457, 1890, x)&#34;
+    )
+    df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+        &#34;(2457, 1996,.*)&#34;, &#34;2457, 1996, x)&#34;
+    )
+    df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+        &#34;(2059, 652,.*)&#34;, &#34;2059, 652, x)&#34;
+    )
+    df_omama[&#34;Shape&#34;] = df_omama[&#34;Shape&#34;].str.replace(
+        &#34;(2023, 918,.*)&#34;, &#34;2023, 918, x)&#34;
+    )
+    # remove shape less than (1024, 1024)
+    pattern = &#34;(2059, 652,.*)|(2023, 918,.*)|(512, 512)|(707, 989)|(794, 990)&#34;
+    df_omama = df_omama[~df_omama[&#34;Shape&#34;].str.contains(pattern)]
+    # Non-dominant Manufacturers removal
+    df_omama[&#34;Manufacturer&#34;] = df_omama[&#34;Manufacturer&#34;].replace(
+        [
+            &#34;HOLOGIC, Inc.&#34;,
+            &#34;Hologic, Inc.&#34;,
+            &#34;HOLOGIC, INC.&#34;,
+            &#34;LORAD&#34;,
+            &#34;Lorad&#34;,
+            &#34;LORAD.&#34;,
+            &#34;Lorad, A Hologic Company&#34;,
+        ],
+        &#34;HOLOGIC, INC.&#34;,
+    )
+    manu_keep = [&#34;GE MEDICAL SYSTEMS&#34;, &#34;HOLOGIC, INC.&#34;]
+    df_omama = df_omama.loc[df_omama[&#34;Manufacturer&#34;].isin(manu_keep)]
+    return df_omama</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="omama.analysis.data_selection_algo.src" href="index.html">omama.analysis.data_selection_algo.src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector">DataSelector</a></code></h4>
+<ul class="">
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.check_metrics" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.check_metrics">check_metrics</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.check_percent_missing_values_by_field" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.check_percent_missing_values_by_field">check_percent_missing_values_by_field</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.fill_na_dataset" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.fill_na_dataset">fill_na_dataset</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.get_study_to_sop_dict" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.get_study_to_sop_dict">get_study_to_sop_dict</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.load_dataset" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.load_dataset">load_dataset</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.make_caselist" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.make_caselist">make_caselist</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.scrape_and_store_database" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.scrape_and_store_database">scrape_and_store_database</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.store_dataset" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.store_dataset">store_dataset</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_by_fields" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_by_fields">subset_by_fields</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_pipeline_post_manufacturer_step" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_pipeline_post_manufacturer_step">subset_pipeline_post_manufacturer_step</a></code></li>
+<li><code><a title="omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_pipeline_to_manufacturer_step" href="#omama.analysis.data_selection_algo.src.data_selector.DataSelector.subset_pipeline_to_manufacturer_step">subset_pipeline_to_manufacturer_step</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

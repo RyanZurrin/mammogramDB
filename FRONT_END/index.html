@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script src="https://unpkg.com/cornerstone-core/dist/cornerstone.min.js"></script>
+    <script src="https://unpkg.com/cornerstone-wado-image-loader@3.1.2/dist/cornerstoneWADOImageLoader.min.js"></script>
+    <script src="https://unpkg.com/dicom-parser"></script>
+    <script src="https://unpkg.com/cornerstone-math"></script>
+    <script src="https://unpkg.com/cornerstone-tools"></script>
+    <script src="https://unpkg.com/hammerjs"></script>
+
+    <script type='text/javascript' src="js/script.js"></script>
+
+    <title>Mammogram ROI Tool</title>
+  </head>
+  <body style=''>
+    
+    <div id='viewer' style='width:100%;height:100%;'></div>
+
+    <div id="info" class="infopanel">
+      <div class="yellow"><strong>Score</strong>:<span id="score">0</span> </div>
+      <div class="yellow"><strong>Quality</strong>: <span id="quality">Good</span> </div>
+      <div class="yellow"><strong>coords</strong>: <span id="coords"></span></div>
+      <br>
+      <div><strong>0 - 5</strong>: Add Score</div>
+      <div><strong>Z</strong>: Toggle Bad/Good</div>
+      <div><strong>R</strong>: Reset image view</div>
+      <div><strong>X</strong>: Reset tools/data</div>
+      <div><strong>Left Click</strong>: ROI</div>
+      <div><strong>Middle Click</strong>: Pan</div>
+      <div><strong>Right Click</strong>: Zoom</div>
+      <div><strong>Ctrl + Left Click</strong>: Window/Level</div>
+      <div><strong>Space/Enter</strong>: Save and Load Next Image</div>
+      <br>
+      <div class="yellow"><strong>Image_ID</strong>:
+        <span id="sop_id">0.00.0000000000000000000000000000000000000</span> </div>
+    </div>
+
+  </body>
+</html>

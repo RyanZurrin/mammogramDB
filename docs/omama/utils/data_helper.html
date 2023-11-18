@@ -1,0 +1,4202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>omama.utils.data_helper API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>omama.utils.data_helper</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import glob
+import io
+import os
+import pickle
+import time
+
+import numpy as np
+
+import omama
+import omama as O
+import pydicom as dicom
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from types import SimpleNamespace
+from PIL import Image
+
+
+class DataHelper(object):
+    @staticmethod
+    def check_data_instance(config_num=2, timing=False):
+        &#34;&#34;&#34;Checks if the data instance is already created. If not, creates one.
+        Parameters
+        ----------
+        config_num : int
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+            3: Omama dataset for 3D whitelist
+            4: Omama dataset for 2D + 3D WL
+        timing : bool
+            If True, the time needed to create the data instance is printed.
+        Returns
+        -------
+        data : Data
+            The data instance.
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if O.Data.instance is None:
+            loader = O.OmamaLoader(config_num=config_num)
+            O.Data(loader, load_cache=True)
+            data = O.Data.instance
+        else:
+            data = O.Data.instance
+        if timing:
+            O.Data.timing(t0, &#34;check_data_instance&#34;)
+        return data
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def check_type(image, data, timing=False):
+        &#34;&#34;&#34;Checks if the image is a numpy array or a PIL image.
+        Parameters
+        ----------
+        image : int, str, SimpleNamespace
+            The image to check.
+        data : Data
+            The data object to use.
+        timing : bool
+            If True, the time needed to check the type is printed.
+        Returns
+        --------
+        Path : str
+            The path to the image.
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if isinstance(image, str) and &#34;/&#34; in image:
+            # print(&#39;in check_type, image is a string&#39;)
+            # if image ends in .txt, it is a whitelist
+            if image.endswith(&#34;.txt&#34;):
+                # print(&#39;in check_type, image is a whitelist&#39;)
+                with open(image, &#34;r&#34;) as f:
+                    path_list = [line.rstrip() for line in f]
+                # print the type of path_list print(&#39;in check_type, type of
+                # path_list is: &#39;, type(path_list))
+                path = path_list
+            else:
+                path = image
+        elif isinstance(image, int):
+            # print(&#39;in check_type, image is an int&#39;)
+            path = data.path(image_id=image)
+        elif isinstance(image, str):
+            # print(&#39;in check_type, image is a string&#39;)
+            path = data.path(dicom_name=image)
+        # check to see if image is a simple namespace object
+        elif isinstance(image, SimpleNamespace):
+            # print(&#39;in check_type, image is a simple namespace&#39;)
+            path = image.filePath
+        elif isinstance(image, dicom.dataset.FileDataset):
+            # print(&#39;in check_type, image is a dicom dataset&#39;)
+            path = image
+        elif isinstance(image, np.ndarray):
+            # print(&#39;in check_type, image is a numpy array&#39;)
+            path = image
+        elif isinstance(image, O.Data):
+            # print(&#39;in check_type, image is a data object&#39;)
+            path = image
+        else:
+            return (
+                &#34;Please specify either a path, image_id, dicom_name, &#34;
+                &#34;or a image object&#34;
+            )
+        if timing:
+            O.Data.timing(t0, &#34;check_type&#34;)
+        return path
+
+    @staticmethod
+    def get_pixels(image, data):
+        &#34;&#34;&#34;Gets the pixels from the image.
+        Parameters
+        ----------
+        image : any
+            The image to get the pixels from.
+        Returns
+        --------
+        pixels : numpy.ndarray
+            The pixels of the image.
+        &#34;&#34;&#34;
+        if isinstance(image, np.ndarray):
+            # print(&#39;image is a numpy array&#39;)
+            return image
+        elif isinstance(image, SimpleNamespace):
+            # print(&#39;image is a simple namespace object&#39;)
+            return image.pixels
+        elif isinstance(image, dicom.dataset.FileDataset):
+            # print(&#39;image is a dicom dataset&#39;)
+            return image.pixel_array
+        elif isinstance(image, list):
+            # print(&#39;image is a list&#39;)
+            if isinstance(image[0], np.ndarray):
+                # print(&#39;image is a list of numpy arrays&#39;)
+                return image
+            elif isinstance(image[0], SimpleNamespace):
+                # print(&#39;image is a list of simple namespace objects&#39;)
+                pixels = []
+                for i in image:
+                    pixels.append(i.pixels)
+                return np.array(pixels)
+            elif isinstance(image[0], dicom.dataset.FileDataset):
+                # print(&#39;image is a list of dicom datasets&#39;)
+                pixels = []
+                for i in image:
+                    pixels.append(i.pixel_array)
+                return np.array(pixels)
+            elif isinstance(image[0], str):
+                # print(&#39;image is a list of paths&#39;)
+                pixels = []
+                for i in image:
+                    pixels.append(O.DataHelper.get_pixels(i, data))
+                return np.array(pixels)
+            else:
+                return (
+                    &#34;Please specify either a path, image_id, dicom_name, &#34;
+                    &#34;or a image object&#34;
+                )
+        else:
+            path = DataHelper.check_type(image, data)
+
+        if isinstance(path, str):
+            # print(&#39;Loading image from path using dicom...&#39;)
+            image = dicom.read_file(path, force=True)
+            return image.pixel_array
+        elif isinstance(path, O.Data):
+            # print(&#39;Loading image from data object...&#39;)
+            pixels = []
+            for d in path:
+                pixels.append(d.pixel_array)
+            return pixels
+        elif isinstance(path, list):
+            # print(&#39;Loading image from list of paths...&#39;)
+            pixels = []
+            for p in path:
+                pixels.append(O.DataHelper.get_pixels(p, data))
+            return pixels
+        else:
+            raise ValueError(&#34;Pixel array not found&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _add_bounding_box(image, pred, sop_uid):
+        &#34;&#34;&#34;Adds a bounding box to the image.
+        Parameters
+        ----------
+        image : numpy.ndarray
+            The image to add the bounding box to.
+        pred : dict
+            The coordinates of the bounding box.
+        sop_uid : str
+            The SOP_UID of the image.
+        Returns
+        -------
+        image : numpy.ndarray
+            The image with the bounding box.
+        &#34;&#34;&#34;
+        if pred[sop_uid][&#34;coords&#34;] is None:
+            print(&#34;No bounding box found for SOP_UID: &#34; + sop_uid)
+            return image
+
+        img_copy = image.copy()
+        bb = DataHelper._get_coords(pred, sop_uid)
+        img_copy[bb[1] : bb[3], bb[0] : bb[0] + 10] = 0
+        img_copy[bb[1] : bb[3], bb[2] : bb[2] + 10] = 0
+        img_copy[bb[1] : bb[1] + 10, bb[0] : bb[2]] = 0
+        img_copy[bb[3] : bb[3] + 10, bb[0] : bb[2]] = 0
+
+        return img_copy
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _get_coords(pred, sop_uid):
+        &#34;&#34;&#34;Gets the coordinates of the bounding box.
+        Parameters
+        ----------
+        pred : dict
+            The predictions dictionary.
+        sop_uid : str
+            The SOP_UID of the image.
+        Returns
+        -------
+        coords : list
+            The coordinates of the bounding box.
+        &#34;&#34;&#34;
+        if pred[sop_uid][&#34;coords&#34;] is None:
+            print(&#34;No bounding box found for SOP_UID: &#34; + sop_uid)
+            return None
+        coords = pred[sop_uid][&#34;coords&#34;]
+        coords = [int(p) for p in coords]
+        return coords
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _rescale_image(ds: dicom.dataset.FileDataset):
+        &#34;&#34;&#34;Rescales the image to prepare for saving as a jpg or png
+        Parameters
+        ----------
+        ds : dicom
+            The image to rescale
+        Returns
+        -------
+        Image : PIL.Image
+            rescaled image
+        &#34;&#34;&#34;
+        new_image = ds.pixel_array.astype(float)
+        scaled_image = (np.maximum(new_image, 0) / new_image.max()) * 255.0
+        scaled_image = np.uint8(scaled_image)
+        final_image = Image.fromarray(scaled_image)
+        return final_image
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get2D(
+        N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False
+    ):
+        &#34;&#34;&#34;Returns a list of N random 2D images from the dataset.
+        Parameters
+        ----------
+        N : int
+            (default is 1) Number of images to return
+        data_loader : DataLoader
+            (default is None) The data loader to use to load the data
+        cancer : bool
+            (default is False)
+            If true will return only cancerous images, else will return only
+             non-cancerous images
+        randomize : bool
+            (default is False)
+            If true will return the images in a random order
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        Return
+        ------
+        images : list
+            N 2D images from the dataset
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if data_loader is None:
+            data_loader = O.OmamaLoader(config_num=config_num)
+        else:
+            data_loader = data_loader
+        data = O.Data(data_loader, load_cache=True)
+        if cancer is True:
+            label = &#34;IndexCancer&#34;
+        elif cancer is False:
+            label = &#34;NonCancer&#34;
+        else:
+            label = None
+        images = []
+        gen = data.next_image(_2d=True, label=label, randomize=randomize, timing=timing)
+        for i in range(N):
+            images.append(next(gen))
+        if timing is True:
+            O.Data.timing(t0, &#34;get2D&#34;)
+        return images
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get3D(
+        N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False
+    ):
+        &#34;&#34;&#34;Returns a list of N random 3D images from the dataset.
+        Parameters
+        ----------
+        N : int
+            (default is 1) Number of images to return
+        data_loader : DataLoader
+            (default is None) The data loader to use to load the data
+        cancer : bool
+            (default is False)
+            If true will return only cancerous images, else will return
+            only non-cancerous images
+        randomize : bool
+            (default is False)
+            If true will return the images in a random order
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        Return
+        ------
+        images : list
+            N 3D images from the dataset.
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if data_loader is None:
+            data_loader = O.OmamaLoader(config_num=config_num)
+        else:
+            data_loader = data_loader
+        data = O.Data(data_loader, load_cache=True)
+        if cancer is True:
+            label = &#34;IndexCancer&#34;
+        elif cancer is False:
+            label = &#34;NonCancer&#34;
+        else:
+            label = None
+        images = []
+        gen = data.next_image(_3d=True, label=label, randomize=randomize, timing=timing)
+        for i in range(N):
+            images.append(next(gen))
+        if timing is True:
+            O.Data.timing(t0, &#34;get3D&#34;)
+        return images
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def view(
+        image,
+        prediction=None,
+        slice_num=None,
+        cmap=&#34;gray&#34;,
+        vmin=None,
+        vmax=None,
+        normalize=False,
+        interpolation=&#34;none&#34;,
+        config_num=1,
+        histogram=False,
+        downsample=None,
+        timing=False,
+    ):
+        &#34;&#34;&#34;Displays the image in the specified path or image_id
+        Parameters
+        ----------
+        image : str, int, SimpleNamespace
+            The image to display can be specified by its path, its id or by
+            any of the objects returned by the DataHelper static methods or
+            the Data get_image() method.
+        prediction : dict
+            (default is None)
+            If specified, will add a bounding box to the image.
+        slice_num : int
+            (default is None)
+            If specified will display the specified frame of the 3D image.
+        cmap : str
+            (default is &#39;gray&#39;) The color map to use. cmap can be the following:
+            &#39;gray&#39;, &#39;bone&#39;, &#39;viridis&#39;, &#39;plasma&#39;, &#39;inferno&#39;, &#39;magma&#39;, &#39;cividis&#39;
+        vmin : float
+            (default is None) The minimum value of the color map. Can set to
+            &#39;auto&#39; to use the minimum value of the image.
+        vmax : float
+            (default is None) The maximum value of the color map. Can set to
+            &#39;auto&#39; to use the maximum value of the image.
+        normalize : bool
+            (default is False)
+            If true will normalize the image to the range [0, 1].
+        interpolation : str
+            (default is &#39;nearest&#39;) The interpolation to use when displaying
+            the image. Interpolation can be &#39;nearest&#39;, &#39;bilinear&#39;, &#39;bicubic&#39;,
+            or &#39;spline16&#39;, &#39;spline36&#39;, &#39;hanning&#39;, &#39;hamming&#39;, &#39;hermite&#39;,
+            &#39;kaiser&#39;, &#39;quadratic&#39;, &#39;catrom&#39;, &#39;gaussian&#39;, &#39;bessel&#39;, &#39;mitchell&#39;,
+            &#39;sinc&#39;, &#39;lanczos&#39; or &#39;none&#39;.
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+            ... see OmamaLoader for full list of config_num options
+        histogram : bool
+            (default is False) if True, the histogram of the image will be
+            displayed.
+        downsample : tuple
+            (default is None) If specified, will downsample the image by the
+            specified factor. The tuple should be of the form (x, y, z) where
+            x, y, and z are the downsample factors for the x, y, and z
+            dimensions respectively.
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        &#34;&#34;&#34;
+        t0 = time.time()
+        is_nparray = False
+        sop_uid = None
+        data = DataHelper.check_data_instance(config_num=config_num)
+        print(&#34;type of data: &#34;, type(data))
+        path = DataHelper.check_type(image, data)
+
+        if isinstance(path, dicom.dataset.FileDataset):
+            ds = path
+        elif isinstance(path, np.ndarray):
+            ds = path
+            is_nparray = True
+        else:
+            ds = dicom.dcmread(path)
+
+        if is_nparray is False:
+            is_3d_flag = len(ds.pixel_array.shape) == 3
+            # save the sop_uid for the image
+            sop_uid = ds.SOPInstanceUID
+        else:
+            is_3d_flag = len(ds.shape) == 3
+
+        if is_3d_flag:
+            # 3D image
+            if is_nparray is False:
+                img = ds.pixel_array.copy()
+            else:
+                img = ds.copy()
+            if slice_num is None:
+                # displays the center fame by default
+                if prediction is not None and is_nparray is False:
+                    # get the slice number from the prediction
+                    slice_num = prediction[sop_uid][&#34;slice&#34;]
+                else:
+                    slice_num = int(img.shape[0] // 2)
+                img = img[slice_num]
+            else:
+                img = img[slice_num]
+        elif is_3d_flag is False:
+            # 2D image
+            if is_nparray is False:
+                img = ds.pixel_array.copy()
+            else:
+                img = ds.copy()
+        else:
+            print(&#34;Not a valid image&#34;)
+            return None
+        # get the dicoms window center and width and use that for vmin and vmax
+        if is_3d_flag is False and is_nparray is False:
+            if isinstance(ds.WindowCenter, dicom.valuerep.DSfloat):
+                wc = float(ds.WindowCenter)
+            else:
+                wc = float(ds.WindowCenter[1])
+            if isinstance(ds.WindowWidth, dicom.valuerep.DSfloat):
+                ww = float(ds.WindowWidth)
+            else:
+                ww = float(ds.WindowWidth[1])
+        elif is_3d_flag and is_nparray is False:
+            wc = (
+                ds.SharedFunctionalGroupsSequence[0].FrameVOILUTSequence[0].WindowCenter
+            )
+            ww = ds.SharedFunctionalGroupsSequence[0].FrameVOILUTSequence[0].WindowWidth
+
+        if vmin is None and is_nparray is False:
+            vmin = wc - ww
+        if vmax is None and is_nparray is False:
+            vmax = wc + ww
+
+        if prediction is not None:
+            img = DataHelper._add_bounding_box(img, prediction, sop_uid)
+        # get then minimum and maximum pixel values from the image
+        if vmin == &#34;auto&#34;:
+            vmin = img.min()
+        if vmax == &#34;auto&#34;:
+            vmax = img.max()
+        # normalize the image
+        if normalize is True:
+            norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+            # we set vmin and vmax to None because if norm is being passed
+            # into the imshow function it needs the vmin and vmax to be None.
+            vmin = None
+            vmax = None
+        else:
+            norm = None
+
+        if downsample is not None:
+            from skimage.transform import resize
+
+            img = resize(img, downsample, order=0, preserve_range=True)
+            img = img.astype(np.uint16)
+
+        if histogram:
+            if normalize:
+                # perform max normalization on the image
+                img = O.Normalize.minmax(img)
+            img_hist = O.Features.histogram(img)
+            plt.hist(img_hist)
+        else:
+            # display the image
+            plt.figure(figsize=(10, 10))
+            plt.imshow(
+                img,
+                cmap=cmap,
+                vmin=vmin,
+                vmax=vmax,
+                norm=norm,
+                interpolation=interpolation,
+            )
+        if prediction is not None:
+            # getting the bounding box coordinates for red overlay
+            bb = DataHelper._get_coords(prediction, sop_uid)
+            if bb is not None:
+                plt.gca().add_patch(
+                    plt.Rectangle(
+                        (bb[0], bb[1]),
+                        bb[2] - bb[0],
+                        bb[3] - bb[1],
+                        fill=False,
+                        edgecolor=&#34;r&#34;,
+                        linewidth=2,
+                    )
+                )
+        # print the score of the prediction
+        if prediction is not None:
+            score = prediction[sop_uid][&#34;score&#34;]
+            plt.title(&#34;Score: {}&#34;.format(score))
+
+        if timing is True:
+            O.Data.timing(t0, &#34;view&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def view_grid(
+        images,
+        slice_num=None,
+        ncols=None,
+        figsize=None,
+        cmap=&#34;gray&#34;,
+        show_indices=False,
+        index=0,
+    ):
+        &#34;&#34;&#34;Plots a grid of images from a list of images.
+
+        Parameters
+        ----------
+        images : any
+            List of images to plot
+        slice_num : int, optional
+            (default is None)
+            if specified, it will display the frame number of all the 3D images
+        ncols : int
+            (default is None)
+            Number of columns in the grid
+        figsize : tuple
+            (default is None) Size of the figure
+        cmap : str
+            (default is &#39;gray&#39;) Color map to use
+        show_indices : bool
+            (default is False) If True, it will show the index of the image
+            in the grid
+        index : int
+            (default is 0) Index of the show_indices to start at
+        &#34;&#34;&#34;
+        data = DataHelper.check_data_instance()
+        pixels = DataHelper.get_pixels(images, data)
+
+        # images_copy = pixels.copy()
+        imgs = pixels.copy()
+        for i in range(len(imgs)):
+            if len(imgs[i].shape) == 3:
+                img = pixels[i]  # images[i].pixels
+                if slice_num is None:
+                    imgs[i] = img[img.shape[0] // 2]
+                else:
+                    imgs[i] = img[slice_num]
+
+        if not ncols:
+            factors = [i for i in range(1, len(imgs) + 1) if len(imgs) % i == 0]
+            ncols = factors[len(factors) // 2] if len(factors) else len(imgs) // 4 + 1
+        nrows = int(len(imgs) / ncols) + int(len(imgs) % ncols)
+
+        if figsize is None:
+            figsize = (3 * ncols, 2 * nrows)
+
+        fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize)
+        for i in range(nrows):
+            for j in range(ncols):
+                if i * ncols + j &lt; len(imgs):
+                    ax[i, j].imshow(imgs[i * ncols + j], cmap=cmap)
+                    if show_indices:
+                        ax[i, j].axis(&#34;off&#34;)
+                        ax[i, j].set_title(index)
+                    index += 1
+        plt.tight_layout()
+        plt.show()
+
+        # if index &lt; len(imgs):
+        #     ax[i, j].imshow(imgs[index], cmap=cmap)
+        #     if show_indices:
+        #         ax[i, j].axis(&#39;off&#39;)
+        #         ax[i, j].set_title(index)
+        #     index += 1
+        # else:
+        #     ax[i, j].axis(&#39;off&#39;)
+
+        # fig, ax = plt.subplots(nrows, ncols, figsize=figsize)
+        # axes = axes.flatten()[:len(imgs)]
+        #
+        # for img, ax in zip(imgs, axes.flatten()):
+        #     if np.any(img):
+        #         if len(img.shape) &gt; 2 and img.shape[2] == 1:
+        #             img = img.squeeze()
+        #         if show_indices:
+        #             ax.axis(&#39;off&#39;)
+        #             ax.set_title(index)
+        #         ax.imshow(img, cmap=cmap)
+        #         index += 1
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def grid_view(
+        images,
+        N=None,
+        slice_num=None,
+        ncols=None,
+        show_axis=False,
+        title=None,
+        plot_title=None,
+        h_pad=-0.5,
+        w_pad=5.0,
+        figsize=(20, 20),
+        cmap=&#34;gray&#34;,
+        top=0.55,
+        bottom=0.05,
+        left=0.05,
+        right=0.95,
+        dpi=500,
+    ):
+        &#34;&#34;&#34;Plots a grid of images from a list of images.
+
+        Parameters
+        ----------
+        images : list
+            List of images to plot
+        N : int
+            (default is None)
+            Number of images to plot from the list of images
+        slice_num : int, optional
+            (default is None)
+            if specified, it will display the frame number of all the 3D images
+        ncols : int
+            (default is None)
+            Number of columns in the grid
+        show_axis : bool
+            (default is False) if True, will display the axis of the image.
+        title : str
+            (default is None) Title of the plot
+        plot_title : str
+            (default is None) Title of each image in the grid
+        h_pad : float
+            (default is 0.5) Padding between subplots in the vertical direction
+        w_pad : float
+            (default is 0.5) Padding between subplots in the horizontal direction
+        figsize : tuple
+            (default is None) Size of the figure
+        cmap : str
+            (default is &#39;gray&#39;) Color map to use
+        top : float
+            (default is 0.99) The top of the subplots of the figure
+        bottom : float
+            (default is 0.01) The bottom of the subplots of the figure
+        left : float
+            (default is 0.01) The left side of the subplots of the figure
+        right : float
+            (default is 0.99) The right side of the subplots of the figure
+        dpi : int
+            (default is 500) Dots per inch
+        &#34;&#34;&#34;
+        data = DataHelper.check_data_instance()
+        pixels = DataHelper.get_pixels(images, data)
+        if N is None or N &gt; len(pixels):
+            N = len(pixels)
+
+        plt.rcParams[&#34;figure.dpi&#34;] = dpi
+        imgs = pixels[:N].copy()
+        for i in range(len(imgs)):
+            if len(imgs[i].shape) == 3:
+                img = pixels[i]
+                if slice_num is None:
+                    imgs[i] = img[img.shape[0] // 2]
+                else:
+                    imgs[i] = img[slice_num]
+            elif len(imgs[i].shape) == 2:
+                img = pixels[i]
+                imgs[i] = img
+        if not ncols:
+            factors = [i for i in range(1, N + 1) if N % i == 0]
+            ncols = factors[len(factors) // 2] if len(factors) else len(imgs) // 4 + 1
+        nrows = int(N / ncols) + int(N % ncols)
+
+        f, axes = plt.subplots(nrows, ncols, figsize=figsize)
+        axes = axes.flatten()[:N]
+        for img, ax in zip(imgs, axes.flatten()):
+            if np.any(img):
+                if len(img.shape) &gt; 2 and img.shape[2] == 1:
+                    img = img.squeeze()
+                ax.imshow(img, cmap=cmap)
+                if not show_axis:
+                    ax.axis(&#34;off&#34;)
+                if plot_title:
+                    ax.set_title(plot_title)
+        if title:
+            f.suptitle(title)
+        f.tight_layout(h_pad=h_pad, w_pad=w_pad)
+        f.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
+        plt.show()
+        plt.close()
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get(image, view=False, config_num=1, timing=False):
+        &#34;&#34;&#34;fetches the image being specified by the image_id, dicom_name, or path
+        Parameters
+        ----------
+        image : str, int, SimpleNamespace
+            The image to display can be specified by its path, its id or by
+            any of the objects returned by the DataHelper static methods or
+            the Data get_image() method.
+        view : bool
+            (default is False)
+            If true will display the image
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        Returns
+        -------
+            image : SimpleNamespace
+        &#34;&#34;&#34;
+        # calls the get_image function and then prints the pixels of the image
+        t0 = time.time()
+        data = DataHelper.check_data_instance(config_num=config_num)
+        path = DataHelper.check_type(image, data)
+        dicom_name = os.path.basename(path)
+        img = data.get_image(dicom_name=dicom_name, timing=timing, dicom_header=True)
+        # call the view function to display the image if view is true
+        if view is True:
+            DataHelper.view(dicom_name, timing=timing)
+        if timing is True:
+            O.Data.timing(t0, &#34;get&#34;)
+        return img
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def store(image, filename, timing=False):
+        &#34;&#34;&#34;Stores the image as the specified file type.
+        Parameters
+        ----------
+        image : str, int, SimpleNamespace
+            The image to display can be specified by its path, its id or by
+            any of the objects returned by the DataHelper static methods or
+            the Data get_image() method.
+        filename : str
+            The name of the file to store the image in. Should include the
+            file extension, such as image.png or image.jpg. If no file extension
+            is specified, it will default to DCM (Dicom) file format.
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        &#34;&#34;&#34;
+        t0 = time.time()
+        file_name = filename.lower()
+        data = DataHelper.check_data_instance()
+        path = DataHelper.check_type(image, data)
+        if isinstance(path, dicom.dataset.FileDataset):
+            ds = path
+        else:
+            ds = dicom.dcmread(path)
+        if file_name.endswith(&#34;.dcm&#34;) is True or &#34;.&#34; not in file_name:
+            if &#34;.&#34; not in file_name:
+                filename = filename + &#34;.DCM&#34;
+            ds.save_as(filename, write_like_original=False)
+        elif file_name.endswith(&#34;.npy&#34;) is True:
+            np.save(filename, ds.pixel_array)
+        elif file_name.endswith(&#34;.npz&#34;) is True:
+            np.savez_compressed(filename, ds.pixel_array)
+        elif file_name.endswith(&#34;.png&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        elif file_name.endswith(&#34;.jpg&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        elif file_name.endswith(&#34;.tif&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        elif file_name.endswith(&#34;.bmp&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        else:
+            raise ValueError(&#34;File type not supported&#34;)
+
+        if timing is True:
+            O.Data.timing(t0, &#34;store&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def store_all(data: omama.Data, save_path, timing=False):
+        &#34;&#34;&#34;stores all the images from the omama.Data class instance into the
+         specified save_path.
+
+        Parameters
+        ----------
+        data : omama.Data
+            The omama.Data class instance to store all the images from.
+        save_path : str
+            The path to store the images in.
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if not os.path.exists(save_path):
+            os.makedirs(save_path)
+        i = 0
+        for img in data:
+            print(type(img))
+            path = data.image_paths[i]
+
+            # get the last part of the path to use as the filename
+            filename = path.split(&#34;/&#34;)[-1].replace(&#34;.&#34;, &#34;_&#34;) + &#34;.DCM&#34;
+            print(filename)
+            # add the save path to the filename
+            temp_save_path = os.path.join(save_path, filename)
+            # store the image
+            print(temp_save_path)
+            DataHelper.store(img, temp_save_path, timing=timing)
+            i += 1
+        if timing is True:
+            O.Data.timing(t0, &#34;store_all&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def parse_sop_uid_from_paths(paths, substr_to_remove, timing=False):
+        &#34;&#34;&#34;Parse the SOPInstanceUID from a list of paths.
+        Parameters
+        ----------
+        paths : list
+            list of paths to dicom files
+        substr_to_remove : str
+            string to remove from the beginning of the file name
+        timing : bool
+            (default is False) If true will time execution of method,
+            else will not
+        Returns
+        -------
+        sop_uids : list
+            list of SOPInstanceUIDs
+        &#34;&#34;&#34;
+        t0 = time.time()
+        sop_uids = []
+        for path in paths:
+            sop_uids.append(os.path.basename(path).replace(substr_to_remove, &#34;&#34;))
+        if timing is True:
+            O.Data.timing(t0, &#34;parse_sop_uid_from_paths&#34;)
+        return sop_uids
+
+    # --------------------------------------------------------------------------
+
+    @staticmethod
+    def show_histogram(image, norm_type=&#34;min-max&#34;):
+        &#34;&#34;&#34;Displays a histogram of the images.
+        Parameters
+        ----------
+        image : np.ndarray
+            array of pixel values
+        norm_type : str
+            (default is &#39;min-max&#39;)
+            type of normalization to use for the histogram
+        &#34;&#34;&#34;
+        data = DataHelper.check_data_instance()
+        pixels = DataHelper.get_pixels(image, data)
+        # normalize the image
+        img = O.Normalize.get_norm(pixels, norm_type=norm_type)
+
+        y_axis = O.Features.histogram(img)
+        x_axis = np.arange(0, 256, 1)
+
+        fig, ax = plt.subplots()
+        ax = fig.add_axes([0, 0, 1, 1])
+        ax.bar(x_axis, y_axis, width=10, color=&#34;b&#34;, log=True)
+        ax.set_xlim(0.01, 255)
+        ax.set_ylim(0.01, 10**8)
+        plt.show()
+
+    @staticmethod
+    def file_to_list(file_path):
+        &#34;&#34;&#34;Reads a file and returns a list of the lines in the file.
+
+        Parameters
+        ----------
+        file_path : str
+            path to the file to read
+
+        Returns
+        -------
+        list
+            list of the lines in the file
+        &#34;&#34;&#34;
+        # read each line turning into a list removing the newline character
+        with open(file_path, &#34;r&#34;) as f:
+            lines = [line.rstrip(&#34;\n&#34;) for line in f]
+        return lines
+
+    def merge_lists(*args):
+        &#34;&#34;&#34;Merges a list of lists into a single list.
+        goes through each list taking element i from each list and adding it to the
+        new list until all lists are exhausted.
+
+        Parameters
+        ----------
+        *args : list
+            list of lists to merge
+
+        Returns
+        -------
+        list
+            merged list
+        &#34;&#34;&#34;
+        merged_list = []
+        for i in range(len(args[0])):
+            for j in range(len(args)):
+                merged_list.append(args[j][i])
+        return merged_list
+
+    @staticmethod
+    def list_to_caselist(list_of_paths, save_path, timing=False):
+        &#34;&#34;&#34;Converts a list of paths to a text file with one path per line.
+
+        Parameters
+        ----------
+        list_of_paths : list
+            list of paths to the cases
+        save_path : str
+            path to save the text file
+        timing : bool
+            (default is False) If true will time execution of method,
+            else will not
+
+        Returns
+        -------
+        str
+            path to the text file
+        &#34;&#34;&#34;
+        t0 = time.time()
+        # create a new text file
+        with open(save_path, &#34;w&#34;) as f:
+            # go through each path
+            for path in list_of_paths:
+                # write the path to the text file add the newline character if not
+                # the last path
+                if path != list_of_paths[-1]:
+                    f.write(path + &#34;\n&#34;)
+                else:
+                    f.write(path)
+
+        if timing is True:
+            O.Data.timing(t0, &#34;list_to_caselist&#34;)
+        return save_path
+
+    @staticmethod
+    def remove_b_from_a(a, b):
+        &#34;&#34;&#34;Removes all elements in list b from list a.
+
+        Parameters
+        ----------
+        a : list
+            list to remove elements from
+        b : list
+            list of elements to remove
+
+        Returns
+        -------
+        list
+            list with elements removed
+        &#34;&#34;&#34;
+        # turn a and b into sets and then subtract b from a
+        return list(set(a) - set(b))
+
+    @staticmethod
+    def add_b_to_a(a, b):
+        &#34;&#34;&#34;Adds all elements in list b to list a.
+
+        Parameters
+        ----------
+        a : list
+            list to add elements to
+        b : list
+            list of elements to add
+
+        Returns
+        -------
+        list
+            list with elements added
+        &#34;&#34;&#34;
+        # turn a and b into sets and then add b to a
+        return list(set(a) | set(b))
+
+    @staticmethod
+    def namespaces_to_dict(namespaces):
+        &#34;&#34;&#34;Converts list of namespaces to a dictionary.
+
+        Parameters
+        ----------
+        namespaces : list
+            list of namespaces
+
+        Returns
+        -------
+        dict
+            dictionary of the namespace
+        &#34;&#34;&#34;
+        # create a dictionary
+        d = {}
+        # go through each namespace
+        for i, ns in enumerate(namespaces):
+            # add the namespace to the dictionary
+            d[i] = ns.__dict__
+        return d
+
+    @staticmethod
+    def image_collection_to_npy_file(colleciton_path, output_path, infile_type):
+        &#34;&#34;&#34;Converts an image collection to a numpy file.
+
+        Parameters
+        ----------
+        colleciton_path : str
+            path to the image collection
+        output_path : str
+            path to save the numpy file
+        infile_type : str
+            type of file in the collection
+        &#34;&#34;&#34;
+        # get the list of files in the collection
+        files = DataHelper.get_files_in_collection(colleciton_path, infile_type)
+        # create a list to store the images
+        images = []
+        # go through each file
+        for file in files:
+            # read the image
+            img = DataHelper.read(file)
+            # add the image to the list
+            images.append(img)
+        # convert the list to a numpy array
+        images = np.array(images)
+        # save the numpy array        cls._init_labels()
+        np.save(output_path, images)
+
+    @staticmethod
+    def get_files_in_collection(colleciton_path, infile_type):
+        &#34;&#34;&#34;Gets a list of files in an image collection.
+
+        Parameters
+        ----------
+        collection_path : str
+            path to the image collection
+        infile_type : str
+            type of file in the collection
+
+        Returns
+        -------
+        list
+            list of files in the collection
+        &#34;&#34;&#34;
+        # get the list of files in the collection
+        files = glob.glob(colleciton_path + &#34;/*.&#34; + infile_type)
+        return files
+
+    @staticmethod
+    def read(file):
+        &#34;&#34;&#34;Reads an image file. using numpy&#34;&#34;&#34;
+        # read a .TIF file
+        img = np.array(Image.open(file))
+        return img
+
+    @staticmethod
+    def data_to_binary_bin_hists(data):
+        &#34;&#34;&#34;
+        convert the data to binary bins
+        &#34;&#34;&#34;
+        # normalize the data
+        data = O.Features.get_features(
+            data, feature_type=&#34;hist&#34;, norm_type=&#34;minmax&#34;, bins=2
+        )
+        return data
+
+    @staticmethod
+    def combine_best_results_and_resave(pickle_paths, save_path):
+        &#34;&#34;&#34;Loads a list of pickle files which are dictionaries and goes through
+        each dictionary comparing the roc_auc score for each algorithm. If the
+        roc_auc score is better than the current best score it is saved to the
+        results dictionary.
+
+        Can be looped through as follows:
+        for k,v in set1.items():
+            print(set1[k][0][&#39;evaluation&#39;][&#39;roc_auc&#39;])
+
+        Parameters
+        ----------
+        pickle_paths : list, str
+            list of paths to the pickle files
+        save_path : str
+            path to save the combined results
+        &#34;&#34;&#34;
+        if isinstance(pickle_paths, str):
+            # if it is a string it is a path to a root diretory containing the
+            # pickle files, get the list of pickle files
+            pickle_paths = glob.glob(pickle_paths + &#34;/*.pkl&#34;)
+        print(f&#34;Length of pickle_paths: {len(pickle_paths)}&#34;)
+        # create a dictionary to store the results
+        results = {}
+        # go through each pickle file
+        for i, pickle_path in enumerate(pickle_paths):
+            # load the pickle file
+            with open(pickle_path, &#34;rb&#34;) as f:
+                d = pickle.load(f)
+            # go through each algorithm
+            for k, v in d.items():
+                # if the algorithm is not in the results dictionary add it
+                if k not in results:
+                    results[k] = v
+                # if the algorithm is in the results dictionary compare the
+                # roc_auc score
+                else:
+                    # if the roc_auc score is better than the current best
+                    # score replace the current best score
+                    if (
+                        v[0][&#34;evaluation&#34;][&#34;roc_auc&#34;]
+                        &gt; results[k][0][&#34;evaluation&#34;][&#34;roc_auc&#34;]
+                    ):
+                        results[k] = v
+            print(f&#34;Finished {i + 1} of {len(pickle_paths)}&#34;)
+        # save the results
+        with open(save_path, &#34;wb&#34;) as f:
+            pickle.dump(results, f)
+
+    @staticmethod
+    def build_gt(n, indices):
+        &#34;&#34;&#34;
+        build a ground truth matrix of length n starting at all zeros and,
+        and for each index in indices, set the value to 1.
+
+        Parameters
+        ----------
+        n : int
+            length of the ground truth array
+        indices : list
+            list of indices to set to 1
+        &#34;&#34;&#34;
+        # create a ground truth array of zeros
+        gt = np.zeros(n)
+        # set the indices to 1
+        gt[indices] = 1
+        return gt</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="omama.utils.data_helper.DataHelper"><code class="flex name class">
+<span>class <span class="ident">DataHelper</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataHelper(object):
+    @staticmethod
+    def check_data_instance(config_num=2, timing=False):
+        &#34;&#34;&#34;Checks if the data instance is already created. If not, creates one.
+        Parameters
+        ----------
+        config_num : int
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+            3: Omama dataset for 3D whitelist
+            4: Omama dataset for 2D + 3D WL
+        timing : bool
+            If True, the time needed to create the data instance is printed.
+        Returns
+        -------
+        data : Data
+            The data instance.
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if O.Data.instance is None:
+            loader = O.OmamaLoader(config_num=config_num)
+            O.Data(loader, load_cache=True)
+            data = O.Data.instance
+        else:
+            data = O.Data.instance
+        if timing:
+            O.Data.timing(t0, &#34;check_data_instance&#34;)
+        return data
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def check_type(image, data, timing=False):
+        &#34;&#34;&#34;Checks if the image is a numpy array or a PIL image.
+        Parameters
+        ----------
+        image : int, str, SimpleNamespace
+            The image to check.
+        data : Data
+            The data object to use.
+        timing : bool
+            If True, the time needed to check the type is printed.
+        Returns
+        --------
+        Path : str
+            The path to the image.
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if isinstance(image, str) and &#34;/&#34; in image:
+            # print(&#39;in check_type, image is a string&#39;)
+            # if image ends in .txt, it is a whitelist
+            if image.endswith(&#34;.txt&#34;):
+                # print(&#39;in check_type, image is a whitelist&#39;)
+                with open(image, &#34;r&#34;) as f:
+                    path_list = [line.rstrip() for line in f]
+                # print the type of path_list print(&#39;in check_type, type of
+                # path_list is: &#39;, type(path_list))
+                path = path_list
+            else:
+                path = image
+        elif isinstance(image, int):
+            # print(&#39;in check_type, image is an int&#39;)
+            path = data.path(image_id=image)
+        elif isinstance(image, str):
+            # print(&#39;in check_type, image is a string&#39;)
+            path = data.path(dicom_name=image)
+        # check to see if image is a simple namespace object
+        elif isinstance(image, SimpleNamespace):
+            # print(&#39;in check_type, image is a simple namespace&#39;)
+            path = image.filePath
+        elif isinstance(image, dicom.dataset.FileDataset):
+            # print(&#39;in check_type, image is a dicom dataset&#39;)
+            path = image
+        elif isinstance(image, np.ndarray):
+            # print(&#39;in check_type, image is a numpy array&#39;)
+            path = image
+        elif isinstance(image, O.Data):
+            # print(&#39;in check_type, image is a data object&#39;)
+            path = image
+        else:
+            return (
+                &#34;Please specify either a path, image_id, dicom_name, &#34;
+                &#34;or a image object&#34;
+            )
+        if timing:
+            O.Data.timing(t0, &#34;check_type&#34;)
+        return path
+
+    @staticmethod
+    def get_pixels(image, data):
+        &#34;&#34;&#34;Gets the pixels from the image.
+        Parameters
+        ----------
+        image : any
+            The image to get the pixels from.
+        Returns
+        --------
+        pixels : numpy.ndarray
+            The pixels of the image.
+        &#34;&#34;&#34;
+        if isinstance(image, np.ndarray):
+            # print(&#39;image is a numpy array&#39;)
+            return image
+        elif isinstance(image, SimpleNamespace):
+            # print(&#39;image is a simple namespace object&#39;)
+            return image.pixels
+        elif isinstance(image, dicom.dataset.FileDataset):
+            # print(&#39;image is a dicom dataset&#39;)
+            return image.pixel_array
+        elif isinstance(image, list):
+            # print(&#39;image is a list&#39;)
+            if isinstance(image[0], np.ndarray):
+                # print(&#39;image is a list of numpy arrays&#39;)
+                return image
+            elif isinstance(image[0], SimpleNamespace):
+                # print(&#39;image is a list of simple namespace objects&#39;)
+                pixels = []
+                for i in image:
+                    pixels.append(i.pixels)
+                return np.array(pixels)
+            elif isinstance(image[0], dicom.dataset.FileDataset):
+                # print(&#39;image is a list of dicom datasets&#39;)
+                pixels = []
+                for i in image:
+                    pixels.append(i.pixel_array)
+                return np.array(pixels)
+            elif isinstance(image[0], str):
+                # print(&#39;image is a list of paths&#39;)
+                pixels = []
+                for i in image:
+                    pixels.append(O.DataHelper.get_pixels(i, data))
+                return np.array(pixels)
+            else:
+                return (
+                    &#34;Please specify either a path, image_id, dicom_name, &#34;
+                    &#34;or a image object&#34;
+                )
+        else:
+            path = DataHelper.check_type(image, data)
+
+        if isinstance(path, str):
+            # print(&#39;Loading image from path using dicom...&#39;)
+            image = dicom.read_file(path, force=True)
+            return image.pixel_array
+        elif isinstance(path, O.Data):
+            # print(&#39;Loading image from data object...&#39;)
+            pixels = []
+            for d in path:
+                pixels.append(d.pixel_array)
+            return pixels
+        elif isinstance(path, list):
+            # print(&#39;Loading image from list of paths...&#39;)
+            pixels = []
+            for p in path:
+                pixels.append(O.DataHelper.get_pixels(p, data))
+            return pixels
+        else:
+            raise ValueError(&#34;Pixel array not found&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _add_bounding_box(image, pred, sop_uid):
+        &#34;&#34;&#34;Adds a bounding box to the image.
+        Parameters
+        ----------
+        image : numpy.ndarray
+            The image to add the bounding box to.
+        pred : dict
+            The coordinates of the bounding box.
+        sop_uid : str
+            The SOP_UID of the image.
+        Returns
+        -------
+        image : numpy.ndarray
+            The image with the bounding box.
+        &#34;&#34;&#34;
+        if pred[sop_uid][&#34;coords&#34;] is None:
+            print(&#34;No bounding box found for SOP_UID: &#34; + sop_uid)
+            return image
+
+        img_copy = image.copy()
+        bb = DataHelper._get_coords(pred, sop_uid)
+        img_copy[bb[1] : bb[3], bb[0] : bb[0] + 10] = 0
+        img_copy[bb[1] : bb[3], bb[2] : bb[2] + 10] = 0
+        img_copy[bb[1] : bb[1] + 10, bb[0] : bb[2]] = 0
+        img_copy[bb[3] : bb[3] + 10, bb[0] : bb[2]] = 0
+
+        return img_copy
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _get_coords(pred, sop_uid):
+        &#34;&#34;&#34;Gets the coordinates of the bounding box.
+        Parameters
+        ----------
+        pred : dict
+            The predictions dictionary.
+        sop_uid : str
+            The SOP_UID of the image.
+        Returns
+        -------
+        coords : list
+            The coordinates of the bounding box.
+        &#34;&#34;&#34;
+        if pred[sop_uid][&#34;coords&#34;] is None:
+            print(&#34;No bounding box found for SOP_UID: &#34; + sop_uid)
+            return None
+        coords = pred[sop_uid][&#34;coords&#34;]
+        coords = [int(p) for p in coords]
+        return coords
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _rescale_image(ds: dicom.dataset.FileDataset):
+        &#34;&#34;&#34;Rescales the image to prepare for saving as a jpg or png
+        Parameters
+        ----------
+        ds : dicom
+            The image to rescale
+        Returns
+        -------
+        Image : PIL.Image
+            rescaled image
+        &#34;&#34;&#34;
+        new_image = ds.pixel_array.astype(float)
+        scaled_image = (np.maximum(new_image, 0) / new_image.max()) * 255.0
+        scaled_image = np.uint8(scaled_image)
+        final_image = Image.fromarray(scaled_image)
+        return final_image
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get2D(
+        N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False
+    ):
+        &#34;&#34;&#34;Returns a list of N random 2D images from the dataset.
+        Parameters
+        ----------
+        N : int
+            (default is 1) Number of images to return
+        data_loader : DataLoader
+            (default is None) The data loader to use to load the data
+        cancer : bool
+            (default is False)
+            If true will return only cancerous images, else will return only
+             non-cancerous images
+        randomize : bool
+            (default is False)
+            If true will return the images in a random order
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        Return
+        ------
+        images : list
+            N 2D images from the dataset
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if data_loader is None:
+            data_loader = O.OmamaLoader(config_num=config_num)
+        else:
+            data_loader = data_loader
+        data = O.Data(data_loader, load_cache=True)
+        if cancer is True:
+            label = &#34;IndexCancer&#34;
+        elif cancer is False:
+            label = &#34;NonCancer&#34;
+        else:
+            label = None
+        images = []
+        gen = data.next_image(_2d=True, label=label, randomize=randomize, timing=timing)
+        for i in range(N):
+            images.append(next(gen))
+        if timing is True:
+            O.Data.timing(t0, &#34;get2D&#34;)
+        return images
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get3D(
+        N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False
+    ):
+        &#34;&#34;&#34;Returns a list of N random 3D images from the dataset.
+        Parameters
+        ----------
+        N : int
+            (default is 1) Number of images to return
+        data_loader : DataLoader
+            (default is None) The data loader to use to load the data
+        cancer : bool
+            (default is False)
+            If true will return only cancerous images, else will return
+            only non-cancerous images
+        randomize : bool
+            (default is False)
+            If true will return the images in a random order
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        Return
+        ------
+        images : list
+            N 3D images from the dataset.
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if data_loader is None:
+            data_loader = O.OmamaLoader(config_num=config_num)
+        else:
+            data_loader = data_loader
+        data = O.Data(data_loader, load_cache=True)
+        if cancer is True:
+            label = &#34;IndexCancer&#34;
+        elif cancer is False:
+            label = &#34;NonCancer&#34;
+        else:
+            label = None
+        images = []
+        gen = data.next_image(_3d=True, label=label, randomize=randomize, timing=timing)
+        for i in range(N):
+            images.append(next(gen))
+        if timing is True:
+            O.Data.timing(t0, &#34;get3D&#34;)
+        return images
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def view(
+        image,
+        prediction=None,
+        slice_num=None,
+        cmap=&#34;gray&#34;,
+        vmin=None,
+        vmax=None,
+        normalize=False,
+        interpolation=&#34;none&#34;,
+        config_num=1,
+        histogram=False,
+        downsample=None,
+        timing=False,
+    ):
+        &#34;&#34;&#34;Displays the image in the specified path or image_id
+        Parameters
+        ----------
+        image : str, int, SimpleNamespace
+            The image to display can be specified by its path, its id or by
+            any of the objects returned by the DataHelper static methods or
+            the Data get_image() method.
+        prediction : dict
+            (default is None)
+            If specified, will add a bounding box to the image.
+        slice_num : int
+            (default is None)
+            If specified will display the specified frame of the 3D image.
+        cmap : str
+            (default is &#39;gray&#39;) The color map to use. cmap can be the following:
+            &#39;gray&#39;, &#39;bone&#39;, &#39;viridis&#39;, &#39;plasma&#39;, &#39;inferno&#39;, &#39;magma&#39;, &#39;cividis&#39;
+        vmin : float
+            (default is None) The minimum value of the color map. Can set to
+            &#39;auto&#39; to use the minimum value of the image.
+        vmax : float
+            (default is None) The maximum value of the color map. Can set to
+            &#39;auto&#39; to use the maximum value of the image.
+        normalize : bool
+            (default is False)
+            If true will normalize the image to the range [0, 1].
+        interpolation : str
+            (default is &#39;nearest&#39;) The interpolation to use when displaying
+            the image. Interpolation can be &#39;nearest&#39;, &#39;bilinear&#39;, &#39;bicubic&#39;,
+            or &#39;spline16&#39;, &#39;spline36&#39;, &#39;hanning&#39;, &#39;hamming&#39;, &#39;hermite&#39;,
+            &#39;kaiser&#39;, &#39;quadratic&#39;, &#39;catrom&#39;, &#39;gaussian&#39;, &#39;bessel&#39;, &#39;mitchell&#39;,
+            &#39;sinc&#39;, &#39;lanczos&#39; or &#39;none&#39;.
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+            ... see OmamaLoader for full list of config_num options
+        histogram : bool
+            (default is False) if True, the histogram of the image will be
+            displayed.
+        downsample : tuple
+            (default is None) If specified, will downsample the image by the
+            specified factor. The tuple should be of the form (x, y, z) where
+            x, y, and z are the downsample factors for the x, y, and z
+            dimensions respectively.
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        &#34;&#34;&#34;
+        t0 = time.time()
+        is_nparray = False
+        sop_uid = None
+        data = DataHelper.check_data_instance(config_num=config_num)
+        print(&#34;type of data: &#34;, type(data))
+        path = DataHelper.check_type(image, data)
+
+        if isinstance(path, dicom.dataset.FileDataset):
+            ds = path
+        elif isinstance(path, np.ndarray):
+            ds = path
+            is_nparray = True
+        else:
+            ds = dicom.dcmread(path)
+
+        if is_nparray is False:
+            is_3d_flag = len(ds.pixel_array.shape) == 3
+            # save the sop_uid for the image
+            sop_uid = ds.SOPInstanceUID
+        else:
+            is_3d_flag = len(ds.shape) == 3
+
+        if is_3d_flag:
+            # 3D image
+            if is_nparray is False:
+                img = ds.pixel_array.copy()
+            else:
+                img = ds.copy()
+            if slice_num is None:
+                # displays the center fame by default
+                if prediction is not None and is_nparray is False:
+                    # get the slice number from the prediction
+                    slice_num = prediction[sop_uid][&#34;slice&#34;]
+                else:
+                    slice_num = int(img.shape[0] // 2)
+                img = img[slice_num]
+            else:
+                img = img[slice_num]
+        elif is_3d_flag is False:
+            # 2D image
+            if is_nparray is False:
+                img = ds.pixel_array.copy()
+            else:
+                img = ds.copy()
+        else:
+            print(&#34;Not a valid image&#34;)
+            return None
+        # get the dicoms window center and width and use that for vmin and vmax
+        if is_3d_flag is False and is_nparray is False:
+            if isinstance(ds.WindowCenter, dicom.valuerep.DSfloat):
+                wc = float(ds.WindowCenter)
+            else:
+                wc = float(ds.WindowCenter[1])
+            if isinstance(ds.WindowWidth, dicom.valuerep.DSfloat):
+                ww = float(ds.WindowWidth)
+            else:
+                ww = float(ds.WindowWidth[1])
+        elif is_3d_flag and is_nparray is False:
+            wc = (
+                ds.SharedFunctionalGroupsSequence[0].FrameVOILUTSequence[0].WindowCenter
+            )
+            ww = ds.SharedFunctionalGroupsSequence[0].FrameVOILUTSequence[0].WindowWidth
+
+        if vmin is None and is_nparray is False:
+            vmin = wc - ww
+        if vmax is None and is_nparray is False:
+            vmax = wc + ww
+
+        if prediction is not None:
+            img = DataHelper._add_bounding_box(img, prediction, sop_uid)
+        # get then minimum and maximum pixel values from the image
+        if vmin == &#34;auto&#34;:
+            vmin = img.min()
+        if vmax == &#34;auto&#34;:
+            vmax = img.max()
+        # normalize the image
+        if normalize is True:
+            norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+            # we set vmin and vmax to None because if norm is being passed
+            # into the imshow function it needs the vmin and vmax to be None.
+            vmin = None
+            vmax = None
+        else:
+            norm = None
+
+        if downsample is not None:
+            from skimage.transform import resize
+
+            img = resize(img, downsample, order=0, preserve_range=True)
+            img = img.astype(np.uint16)
+
+        if histogram:
+            if normalize:
+                # perform max normalization on the image
+                img = O.Normalize.minmax(img)
+            img_hist = O.Features.histogram(img)
+            plt.hist(img_hist)
+        else:
+            # display the image
+            plt.figure(figsize=(10, 10))
+            plt.imshow(
+                img,
+                cmap=cmap,
+                vmin=vmin,
+                vmax=vmax,
+                norm=norm,
+                interpolation=interpolation,
+            )
+        if prediction is not None:
+            # getting the bounding box coordinates for red overlay
+            bb = DataHelper._get_coords(prediction, sop_uid)
+            if bb is not None:
+                plt.gca().add_patch(
+                    plt.Rectangle(
+                        (bb[0], bb[1]),
+                        bb[2] - bb[0],
+                        bb[3] - bb[1],
+                        fill=False,
+                        edgecolor=&#34;r&#34;,
+                        linewidth=2,
+                    )
+                )
+        # print the score of the prediction
+        if prediction is not None:
+            score = prediction[sop_uid][&#34;score&#34;]
+            plt.title(&#34;Score: {}&#34;.format(score))
+
+        if timing is True:
+            O.Data.timing(t0, &#34;view&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def view_grid(
+        images,
+        slice_num=None,
+        ncols=None,
+        figsize=None,
+        cmap=&#34;gray&#34;,
+        show_indices=False,
+        index=0,
+    ):
+        &#34;&#34;&#34;Plots a grid of images from a list of images.
+
+        Parameters
+        ----------
+        images : any
+            List of images to plot
+        slice_num : int, optional
+            (default is None)
+            if specified, it will display the frame number of all the 3D images
+        ncols : int
+            (default is None)
+            Number of columns in the grid
+        figsize : tuple
+            (default is None) Size of the figure
+        cmap : str
+            (default is &#39;gray&#39;) Color map to use
+        show_indices : bool
+            (default is False) If True, it will show the index of the image
+            in the grid
+        index : int
+            (default is 0) Index of the show_indices to start at
+        &#34;&#34;&#34;
+        data = DataHelper.check_data_instance()
+        pixels = DataHelper.get_pixels(images, data)
+
+        # images_copy = pixels.copy()
+        imgs = pixels.copy()
+        for i in range(len(imgs)):
+            if len(imgs[i].shape) == 3:
+                img = pixels[i]  # images[i].pixels
+                if slice_num is None:
+                    imgs[i] = img[img.shape[0] // 2]
+                else:
+                    imgs[i] = img[slice_num]
+
+        if not ncols:
+            factors = [i for i in range(1, len(imgs) + 1) if len(imgs) % i == 0]
+            ncols = factors[len(factors) // 2] if len(factors) else len(imgs) // 4 + 1
+        nrows = int(len(imgs) / ncols) + int(len(imgs) % ncols)
+
+        if figsize is None:
+            figsize = (3 * ncols, 2 * nrows)
+
+        fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize)
+        for i in range(nrows):
+            for j in range(ncols):
+                if i * ncols + j &lt; len(imgs):
+                    ax[i, j].imshow(imgs[i * ncols + j], cmap=cmap)
+                    if show_indices:
+                        ax[i, j].axis(&#34;off&#34;)
+                        ax[i, j].set_title(index)
+                    index += 1
+        plt.tight_layout()
+        plt.show()
+
+        # if index &lt; len(imgs):
+        #     ax[i, j].imshow(imgs[index], cmap=cmap)
+        #     if show_indices:
+        #         ax[i, j].axis(&#39;off&#39;)
+        #         ax[i, j].set_title(index)
+        #     index += 1
+        # else:
+        #     ax[i, j].axis(&#39;off&#39;)
+
+        # fig, ax = plt.subplots(nrows, ncols, figsize=figsize)
+        # axes = axes.flatten()[:len(imgs)]
+        #
+        # for img, ax in zip(imgs, axes.flatten()):
+        #     if np.any(img):
+        #         if len(img.shape) &gt; 2 and img.shape[2] == 1:
+        #             img = img.squeeze()
+        #         if show_indices:
+        #             ax.axis(&#39;off&#39;)
+        #             ax.set_title(index)
+        #         ax.imshow(img, cmap=cmap)
+        #         index += 1
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def grid_view(
+        images,
+        N=None,
+        slice_num=None,
+        ncols=None,
+        show_axis=False,
+        title=None,
+        plot_title=None,
+        h_pad=-0.5,
+        w_pad=5.0,
+        figsize=(20, 20),
+        cmap=&#34;gray&#34;,
+        top=0.55,
+        bottom=0.05,
+        left=0.05,
+        right=0.95,
+        dpi=500,
+    ):
+        &#34;&#34;&#34;Plots a grid of images from a list of images.
+
+        Parameters
+        ----------
+        images : list
+            List of images to plot
+        N : int
+            (default is None)
+            Number of images to plot from the list of images
+        slice_num : int, optional
+            (default is None)
+            if specified, it will display the frame number of all the 3D images
+        ncols : int
+            (default is None)
+            Number of columns in the grid
+        show_axis : bool
+            (default is False) if True, will display the axis of the image.
+        title : str
+            (default is None) Title of the plot
+        plot_title : str
+            (default is None) Title of each image in the grid
+        h_pad : float
+            (default is 0.5) Padding between subplots in the vertical direction
+        w_pad : float
+            (default is 0.5) Padding between subplots in the horizontal direction
+        figsize : tuple
+            (default is None) Size of the figure
+        cmap : str
+            (default is &#39;gray&#39;) Color map to use
+        top : float
+            (default is 0.99) The top of the subplots of the figure
+        bottom : float
+            (default is 0.01) The bottom of the subplots of the figure
+        left : float
+            (default is 0.01) The left side of the subplots of the figure
+        right : float
+            (default is 0.99) The right side of the subplots of the figure
+        dpi : int
+            (default is 500) Dots per inch
+        &#34;&#34;&#34;
+        data = DataHelper.check_data_instance()
+        pixels = DataHelper.get_pixels(images, data)
+        if N is None or N &gt; len(pixels):
+            N = len(pixels)
+
+        plt.rcParams[&#34;figure.dpi&#34;] = dpi
+        imgs = pixels[:N].copy()
+        for i in range(len(imgs)):
+            if len(imgs[i].shape) == 3:
+                img = pixels[i]
+                if slice_num is None:
+                    imgs[i] = img[img.shape[0] // 2]
+                else:
+                    imgs[i] = img[slice_num]
+            elif len(imgs[i].shape) == 2:
+                img = pixels[i]
+                imgs[i] = img
+        if not ncols:
+            factors = [i for i in range(1, N + 1) if N % i == 0]
+            ncols = factors[len(factors) // 2] if len(factors) else len(imgs) // 4 + 1
+        nrows = int(N / ncols) + int(N % ncols)
+
+        f, axes = plt.subplots(nrows, ncols, figsize=figsize)
+        axes = axes.flatten()[:N]
+        for img, ax in zip(imgs, axes.flatten()):
+            if np.any(img):
+                if len(img.shape) &gt; 2 and img.shape[2] == 1:
+                    img = img.squeeze()
+                ax.imshow(img, cmap=cmap)
+                if not show_axis:
+                    ax.axis(&#34;off&#34;)
+                if plot_title:
+                    ax.set_title(plot_title)
+        if title:
+            f.suptitle(title)
+        f.tight_layout(h_pad=h_pad, w_pad=w_pad)
+        f.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
+        plt.show()
+        plt.close()
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get(image, view=False, config_num=1, timing=False):
+        &#34;&#34;&#34;fetches the image being specified by the image_id, dicom_name, or path
+        Parameters
+        ----------
+        image : str, int, SimpleNamespace
+            The image to display can be specified by its path, its id or by
+            any of the objects returned by the DataHelper static methods or
+            the Data get_image() method.
+        view : bool
+            (default is False)
+            If true will display the image
+        config_num : int
+            (default is 1)
+            The option number corresponds to a set of paths to specific data
+            which is loaded into the data instance. config_num options are:
+            1: Full Omama dataset
+            2: Omama dataset for 2D whitelist
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        Returns
+        -------
+            image : SimpleNamespace
+        &#34;&#34;&#34;
+        # calls the get_image function and then prints the pixels of the image
+        t0 = time.time()
+        data = DataHelper.check_data_instance(config_num=config_num)
+        path = DataHelper.check_type(image, data)
+        dicom_name = os.path.basename(path)
+        img = data.get_image(dicom_name=dicom_name, timing=timing, dicom_header=True)
+        # call the view function to display the image if view is true
+        if view is True:
+            DataHelper.view(dicom_name, timing=timing)
+        if timing is True:
+            O.Data.timing(t0, &#34;get&#34;)
+        return img
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def store(image, filename, timing=False):
+        &#34;&#34;&#34;Stores the image as the specified file type.
+        Parameters
+        ----------
+        image : str, int, SimpleNamespace
+            The image to display can be specified by its path, its id or by
+            any of the objects returned by the DataHelper static methods or
+            the Data get_image() method.
+        filename : str
+            The name of the file to store the image in. Should include the
+            file extension, such as image.png or image.jpg. If no file extension
+            is specified, it will default to DCM (Dicom) file format.
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        &#34;&#34;&#34;
+        t0 = time.time()
+        file_name = filename.lower()
+        data = DataHelper.check_data_instance()
+        path = DataHelper.check_type(image, data)
+        if isinstance(path, dicom.dataset.FileDataset):
+            ds = path
+        else:
+            ds = dicom.dcmread(path)
+        if file_name.endswith(&#34;.dcm&#34;) is True or &#34;.&#34; not in file_name:
+            if &#34;.&#34; not in file_name:
+                filename = filename + &#34;.DCM&#34;
+            ds.save_as(filename, write_like_original=False)
+        elif file_name.endswith(&#34;.npy&#34;) is True:
+            np.save(filename, ds.pixel_array)
+        elif file_name.endswith(&#34;.npz&#34;) is True:
+            np.savez_compressed(filename, ds.pixel_array)
+        elif file_name.endswith(&#34;.png&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        elif file_name.endswith(&#34;.jpg&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        elif file_name.endswith(&#34;.tif&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        elif file_name.endswith(&#34;.bmp&#34;) is True:
+            final_image = DataHelper._rescale_image(ds)
+            final_image.save(filename)
+        else:
+            raise ValueError(&#34;File type not supported&#34;)
+
+        if timing is True:
+            O.Data.timing(t0, &#34;store&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def store_all(data: omama.Data, save_path, timing=False):
+        &#34;&#34;&#34;stores all the images from the omama.Data class instance into the
+         specified save_path.
+
+        Parameters
+        ----------
+        data : omama.Data
+            The omama.Data class instance to store all the images from.
+        save_path : str
+            The path to store the images in.
+        timing : bool
+            (default is False)
+            If true will print the time it took to perform the action
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if not os.path.exists(save_path):
+            os.makedirs(save_path)
+        i = 0
+        for img in data:
+            print(type(img))
+            path = data.image_paths[i]
+
+            # get the last part of the path to use as the filename
+            filename = path.split(&#34;/&#34;)[-1].replace(&#34;.&#34;, &#34;_&#34;) + &#34;.DCM&#34;
+            print(filename)
+            # add the save path to the filename
+            temp_save_path = os.path.join(save_path, filename)
+            # store the image
+            print(temp_save_path)
+            DataHelper.store(img, temp_save_path, timing=timing)
+            i += 1
+        if timing is True:
+            O.Data.timing(t0, &#34;store_all&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def parse_sop_uid_from_paths(paths, substr_to_remove, timing=False):
+        &#34;&#34;&#34;Parse the SOPInstanceUID from a list of paths.
+        Parameters
+        ----------
+        paths : list
+            list of paths to dicom files
+        substr_to_remove : str
+            string to remove from the beginning of the file name
+        timing : bool
+            (default is False) If true will time execution of method,
+            else will not
+        Returns
+        -------
+        sop_uids : list
+            list of SOPInstanceUIDs
+        &#34;&#34;&#34;
+        t0 = time.time()
+        sop_uids = []
+        for path in paths:
+            sop_uids.append(os.path.basename(path).replace(substr_to_remove, &#34;&#34;))
+        if timing is True:
+            O.Data.timing(t0, &#34;parse_sop_uid_from_paths&#34;)
+        return sop_uids
+
+    # --------------------------------------------------------------------------
+
+    @staticmethod
+    def show_histogram(image, norm_type=&#34;min-max&#34;):
+        &#34;&#34;&#34;Displays a histogram of the images.
+        Parameters
+        ----------
+        image : np.ndarray
+            array of pixel values
+        norm_type : str
+            (default is &#39;min-max&#39;)
+            type of normalization to use for the histogram
+        &#34;&#34;&#34;
+        data = DataHelper.check_data_instance()
+        pixels = DataHelper.get_pixels(image, data)
+        # normalize the image
+        img = O.Normalize.get_norm(pixels, norm_type=norm_type)
+
+        y_axis = O.Features.histogram(img)
+        x_axis = np.arange(0, 256, 1)
+
+        fig, ax = plt.subplots()
+        ax = fig.add_axes([0, 0, 1, 1])
+        ax.bar(x_axis, y_axis, width=10, color=&#34;b&#34;, log=True)
+        ax.set_xlim(0.01, 255)
+        ax.set_ylim(0.01, 10**8)
+        plt.show()
+
+    @staticmethod
+    def file_to_list(file_path):
+        &#34;&#34;&#34;Reads a file and returns a list of the lines in the file.
+
+        Parameters
+        ----------
+        file_path : str
+            path to the file to read
+
+        Returns
+        -------
+        list
+            list of the lines in the file
+        &#34;&#34;&#34;
+        # read each line turning into a list removing the newline character
+        with open(file_path, &#34;r&#34;) as f:
+            lines = [line.rstrip(&#34;\n&#34;) for line in f]
+        return lines
+
+    def merge_lists(*args):
+        &#34;&#34;&#34;Merges a list of lists into a single list.
+        goes through each list taking element i from each list and adding it to the
+        new list until all lists are exhausted.
+
+        Parameters
+        ----------
+        *args : list
+            list of lists to merge
+
+        Returns
+        -------
+        list
+            merged list
+        &#34;&#34;&#34;
+        merged_list = []
+        for i in range(len(args[0])):
+            for j in range(len(args)):
+                merged_list.append(args[j][i])
+        return merged_list
+
+    @staticmethod
+    def list_to_caselist(list_of_paths, save_path, timing=False):
+        &#34;&#34;&#34;Converts a list of paths to a text file with one path per line.
+
+        Parameters
+        ----------
+        list_of_paths : list
+            list of paths to the cases
+        save_path : str
+            path to save the text file
+        timing : bool
+            (default is False) If true will time execution of method,
+            else will not
+
+        Returns
+        -------
+        str
+            path to the text file
+        &#34;&#34;&#34;
+        t0 = time.time()
+        # create a new text file
+        with open(save_path, &#34;w&#34;) as f:
+            # go through each path
+            for path in list_of_paths:
+                # write the path to the text file add the newline character if not
+                # the last path
+                if path != list_of_paths[-1]:
+                    f.write(path + &#34;\n&#34;)
+                else:
+                    f.write(path)
+
+        if timing is True:
+            O.Data.timing(t0, &#34;list_to_caselist&#34;)
+        return save_path
+
+    @staticmethod
+    def remove_b_from_a(a, b):
+        &#34;&#34;&#34;Removes all elements in list b from list a.
+
+        Parameters
+        ----------
+        a : list
+            list to remove elements from
+        b : list
+            list of elements to remove
+
+        Returns
+        -------
+        list
+            list with elements removed
+        &#34;&#34;&#34;
+        # turn a and b into sets and then subtract b from a
+        return list(set(a) - set(b))
+
+    @staticmethod
+    def add_b_to_a(a, b):
+        &#34;&#34;&#34;Adds all elements in list b to list a.
+
+        Parameters
+        ----------
+        a : list
+            list to add elements to
+        b : list
+            list of elements to add
+
+        Returns
+        -------
+        list
+            list with elements added
+        &#34;&#34;&#34;
+        # turn a and b into sets and then add b to a
+        return list(set(a) | set(b))
+
+    @staticmethod
+    def namespaces_to_dict(namespaces):
+        &#34;&#34;&#34;Converts list of namespaces to a dictionary.
+
+        Parameters
+        ----------
+        namespaces : list
+            list of namespaces
+
+        Returns
+        -------
+        dict
+            dictionary of the namespace
+        &#34;&#34;&#34;
+        # create a dictionary
+        d = {}
+        # go through each namespace
+        for i, ns in enumerate(namespaces):
+            # add the namespace to the dictionary
+            d[i] = ns.__dict__
+        return d
+
+    @staticmethod
+    def image_collection_to_npy_file(colleciton_path, output_path, infile_type):
+        &#34;&#34;&#34;Converts an image collection to a numpy file.
+
+        Parameters
+        ----------
+        colleciton_path : str
+            path to the image collection
+        output_path : str
+            path to save the numpy file
+        infile_type : str
+            type of file in the collection
+        &#34;&#34;&#34;
+        # get the list of files in the collection
+        files = DataHelper.get_files_in_collection(colleciton_path, infile_type)
+        # create a list to store the images
+        images = []
+        # go through each file
+        for file in files:
+            # read the image
+            img = DataHelper.read(file)
+            # add the image to the list
+            images.append(img)
+        # convert the list to a numpy array
+        images = np.array(images)
+        # save the numpy array        cls._init_labels()
+        np.save(output_path, images)
+
+    @staticmethod
+    def get_files_in_collection(colleciton_path, infile_type):
+        &#34;&#34;&#34;Gets a list of files in an image collection.
+
+        Parameters
+        ----------
+        collection_path : str
+            path to the image collection
+        infile_type : str
+            type of file in the collection
+
+        Returns
+        -------
+        list
+            list of files in the collection
+        &#34;&#34;&#34;
+        # get the list of files in the collection
+        files = glob.glob(colleciton_path + &#34;/*.&#34; + infile_type)
+        return files
+
+    @staticmethod
+    def read(file):
+        &#34;&#34;&#34;Reads an image file. using numpy&#34;&#34;&#34;
+        # read a .TIF file
+        img = np.array(Image.open(file))
+        return img
+
+    @staticmethod
+    def data_to_binary_bin_hists(data):
+        &#34;&#34;&#34;
+        convert the data to binary bins
+        &#34;&#34;&#34;
+        # normalize the data
+        data = O.Features.get_features(
+            data, feature_type=&#34;hist&#34;, norm_type=&#34;minmax&#34;, bins=2
+        )
+        return data
+
+    @staticmethod
+    def combine_best_results_and_resave(pickle_paths, save_path):
+        &#34;&#34;&#34;Loads a list of pickle files which are dictionaries and goes through
+        each dictionary comparing the roc_auc score for each algorithm. If the
+        roc_auc score is better than the current best score it is saved to the
+        results dictionary.
+
+        Can be looped through as follows:
+        for k,v in set1.items():
+            print(set1[k][0][&#39;evaluation&#39;][&#39;roc_auc&#39;])
+
+        Parameters
+        ----------
+        pickle_paths : list, str
+            list of paths to the pickle files
+        save_path : str
+            path to save the combined results
+        &#34;&#34;&#34;
+        if isinstance(pickle_paths, str):
+            # if it is a string it is a path to a root diretory containing the
+            # pickle files, get the list of pickle files
+            pickle_paths = glob.glob(pickle_paths + &#34;/*.pkl&#34;)
+        print(f&#34;Length of pickle_paths: {len(pickle_paths)}&#34;)
+        # create a dictionary to store the results
+        results = {}
+        # go through each pickle file
+        for i, pickle_path in enumerate(pickle_paths):
+            # load the pickle file
+            with open(pickle_path, &#34;rb&#34;) as f:
+                d = pickle.load(f)
+            # go through each algorithm
+            for k, v in d.items():
+                # if the algorithm is not in the results dictionary add it
+                if k not in results:
+                    results[k] = v
+                # if the algorithm is in the results dictionary compare the
+                # roc_auc score
+                else:
+                    # if the roc_auc score is better than the current best
+                    # score replace the current best score
+                    if (
+                        v[0][&#34;evaluation&#34;][&#34;roc_auc&#34;]
+                        &gt; results[k][0][&#34;evaluation&#34;][&#34;roc_auc&#34;]
+                    ):
+                        results[k] = v
+            print(f&#34;Finished {i + 1} of {len(pickle_paths)}&#34;)
+        # save the results
+        with open(save_path, &#34;wb&#34;) as f:
+            pickle.dump(results, f)
+
+    @staticmethod
+    def build_gt(n, indices):
+        &#34;&#34;&#34;
+        build a ground truth matrix of length n starting at all zeros and,
+        and for each index in indices, set the value to 1.
+
+        Parameters
+        ----------
+        n : int
+            length of the ground truth array
+        indices : list
+            list of indices to set to 1
+        &#34;&#34;&#34;
+        # create a ground truth array of zeros
+        gt = np.zeros(n)
+        # set the indices to 1
+        gt[indices] = 1
+        return gt</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="omama.utils.data_helper.DataHelper.add_b_to_a"><code class="name flex">
+<span>def <span class="ident">add_b_to_a</span></span>(<span>a, b)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds all elements in list b to list a.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>a</code></strong> :&ensp;<code>list</code></dt>
+<dd>list to add elements to</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of elements to add</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list with elements added</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def add_b_to_a(a, b):
+    &#34;&#34;&#34;Adds all elements in list b to list a.
+
+    Parameters
+    ----------
+    a : list
+        list to add elements to
+    b : list
+        list of elements to add
+
+    Returns
+    -------
+    list
+        list with elements added
+    &#34;&#34;&#34;
+    # turn a and b into sets and then add b to a
+    return list(set(a) | set(b))</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.build_gt"><code class="name flex">
+<span>def <span class="ident">build_gt</span></span>(<span>n, indices)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>build a ground truth matrix of length n starting at all zeros and,
+and for each index in indices, set the value to 1.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>n</code></strong> :&ensp;<code>int</code></dt>
+<dd>length of the ground truth array</dd>
+<dt><strong><code>indices</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of indices to set to 1</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def build_gt(n, indices):
+    &#34;&#34;&#34;
+    build a ground truth matrix of length n starting at all zeros and,
+    and for each index in indices, set the value to 1.
+
+    Parameters
+    ----------
+    n : int
+        length of the ground truth array
+    indices : list
+        list of indices to set to 1
+    &#34;&#34;&#34;
+    # create a ground truth array of zeros
+    gt = np.zeros(n)
+    # set the indices to 1
+    gt[indices] = 1
+    return gt</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.check_data_instance"><code class="name flex">
+<span>def <span class="ident">check_data_instance</span></span>(<span>config_num=2, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the data instance is already created. If not, creates one.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>config_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>The option number corresponds to a set of paths to specific data
+which is loaded into the data instance. config_num options are:
+1: Full Omama dataset
+2: Omama dataset for 2D whitelist
+3: Omama dataset for 3D whitelist
+4: Omama dataset for 2D + 3D WL</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, the time needed to create the data instance is printed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>Data</code></dt>
+<dd>The data instance.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def check_data_instance(config_num=2, timing=False):
+    &#34;&#34;&#34;Checks if the data instance is already created. If not, creates one.
+    Parameters
+    ----------
+    config_num : int
+        The option number corresponds to a set of paths to specific data
+        which is loaded into the data instance. config_num options are:
+        1: Full Omama dataset
+        2: Omama dataset for 2D whitelist
+        3: Omama dataset for 3D whitelist
+        4: Omama dataset for 2D + 3D WL
+    timing : bool
+        If True, the time needed to create the data instance is printed.
+    Returns
+    -------
+    data : Data
+        The data instance.
+    &#34;&#34;&#34;
+    t0 = time.time()
+    if O.Data.instance is None:
+        loader = O.OmamaLoader(config_num=config_num)
+        O.Data(loader, load_cache=True)
+        data = O.Data.instance
+    else:
+        data = O.Data.instance
+    if timing:
+        O.Data.timing(t0, &#34;check_data_instance&#34;)
+    return data</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.check_type"><code class="name flex">
+<span>def <span class="ident">check_type</span></span>(<span>image, data, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the image is a numpy array or a PIL image.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>int, str, SimpleNamespace</code></dt>
+<dd>The image to check.</dd>
+<dt><strong><code>data</code></strong> :&ensp;<code>Data</code></dt>
+<dd>The data object to use.</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, the time needed to check the type is printed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>Path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the image.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def check_type(image, data, timing=False):
+    &#34;&#34;&#34;Checks if the image is a numpy array or a PIL image.
+    Parameters
+    ----------
+    image : int, str, SimpleNamespace
+        The image to check.
+    data : Data
+        The data object to use.
+    timing : bool
+        If True, the time needed to check the type is printed.
+    Returns
+    --------
+    Path : str
+        The path to the image.
+    &#34;&#34;&#34;
+    t0 = time.time()
+    if isinstance(image, str) and &#34;/&#34; in image:
+        # print(&#39;in check_type, image is a string&#39;)
+        # if image ends in .txt, it is a whitelist
+        if image.endswith(&#34;.txt&#34;):
+            # print(&#39;in check_type, image is a whitelist&#39;)
+            with open(image, &#34;r&#34;) as f:
+                path_list = [line.rstrip() for line in f]
+            # print the type of path_list print(&#39;in check_type, type of
+            # path_list is: &#39;, type(path_list))
+            path = path_list
+        else:
+            path = image
+    elif isinstance(image, int):
+        # print(&#39;in check_type, image is an int&#39;)
+        path = data.path(image_id=image)
+    elif isinstance(image, str):
+        # print(&#39;in check_type, image is a string&#39;)
+        path = data.path(dicom_name=image)
+    # check to see if image is a simple namespace object
+    elif isinstance(image, SimpleNamespace):
+        # print(&#39;in check_type, image is a simple namespace&#39;)
+        path = image.filePath
+    elif isinstance(image, dicom.dataset.FileDataset):
+        # print(&#39;in check_type, image is a dicom dataset&#39;)
+        path = image
+    elif isinstance(image, np.ndarray):
+        # print(&#39;in check_type, image is a numpy array&#39;)
+        path = image
+    elif isinstance(image, O.Data):
+        # print(&#39;in check_type, image is a data object&#39;)
+        path = image
+    else:
+        return (
+            &#34;Please specify either a path, image_id, dicom_name, &#34;
+            &#34;or a image object&#34;
+        )
+    if timing:
+        O.Data.timing(t0, &#34;check_type&#34;)
+    return path</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.combine_best_results_and_resave"><code class="name flex">
+<span>def <span class="ident">combine_best_results_and_resave</span></span>(<span>pickle_paths, save_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads a list of pickle files which are dictionaries and goes through
+each dictionary comparing the roc_auc score for each algorithm. If the
+roc_auc score is better than the current best score it is saved to the
+results dictionary.</p>
+<p>Can be looped through as follows:
+for k,v in set1.items():
+print(set1[k][0]['evaluation']['roc_auc'])</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pickle_paths</code></strong> :&ensp;<code>list, str</code></dt>
+<dd>list of paths to the pickle files</dd>
+<dt><strong><code>save_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to save the combined results</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def combine_best_results_and_resave(pickle_paths, save_path):
+    &#34;&#34;&#34;Loads a list of pickle files which are dictionaries and goes through
+    each dictionary comparing the roc_auc score for each algorithm. If the
+    roc_auc score is better than the current best score it is saved to the
+    results dictionary.
+
+    Can be looped through as follows:
+    for k,v in set1.items():
+        print(set1[k][0][&#39;evaluation&#39;][&#39;roc_auc&#39;])
+
+    Parameters
+    ----------
+    pickle_paths : list, str
+        list of paths to the pickle files
+    save_path : str
+        path to save the combined results
+    &#34;&#34;&#34;
+    if isinstance(pickle_paths, str):
+        # if it is a string it is a path to a root diretory containing the
+        # pickle files, get the list of pickle files
+        pickle_paths = glob.glob(pickle_paths + &#34;/*.pkl&#34;)
+    print(f&#34;Length of pickle_paths: {len(pickle_paths)}&#34;)
+    # create a dictionary to store the results
+    results = {}
+    # go through each pickle file
+    for i, pickle_path in enumerate(pickle_paths):
+        # load the pickle file
+        with open(pickle_path, &#34;rb&#34;) as f:
+            d = pickle.load(f)
+        # go through each algorithm
+        for k, v in d.items():
+            # if the algorithm is not in the results dictionary add it
+            if k not in results:
+                results[k] = v
+            # if the algorithm is in the results dictionary compare the
+            # roc_auc score
+            else:
+                # if the roc_auc score is better than the current best
+                # score replace the current best score
+                if (
+                    v[0][&#34;evaluation&#34;][&#34;roc_auc&#34;]
+                    &gt; results[k][0][&#34;evaluation&#34;][&#34;roc_auc&#34;]
+                ):
+                    results[k] = v
+        print(f&#34;Finished {i + 1} of {len(pickle_paths)}&#34;)
+    # save the results
+    with open(save_path, &#34;wb&#34;) as f:
+        pickle.dump(results, f)</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.data_to_binary_bin_hists"><code class="name flex">
+<span>def <span class="ident">data_to_binary_bin_hists</span></span>(<span>data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>convert the data to binary bins</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def data_to_binary_bin_hists(data):
+    &#34;&#34;&#34;
+    convert the data to binary bins
+    &#34;&#34;&#34;
+    # normalize the data
+    data = O.Features.get_features(
+        data, feature_type=&#34;hist&#34;, norm_type=&#34;minmax&#34;, bins=2
+    )
+    return data</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.file_to_list"><code class="name flex">
+<span>def <span class="ident">file_to_list</span></span>(<span>file_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads a file and returns a list of the lines in the file.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to the file to read</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list of the lines in the file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def file_to_list(file_path):
+    &#34;&#34;&#34;Reads a file and returns a list of the lines in the file.
+
+    Parameters
+    ----------
+    file_path : str
+        path to the file to read
+
+    Returns
+    -------
+    list
+        list of the lines in the file
+    &#34;&#34;&#34;
+    # read each line turning into a list removing the newline character
+    with open(file_path, &#34;r&#34;) as f:
+        lines = [line.rstrip(&#34;\n&#34;) for line in f]
+    return lines</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>image, view=False, config_num=1, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>fetches the image being specified by the image_id, dicom_name, or path
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>str, int, SimpleNamespace</code></dt>
+<dd>The image to display can be specified by its path, its id or by
+any of the objects returned by the DataHelper static methods or
+the Data get_image() method.</dd>
+<dt><strong><code>view</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will display the image</dd>
+<dt><strong><code>config_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 1)
+The option number corresponds to a set of paths to specific data
+which is loaded into the data instance. config_num options are:
+1: Full Omama dataset
+2: Omama dataset for 2D whitelist</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will print the time it took to perform the action</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<pre><code>image : SimpleNamespace
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get(image, view=False, config_num=1, timing=False):
+    &#34;&#34;&#34;fetches the image being specified by the image_id, dicom_name, or path
+    Parameters
+    ----------
+    image : str, int, SimpleNamespace
+        The image to display can be specified by its path, its id or by
+        any of the objects returned by the DataHelper static methods or
+        the Data get_image() method.
+    view : bool
+        (default is False)
+        If true will display the image
+    config_num : int
+        (default is 1)
+        The option number corresponds to a set of paths to specific data
+        which is loaded into the data instance. config_num options are:
+        1: Full Omama dataset
+        2: Omama dataset for 2D whitelist
+    timing : bool
+        (default is False)
+        If true will print the time it took to perform the action
+    Returns
+    -------
+        image : SimpleNamespace
+    &#34;&#34;&#34;
+    # calls the get_image function and then prints the pixels of the image
+    t0 = time.time()
+    data = DataHelper.check_data_instance(config_num=config_num)
+    path = DataHelper.check_type(image, data)
+    dicom_name = os.path.basename(path)
+    img = data.get_image(dicom_name=dicom_name, timing=timing, dicom_header=True)
+    # call the view function to display the image if view is true
+    if view is True:
+        DataHelper.view(dicom_name, timing=timing)
+    if timing is True:
+        O.Data.timing(t0, &#34;get&#34;)
+    return img</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.get2D"><code class="name flex">
+<span>def <span class="ident">get2D</span></span>(<span>N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of N random 2D images from the dataset.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>N</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 1) Number of images to return</dd>
+<dt><strong><code>data_loader</code></strong> :&ensp;<code>DataLoader</code></dt>
+<dd>(default is None) The data loader to use to load the data</dd>
+<dt><strong><code>cancer</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will return only cancerous images, else will return only
+non-cancerous images</dd>
+<dt><strong><code>randomize</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will return the images in a random order</dd>
+<dt><strong><code>config_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 1)
+The option number corresponds to a set of paths to specific data
+which is loaded into the data instance. config_num options are:
+1: Full Omama dataset
+2: Omama dataset for 2D whitelist</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will print the time it took to perform the action</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>images : list
+N 2D images from the dataset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get2D(
+    N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False
+):
+    &#34;&#34;&#34;Returns a list of N random 2D images from the dataset.
+    Parameters
+    ----------
+    N : int
+        (default is 1) Number of images to return
+    data_loader : DataLoader
+        (default is None) The data loader to use to load the data
+    cancer : bool
+        (default is False)
+        If true will return only cancerous images, else will return only
+         non-cancerous images
+    randomize : bool
+        (default is False)
+        If true will return the images in a random order
+    config_num : int
+        (default is 1)
+        The option number corresponds to a set of paths to specific data
+        which is loaded into the data instance. config_num options are:
+        1: Full Omama dataset
+        2: Omama dataset for 2D whitelist
+    timing : bool
+        (default is False)
+        If true will print the time it took to perform the action
+    Return
+    ------
+    images : list
+        N 2D images from the dataset
+    &#34;&#34;&#34;
+    t0 = time.time()
+    if data_loader is None:
+        data_loader = O.OmamaLoader(config_num=config_num)
+    else:
+        data_loader = data_loader
+    data = O.Data(data_loader, load_cache=True)
+    if cancer is True:
+        label = &#34;IndexCancer&#34;
+    elif cancer is False:
+        label = &#34;NonCancer&#34;
+    else:
+        label = None
+    images = []
+    gen = data.next_image(_2d=True, label=label, randomize=randomize, timing=timing)
+    for i in range(N):
+        images.append(next(gen))
+    if timing is True:
+        O.Data.timing(t0, &#34;get2D&#34;)
+    return images</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.get3D"><code class="name flex">
+<span>def <span class="ident">get3D</span></span>(<span>N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of N random 3D images from the dataset.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>N</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 1) Number of images to return</dd>
+<dt><strong><code>data_loader</code></strong> :&ensp;<code>DataLoader</code></dt>
+<dd>(default is None) The data loader to use to load the data</dd>
+<dt><strong><code>cancer</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will return only cancerous images, else will return
+only non-cancerous images</dd>
+<dt><strong><code>randomize</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will return the images in a random order</dd>
+<dt><strong><code>config_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 1)
+The option number corresponds to a set of paths to specific data
+which is loaded into the data instance. config_num options are:
+1: Full Omama dataset
+2: Omama dataset for 2D whitelist</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will print the time it took to perform the action</dd>
+</dl>
+<h2 id="return">Return</h2>
+<p>images : list
+N 3D images from the dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get3D(
+    N=1, data_loader=None, cancer=None, randomize=False, config_num=2, timing=False
+):
+    &#34;&#34;&#34;Returns a list of N random 3D images from the dataset.
+    Parameters
+    ----------
+    N : int
+        (default is 1) Number of images to return
+    data_loader : DataLoader
+        (default is None) The data loader to use to load the data
+    cancer : bool
+        (default is False)
+        If true will return only cancerous images, else will return
+        only non-cancerous images
+    randomize : bool
+        (default is False)
+        If true will return the images in a random order
+    config_num : int
+        (default is 1)
+        The option number corresponds to a set of paths to specific data
+        which is loaded into the data instance. config_num options are:
+        1: Full Omama dataset
+        2: Omama dataset for 2D whitelist
+    timing : bool
+        (default is False)
+        If true will print the time it took to perform the action
+    Return
+    ------
+    images : list
+        N 3D images from the dataset.
+    &#34;&#34;&#34;
+    t0 = time.time()
+    if data_loader is None:
+        data_loader = O.OmamaLoader(config_num=config_num)
+    else:
+        data_loader = data_loader
+    data = O.Data(data_loader, load_cache=True)
+    if cancer is True:
+        label = &#34;IndexCancer&#34;
+    elif cancer is False:
+        label = &#34;NonCancer&#34;
+    else:
+        label = None
+    images = []
+    gen = data.next_image(_3d=True, label=label, randomize=randomize, timing=timing)
+    for i in range(N):
+        images.append(next(gen))
+    if timing is True:
+        O.Data.timing(t0, &#34;get3D&#34;)
+    return images</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.get_files_in_collection"><code class="name flex">
+<span>def <span class="ident">get_files_in_collection</span></span>(<span>colleciton_path, infile_type)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets a list of files in an image collection.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>collection_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to the image collection</dd>
+<dt><strong><code>infile_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of file in the collection</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list of files in the collection</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_files_in_collection(colleciton_path, infile_type):
+    &#34;&#34;&#34;Gets a list of files in an image collection.
+
+    Parameters
+    ----------
+    collection_path : str
+        path to the image collection
+    infile_type : str
+        type of file in the collection
+
+    Returns
+    -------
+    list
+        list of files in the collection
+    &#34;&#34;&#34;
+    # get the list of files in the collection
+    files = glob.glob(colleciton_path + &#34;/*.&#34; + infile_type)
+    return files</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.get_pixels"><code class="name flex">
+<span>def <span class="ident">get_pixels</span></span>(<span>image, data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the pixels from the image.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>any</code></dt>
+<dd>The image to get the pixels from.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pixels</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>The pixels of the image.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_pixels(image, data):
+    &#34;&#34;&#34;Gets the pixels from the image.
+    Parameters
+    ----------
+    image : any
+        The image to get the pixels from.
+    Returns
+    --------
+    pixels : numpy.ndarray
+        The pixels of the image.
+    &#34;&#34;&#34;
+    if isinstance(image, np.ndarray):
+        # print(&#39;image is a numpy array&#39;)
+        return image
+    elif isinstance(image, SimpleNamespace):
+        # print(&#39;image is a simple namespace object&#39;)
+        return image.pixels
+    elif isinstance(image, dicom.dataset.FileDataset):
+        # print(&#39;image is a dicom dataset&#39;)
+        return image.pixel_array
+    elif isinstance(image, list):
+        # print(&#39;image is a list&#39;)
+        if isinstance(image[0], np.ndarray):
+            # print(&#39;image is a list of numpy arrays&#39;)
+            return image
+        elif isinstance(image[0], SimpleNamespace):
+            # print(&#39;image is a list of simple namespace objects&#39;)
+            pixels = []
+            for i in image:
+                pixels.append(i.pixels)
+            return np.array(pixels)
+        elif isinstance(image[0], dicom.dataset.FileDataset):
+            # print(&#39;image is a list of dicom datasets&#39;)
+            pixels = []
+            for i in image:
+                pixels.append(i.pixel_array)
+            return np.array(pixels)
+        elif isinstance(image[0], str):
+            # print(&#39;image is a list of paths&#39;)
+            pixels = []
+            for i in image:
+                pixels.append(O.DataHelper.get_pixels(i, data))
+            return np.array(pixels)
+        else:
+            return (
+                &#34;Please specify either a path, image_id, dicom_name, &#34;
+                &#34;or a image object&#34;
+            )
+    else:
+        path = DataHelper.check_type(image, data)
+
+    if isinstance(path, str):
+        # print(&#39;Loading image from path using dicom...&#39;)
+        image = dicom.read_file(path, force=True)
+        return image.pixel_array
+    elif isinstance(path, O.Data):
+        # print(&#39;Loading image from data object...&#39;)
+        pixels = []
+        for d in path:
+            pixels.append(d.pixel_array)
+        return pixels
+    elif isinstance(path, list):
+        # print(&#39;Loading image from list of paths...&#39;)
+        pixels = []
+        for p in path:
+            pixels.append(O.DataHelper.get_pixels(p, data))
+        return pixels
+    else:
+        raise ValueError(&#34;Pixel array not found&#34;)</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.grid_view"><code class="name flex">
+<span>def <span class="ident">grid_view</span></span>(<span>images, N=None, slice_num=None, ncols=None, show_axis=False, title=None, plot_title=None, h_pad=-0.5, w_pad=5.0, figsize=(20, 20), cmap='gray', top=0.55, bottom=0.05, left=0.05, right=0.95, dpi=500)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots a grid of images from a list of images.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>images</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of images to plot</dd>
+<dt><strong><code>N</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is None)
+Number of images to plot from the list of images</dd>
+<dt><strong><code>slice_num</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>(default is None)
+if specified, it will display the frame number of all the 3D images</dd>
+<dt><strong><code>ncols</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is None)
+Number of columns in the grid</dd>
+<dt><strong><code>show_axis</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False) if True, will display the axis of the image.</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is None) Title of the plot</dd>
+<dt><strong><code>plot_title</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is None) Title of each image in the grid</dd>
+<dt><strong><code>h_pad</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is 0.5) Padding between subplots in the vertical direction</dd>
+<dt><strong><code>w_pad</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is 0.5) Padding between subplots in the horizontal direction</dd>
+<dt><strong><code>figsize</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>(default is None) Size of the figure</dd>
+<dt><strong><code>cmap</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is 'gray') Color map to use</dd>
+<dt><strong><code>top</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is 0.99) The top of the subplots of the figure</dd>
+<dt><strong><code>bottom</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is 0.01) The bottom of the subplots of the figure</dd>
+<dt><strong><code>left</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is 0.01) The left side of the subplots of the figure</dd>
+<dt><strong><code>right</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is 0.99) The right side of the subplots of the figure</dd>
+<dt><strong><code>dpi</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 500) Dots per inch</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def grid_view(
+    images,
+    N=None,
+    slice_num=None,
+    ncols=None,
+    show_axis=False,
+    title=None,
+    plot_title=None,
+    h_pad=-0.5,
+    w_pad=5.0,
+    figsize=(20, 20),
+    cmap=&#34;gray&#34;,
+    top=0.55,
+    bottom=0.05,
+    left=0.05,
+    right=0.95,
+    dpi=500,
+):
+    &#34;&#34;&#34;Plots a grid of images from a list of images.
+
+    Parameters
+    ----------
+    images : list
+        List of images to plot
+    N : int
+        (default is None)
+        Number of images to plot from the list of images
+    slice_num : int, optional
+        (default is None)
+        if specified, it will display the frame number of all the 3D images
+    ncols : int
+        (default is None)
+        Number of columns in the grid
+    show_axis : bool
+        (default is False) if True, will display the axis of the image.
+    title : str
+        (default is None) Title of the plot
+    plot_title : str
+        (default is None) Title of each image in the grid
+    h_pad : float
+        (default is 0.5) Padding between subplots in the vertical direction
+    w_pad : float
+        (default is 0.5) Padding between subplots in the horizontal direction
+    figsize : tuple
+        (default is None) Size of the figure
+    cmap : str
+        (default is &#39;gray&#39;) Color map to use
+    top : float
+        (default is 0.99) The top of the subplots of the figure
+    bottom : float
+        (default is 0.01) The bottom of the subplots of the figure
+    left : float
+        (default is 0.01) The left side of the subplots of the figure
+    right : float
+        (default is 0.99) The right side of the subplots of the figure
+    dpi : int
+        (default is 500) Dots per inch
+    &#34;&#34;&#34;
+    data = DataHelper.check_data_instance()
+    pixels = DataHelper.get_pixels(images, data)
+    if N is None or N &gt; len(pixels):
+        N = len(pixels)
+
+    plt.rcParams[&#34;figure.dpi&#34;] = dpi
+    imgs = pixels[:N].copy()
+    for i in range(len(imgs)):
+        if len(imgs[i].shape) == 3:
+            img = pixels[i]
+            if slice_num is None:
+                imgs[i] = img[img.shape[0] // 2]
+            else:
+                imgs[i] = img[slice_num]
+        elif len(imgs[i].shape) == 2:
+            img = pixels[i]
+            imgs[i] = img
+    if not ncols:
+        factors = [i for i in range(1, N + 1) if N % i == 0]
+        ncols = factors[len(factors) // 2] if len(factors) else len(imgs) // 4 + 1
+    nrows = int(N / ncols) + int(N % ncols)
+
+    f, axes = plt.subplots(nrows, ncols, figsize=figsize)
+    axes = axes.flatten()[:N]
+    for img, ax in zip(imgs, axes.flatten()):
+        if np.any(img):
+            if len(img.shape) &gt; 2 and img.shape[2] == 1:
+                img = img.squeeze()
+            ax.imshow(img, cmap=cmap)
+            if not show_axis:
+                ax.axis(&#34;off&#34;)
+            if plot_title:
+                ax.set_title(plot_title)
+    if title:
+        f.suptitle(title)
+    f.tight_layout(h_pad=h_pad, w_pad=w_pad)
+    f.subplots_adjust(top=top, bottom=bottom, left=left, right=right)
+    plt.show()
+    plt.close()</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.image_collection_to_npy_file"><code class="name flex">
+<span>def <span class="ident">image_collection_to_npy_file</span></span>(<span>colleciton_path, output_path, infile_type)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts an image collection to a numpy file.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>colleciton_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to the image collection</dd>
+<dt><strong><code>output_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to save the numpy file</dd>
+<dt><strong><code>infile_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of file in the collection</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def image_collection_to_npy_file(colleciton_path, output_path, infile_type):
+    &#34;&#34;&#34;Converts an image collection to a numpy file.
+
+    Parameters
+    ----------
+    colleciton_path : str
+        path to the image collection
+    output_path : str
+        path to save the numpy file
+    infile_type : str
+        type of file in the collection
+    &#34;&#34;&#34;
+    # get the list of files in the collection
+    files = DataHelper.get_files_in_collection(colleciton_path, infile_type)
+    # create a list to store the images
+    images = []
+    # go through each file
+    for file in files:
+        # read the image
+        img = DataHelper.read(file)
+        # add the image to the list
+        images.append(img)
+    # convert the list to a numpy array
+    images = np.array(images)
+    # save the numpy array        cls._init_labels()
+    np.save(output_path, images)</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.list_to_caselist"><code class="name flex">
+<span>def <span class="ident">list_to_caselist</span></span>(<span>list_of_paths, save_path, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts a list of paths to a text file with one path per line.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>list_of_paths</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of paths to the cases</dd>
+<dt><strong><code>save_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>path to save the text file</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False) If true will time execution of method,
+else will not</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>path to the text file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def list_to_caselist(list_of_paths, save_path, timing=False):
+    &#34;&#34;&#34;Converts a list of paths to a text file with one path per line.
+
+    Parameters
+    ----------
+    list_of_paths : list
+        list of paths to the cases
+    save_path : str
+        path to save the text file
+    timing : bool
+        (default is False) If true will time execution of method,
+        else will not
+
+    Returns
+    -------
+    str
+        path to the text file
+    &#34;&#34;&#34;
+    t0 = time.time()
+    # create a new text file
+    with open(save_path, &#34;w&#34;) as f:
+        # go through each path
+        for path in list_of_paths:
+            # write the path to the text file add the newline character if not
+            # the last path
+            if path != list_of_paths[-1]:
+                f.write(path + &#34;\n&#34;)
+            else:
+                f.write(path)
+
+    if timing is True:
+        O.Data.timing(t0, &#34;list_to_caselist&#34;)
+    return save_path</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.namespaces_to_dict"><code class="name flex">
+<span>def <span class="ident">namespaces_to_dict</span></span>(<span>namespaces)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts list of namespaces to a dictionary.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>namespaces</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of namespaces</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>dictionary of the namespace</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def namespaces_to_dict(namespaces):
+    &#34;&#34;&#34;Converts list of namespaces to a dictionary.
+
+    Parameters
+    ----------
+    namespaces : list
+        list of namespaces
+
+    Returns
+    -------
+    dict
+        dictionary of the namespace
+    &#34;&#34;&#34;
+    # create a dictionary
+    d = {}
+    # go through each namespace
+    for i, ns in enumerate(namespaces):
+        # add the namespace to the dictionary
+        d[i] = ns.__dict__
+    return d</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.parse_sop_uid_from_paths"><code class="name flex">
+<span>def <span class="ident">parse_sop_uid_from_paths</span></span>(<span>paths, substr_to_remove, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parse the SOPInstanceUID from a list of paths.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>paths</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of paths to dicom files</dd>
+<dt><strong><code>substr_to_remove</code></strong> :&ensp;<code>str</code></dt>
+<dd>string to remove from the beginning of the file name</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False) If true will time execution of method,
+else will not</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sop_uids</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of SOPInstanceUIDs</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def parse_sop_uid_from_paths(paths, substr_to_remove, timing=False):
+    &#34;&#34;&#34;Parse the SOPInstanceUID from a list of paths.
+    Parameters
+    ----------
+    paths : list
+        list of paths to dicom files
+    substr_to_remove : str
+        string to remove from the beginning of the file name
+    timing : bool
+        (default is False) If true will time execution of method,
+        else will not
+    Returns
+    -------
+    sop_uids : list
+        list of SOPInstanceUIDs
+    &#34;&#34;&#34;
+    t0 = time.time()
+    sop_uids = []
+    for path in paths:
+        sop_uids.append(os.path.basename(path).replace(substr_to_remove, &#34;&#34;))
+    if timing is True:
+        O.Data.timing(t0, &#34;parse_sop_uid_from_paths&#34;)
+    return sop_uids</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>file)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads an image file. using numpy</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def read(file):
+    &#34;&#34;&#34;Reads an image file. using numpy&#34;&#34;&#34;
+    # read a .TIF file
+    img = np.array(Image.open(file))
+    return img</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.remove_b_from_a"><code class="name flex">
+<span>def <span class="ident">remove_b_from_a</span></span>(<span>a, b)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes all elements in list b from list a.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>a</code></strong> :&ensp;<code>list</code></dt>
+<dd>list to remove elements from</dd>
+<dt><strong><code>b</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of elements to remove</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>list with elements removed</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def remove_b_from_a(a, b):
+    &#34;&#34;&#34;Removes all elements in list b from list a.
+
+    Parameters
+    ----------
+    a : list
+        list to remove elements from
+    b : list
+        list of elements to remove
+
+    Returns
+    -------
+    list
+        list with elements removed
+    &#34;&#34;&#34;
+    # turn a and b into sets and then subtract b from a
+    return list(set(a) - set(b))</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.show_histogram"><code class="name flex">
+<span>def <span class="ident">show_histogram</span></span>(<span>image, norm_type='min-max')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays a histogram of the images.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>array of pixel values</dd>
+<dt><strong><code>norm_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is 'min-max')
+type of normalization to use for the histogram</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def show_histogram(image, norm_type=&#34;min-max&#34;):
+    &#34;&#34;&#34;Displays a histogram of the images.
+    Parameters
+    ----------
+    image : np.ndarray
+        array of pixel values
+    norm_type : str
+        (default is &#39;min-max&#39;)
+        type of normalization to use for the histogram
+    &#34;&#34;&#34;
+    data = DataHelper.check_data_instance()
+    pixels = DataHelper.get_pixels(image, data)
+    # normalize the image
+    img = O.Normalize.get_norm(pixels, norm_type=norm_type)
+
+    y_axis = O.Features.histogram(img)
+    x_axis = np.arange(0, 256, 1)
+
+    fig, ax = plt.subplots()
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.bar(x_axis, y_axis, width=10, color=&#34;b&#34;, log=True)
+    ax.set_xlim(0.01, 255)
+    ax.set_ylim(0.01, 10**8)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.store"><code class="name flex">
+<span>def <span class="ident">store</span></span>(<span>image, filename, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stores the image as the specified file type.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>str, int, SimpleNamespace</code></dt>
+<dd>The image to display can be specified by its path, its id or by
+any of the objects returned by the DataHelper static methods or
+the Data get_image() method.</dd>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the file to store the image in. Should include the
+file extension, such as image.png or image.jpg. If no file extension
+is specified, it will default to DCM (Dicom) file format.</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will print the time it took to perform the action</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def store(image, filename, timing=False):
+    &#34;&#34;&#34;Stores the image as the specified file type.
+    Parameters
+    ----------
+    image : str, int, SimpleNamespace
+        The image to display can be specified by its path, its id or by
+        any of the objects returned by the DataHelper static methods or
+        the Data get_image() method.
+    filename : str
+        The name of the file to store the image in. Should include the
+        file extension, such as image.png or image.jpg. If no file extension
+        is specified, it will default to DCM (Dicom) file format.
+    timing : bool
+        (default is False)
+        If true will print the time it took to perform the action
+    &#34;&#34;&#34;
+    t0 = time.time()
+    file_name = filename.lower()
+    data = DataHelper.check_data_instance()
+    path = DataHelper.check_type(image, data)
+    if isinstance(path, dicom.dataset.FileDataset):
+        ds = path
+    else:
+        ds = dicom.dcmread(path)
+    if file_name.endswith(&#34;.dcm&#34;) is True or &#34;.&#34; not in file_name:
+        if &#34;.&#34; not in file_name:
+            filename = filename + &#34;.DCM&#34;
+        ds.save_as(filename, write_like_original=False)
+    elif file_name.endswith(&#34;.npy&#34;) is True:
+        np.save(filename, ds.pixel_array)
+    elif file_name.endswith(&#34;.npz&#34;) is True:
+        np.savez_compressed(filename, ds.pixel_array)
+    elif file_name.endswith(&#34;.png&#34;) is True:
+        final_image = DataHelper._rescale_image(ds)
+        final_image.save(filename)
+    elif file_name.endswith(&#34;.jpg&#34;) is True:
+        final_image = DataHelper._rescale_image(ds)
+        final_image.save(filename)
+    elif file_name.endswith(&#34;.tif&#34;) is True:
+        final_image = DataHelper._rescale_image(ds)
+        final_image.save(filename)
+    elif file_name.endswith(&#34;.bmp&#34;) is True:
+        final_image = DataHelper._rescale_image(ds)
+        final_image.save(filename)
+    else:
+        raise ValueError(&#34;File type not supported&#34;)
+
+    if timing is True:
+        O.Data.timing(t0, &#34;store&#34;)</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.store_all"><code class="name flex">
+<span>def <span class="ident">store_all</span></span>(<span>data: <a title="omama.data.Data" href="../data.html#omama.data.Data">Data</a>, save_path, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>stores all the images from the omama.Data class instance into the
+specified save_path.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>omama.Data</code></dt>
+<dd>The omama.Data class instance to store all the images from.</dd>
+<dt><strong><code>save_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to store the images in.</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will print the time it took to perform the action</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def store_all(data: omama.Data, save_path, timing=False):
+    &#34;&#34;&#34;stores all the images from the omama.Data class instance into the
+     specified save_path.
+
+    Parameters
+    ----------
+    data : omama.Data
+        The omama.Data class instance to store all the images from.
+    save_path : str
+        The path to store the images in.
+    timing : bool
+        (default is False)
+        If true will print the time it took to perform the action
+    &#34;&#34;&#34;
+    t0 = time.time()
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+    i = 0
+    for img in data:
+        print(type(img))
+        path = data.image_paths[i]
+
+        # get the last part of the path to use as the filename
+        filename = path.split(&#34;/&#34;)[-1].replace(&#34;.&#34;, &#34;_&#34;) + &#34;.DCM&#34;
+        print(filename)
+        # add the save path to the filename
+        temp_save_path = os.path.join(save_path, filename)
+        # store the image
+        print(temp_save_path)
+        DataHelper.store(img, temp_save_path, timing=timing)
+        i += 1
+    if timing is True:
+        O.Data.timing(t0, &#34;store_all&#34;)</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.view"><code class="name flex">
+<span>def <span class="ident">view</span></span>(<span>image, prediction=None, slice_num=None, cmap='gray', vmin=None, vmax=None, normalize=False, interpolation='none', config_num=1, histogram=False, downsample=None, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays the image in the specified path or image_id
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>image</code></strong> :&ensp;<code>str, int, SimpleNamespace</code></dt>
+<dd>The image to display can be specified by its path, its id or by
+any of the objects returned by the DataHelper static methods or
+the Data get_image() method.</dd>
+<dt><strong><code>prediction</code></strong> :&ensp;<code>dict</code></dt>
+<dd>(default is None)
+If specified, will add a bounding box to the image.</dd>
+<dt><strong><code>slice_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is None)
+If specified will display the specified frame of the 3D image.</dd>
+<dt><strong><code>cmap</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is 'gray') The color map to use. cmap can be the following:
+'gray', 'bone', 'viridis', 'plasma', 'inferno', 'magma', 'cividis'</dd>
+<dt><strong><code>vmin</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is None) The minimum value of the color map. Can set to
+'auto' to use the minimum value of the image.</dd>
+<dt><strong><code>vmax</code></strong> :&ensp;<code>float</code></dt>
+<dd>(default is None) The maximum value of the color map. Can set to
+'auto' to use the maximum value of the image.</dd>
+<dt><strong><code>normalize</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will normalize the image to the range [0, 1].</dd>
+<dt><strong><code>interpolation</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is 'nearest') The interpolation to use when displaying
+the image. Interpolation can be 'nearest', 'bilinear', 'bicubic',
+or 'spline16', 'spline36', 'hanning', 'hamming', 'hermite',
+'kaiser', 'quadratic', 'catrom', 'gaussian', 'bessel', 'mitchell',
+'sinc', 'lanczos' or 'none'.</dd>
+<dt><strong><code>config_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 1)
+The option number corresponds to a set of paths to specific data
+which is loaded into the data instance. config_num options are:
+1: Full Omama dataset
+2: Omama dataset for 2D whitelist
+&hellip; see OmamaLoader for full list of config_num options</dd>
+<dt><strong><code>histogram</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False) if True, the histogram of the image will be
+displayed.</dd>
+<dt><strong><code>downsample</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>(default is None) If specified, will downsample the image by the
+specified factor. The tuple should be of the form (x, y, z) where
+x, y, and z are the downsample factors for the x, y, and z
+dimensions respectively.</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False)
+If true will print the time it took to perform the action</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def view(
+    image,
+    prediction=None,
+    slice_num=None,
+    cmap=&#34;gray&#34;,
+    vmin=None,
+    vmax=None,
+    normalize=False,
+    interpolation=&#34;none&#34;,
+    config_num=1,
+    histogram=False,
+    downsample=None,
+    timing=False,
+):
+    &#34;&#34;&#34;Displays the image in the specified path or image_id
+    Parameters
+    ----------
+    image : str, int, SimpleNamespace
+        The image to display can be specified by its path, its id or by
+        any of the objects returned by the DataHelper static methods or
+        the Data get_image() method.
+    prediction : dict
+        (default is None)
+        If specified, will add a bounding box to the image.
+    slice_num : int
+        (default is None)
+        If specified will display the specified frame of the 3D image.
+    cmap : str
+        (default is &#39;gray&#39;) The color map to use. cmap can be the following:
+        &#39;gray&#39;, &#39;bone&#39;, &#39;viridis&#39;, &#39;plasma&#39;, &#39;inferno&#39;, &#39;magma&#39;, &#39;cividis&#39;
+    vmin : float
+        (default is None) The minimum value of the color map. Can set to
+        &#39;auto&#39; to use the minimum value of the image.
+    vmax : float
+        (default is None) The maximum value of the color map. Can set to
+        &#39;auto&#39; to use the maximum value of the image.
+    normalize : bool
+        (default is False)
+        If true will normalize the image to the range [0, 1].
+    interpolation : str
+        (default is &#39;nearest&#39;) The interpolation to use when displaying
+        the image. Interpolation can be &#39;nearest&#39;, &#39;bilinear&#39;, &#39;bicubic&#39;,
+        or &#39;spline16&#39;, &#39;spline36&#39;, &#39;hanning&#39;, &#39;hamming&#39;, &#39;hermite&#39;,
+        &#39;kaiser&#39;, &#39;quadratic&#39;, &#39;catrom&#39;, &#39;gaussian&#39;, &#39;bessel&#39;, &#39;mitchell&#39;,
+        &#39;sinc&#39;, &#39;lanczos&#39; or &#39;none&#39;.
+    config_num : int
+        (default is 1)
+        The option number corresponds to a set of paths to specific data
+        which is loaded into the data instance. config_num options are:
+        1: Full Omama dataset
+        2: Omama dataset for 2D whitelist
+        ... see OmamaLoader for full list of config_num options
+    histogram : bool
+        (default is False) if True, the histogram of the image will be
+        displayed.
+    downsample : tuple
+        (default is None) If specified, will downsample the image by the
+        specified factor. The tuple should be of the form (x, y, z) where
+        x, y, and z are the downsample factors for the x, y, and z
+        dimensions respectively.
+    timing : bool
+        (default is False)
+        If true will print the time it took to perform the action
+    &#34;&#34;&#34;
+    t0 = time.time()
+    is_nparray = False
+    sop_uid = None
+    data = DataHelper.check_data_instance(config_num=config_num)
+    print(&#34;type of data: &#34;, type(data))
+    path = DataHelper.check_type(image, data)
+
+    if isinstance(path, dicom.dataset.FileDataset):
+        ds = path
+    elif isinstance(path, np.ndarray):
+        ds = path
+        is_nparray = True
+    else:
+        ds = dicom.dcmread(path)
+
+    if is_nparray is False:
+        is_3d_flag = len(ds.pixel_array.shape) == 3
+        # save the sop_uid for the image
+        sop_uid = ds.SOPInstanceUID
+    else:
+        is_3d_flag = len(ds.shape) == 3
+
+    if is_3d_flag:
+        # 3D image
+        if is_nparray is False:
+            img = ds.pixel_array.copy()
+        else:
+            img = ds.copy()
+        if slice_num is None:
+            # displays the center fame by default
+            if prediction is not None and is_nparray is False:
+                # get the slice number from the prediction
+                slice_num = prediction[sop_uid][&#34;slice&#34;]
+            else:
+                slice_num = int(img.shape[0] // 2)
+            img = img[slice_num]
+        else:
+            img = img[slice_num]
+    elif is_3d_flag is False:
+        # 2D image
+        if is_nparray is False:
+            img = ds.pixel_array.copy()
+        else:
+            img = ds.copy()
+    else:
+        print(&#34;Not a valid image&#34;)
+        return None
+    # get the dicoms window center and width and use that for vmin and vmax
+    if is_3d_flag is False and is_nparray is False:
+        if isinstance(ds.WindowCenter, dicom.valuerep.DSfloat):
+            wc = float(ds.WindowCenter)
+        else:
+            wc = float(ds.WindowCenter[1])
+        if isinstance(ds.WindowWidth, dicom.valuerep.DSfloat):
+            ww = float(ds.WindowWidth)
+        else:
+            ww = float(ds.WindowWidth[1])
+    elif is_3d_flag and is_nparray is False:
+        wc = (
+            ds.SharedFunctionalGroupsSequence[0].FrameVOILUTSequence[0].WindowCenter
+        )
+        ww = ds.SharedFunctionalGroupsSequence[0].FrameVOILUTSequence[0].WindowWidth
+
+    if vmin is None and is_nparray is False:
+        vmin = wc - ww
+    if vmax is None and is_nparray is False:
+        vmax = wc + ww
+
+    if prediction is not None:
+        img = DataHelper._add_bounding_box(img, prediction, sop_uid)
+    # get then minimum and maximum pixel values from the image
+    if vmin == &#34;auto&#34;:
+        vmin = img.min()
+    if vmax == &#34;auto&#34;:
+        vmax = img.max()
+    # normalize the image
+    if normalize is True:
+        norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+        # we set vmin and vmax to None because if norm is being passed
+        # into the imshow function it needs the vmin and vmax to be None.
+        vmin = None
+        vmax = None
+    else:
+        norm = None
+
+    if downsample is not None:
+        from skimage.transform import resize
+
+        img = resize(img, downsample, order=0, preserve_range=True)
+        img = img.astype(np.uint16)
+
+    if histogram:
+        if normalize:
+            # perform max normalization on the image
+            img = O.Normalize.minmax(img)
+        img_hist = O.Features.histogram(img)
+        plt.hist(img_hist)
+    else:
+        # display the image
+        plt.figure(figsize=(10, 10))
+        plt.imshow(
+            img,
+            cmap=cmap,
+            vmin=vmin,
+            vmax=vmax,
+            norm=norm,
+            interpolation=interpolation,
+        )
+    if prediction is not None:
+        # getting the bounding box coordinates for red overlay
+        bb = DataHelper._get_coords(prediction, sop_uid)
+        if bb is not None:
+            plt.gca().add_patch(
+                plt.Rectangle(
+                    (bb[0], bb[1]),
+                    bb[2] - bb[0],
+                    bb[3] - bb[1],
+                    fill=False,
+                    edgecolor=&#34;r&#34;,
+                    linewidth=2,
+                )
+            )
+    # print the score of the prediction
+    if prediction is not None:
+        score = prediction[sop_uid][&#34;score&#34;]
+        plt.title(&#34;Score: {}&#34;.format(score))
+
+    if timing is True:
+        O.Data.timing(t0, &#34;view&#34;)</code></pre>
+</details>
+</dd>
+<dt id="omama.utils.data_helper.DataHelper.view_grid"><code class="name flex">
+<span>def <span class="ident">view_grid</span></span>(<span>images, slice_num=None, ncols=None, figsize=None, cmap='gray', show_indices=False, index=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots a grid of images from a list of images.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>images</code></strong> :&ensp;<code>any</code></dt>
+<dd>List of images to plot</dd>
+<dt><strong><code>slice_num</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>(default is None)
+if specified, it will display the frame number of all the 3D images</dd>
+<dt><strong><code>ncols</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is None)
+Number of columns in the grid</dd>
+<dt><strong><code>figsize</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>(default is None) Size of the figure</dd>
+<dt><strong><code>cmap</code></strong> :&ensp;<code>str</code></dt>
+<dd>(default is 'gray') Color map to use</dd>
+<dt><strong><code>show_indices</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False) If True, it will show the index of the image
+in the grid</dd>
+<dt><strong><code>index</code></strong> :&ensp;<code>int</code></dt>
+<dd>(default is 0) Index of the show_indices to start at</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def view_grid(
+    images,
+    slice_num=None,
+    ncols=None,
+    figsize=None,
+    cmap=&#34;gray&#34;,
+    show_indices=False,
+    index=0,
+):
+    &#34;&#34;&#34;Plots a grid of images from a list of images.
+
+    Parameters
+    ----------
+    images : any
+        List of images to plot
+    slice_num : int, optional
+        (default is None)
+        if specified, it will display the frame number of all the 3D images
+    ncols : int
+        (default is None)
+        Number of columns in the grid
+    figsize : tuple
+        (default is None) Size of the figure
+    cmap : str
+        (default is &#39;gray&#39;) Color map to use
+    show_indices : bool
+        (default is False) If True, it will show the index of the image
+        in the grid
+    index : int
+        (default is 0) Index of the show_indices to start at
+    &#34;&#34;&#34;
+    data = DataHelper.check_data_instance()
+    pixels = DataHelper.get_pixels(images, data)
+
+    # images_copy = pixels.copy()
+    imgs = pixels.copy()
+    for i in range(len(imgs)):
+        if len(imgs[i].shape) == 3:
+            img = pixels[i]  # images[i].pixels
+            if slice_num is None:
+                imgs[i] = img[img.shape[0] // 2]
+            else:
+                imgs[i] = img[slice_num]
+
+    if not ncols:
+        factors = [i for i in range(1, len(imgs) + 1) if len(imgs) % i == 0]
+        ncols = factors[len(factors) // 2] if len(factors) else len(imgs) // 4 + 1
+    nrows = int(len(imgs) / ncols) + int(len(imgs) % ncols)
+
+    if figsize is None:
+        figsize = (3 * ncols, 2 * nrows)
+
+    fig, ax = plt.subplots(nrows=nrows, ncols=ncols, figsize=figsize)
+    for i in range(nrows):
+        for j in range(ncols):
+            if i * ncols + j &lt; len(imgs):
+                ax[i, j].imshow(imgs[i * ncols + j], cmap=cmap)
+                if show_indices:
+                    ax[i, j].axis(&#34;off&#34;)
+                    ax[i, j].set_title(index)
+                index += 1
+    plt.tight_layout()
+    plt.show()
+
+    # if index &lt; len(imgs):
+    #     ax[i, j].imshow(imgs[index], cmap=cmap)
+    #     if show_indices:
+    #         ax[i, j].axis(&#39;off&#39;)
+    #         ax[i, j].set_title(index)
+    #     index += 1
+    # else:
+    #     ax[i, j].axis(&#39;off&#39;)
+
+    # fig, ax = plt.subplots(nrows, ncols, figsize=figsize)
+    # axes = axes.flatten()[:len(imgs)]
+    #
+    # for img, ax in zip(imgs, axes.flatten()):
+    #     if np.any(img):
+    #         if len(img.shape) &gt; 2 and img.shape[2] == 1:
+    #             img = img.squeeze()
+    #         if show_indices:
+    #             ax.axis(&#39;off&#39;)
+    #             ax.set_title(index)
+    #         ax.imshow(img, cmap=cmap)
+    #         index += 1</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="omama.utils.data_helper.DataHelper.merge_lists"><code class="name flex">
+<span>def <span class="ident">merge_lists</span></span>(<span>*args)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Merges a list of lists into a single list.
+goes through each list taking element i from each list and adding it to the
+new list until all lists are exhausted.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>*args</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of lists to merge</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>merged list</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def merge_lists(*args):
+    &#34;&#34;&#34;Merges a list of lists into a single list.
+    goes through each list taking element i from each list and adding it to the
+    new list until all lists are exhausted.
+
+    Parameters
+    ----------
+    *args : list
+        list of lists to merge
+
+    Returns
+    -------
+    list
+        merged list
+    &#34;&#34;&#34;
+    merged_list = []
+    for i in range(len(args[0])):
+        for j in range(len(args)):
+            merged_list.append(args[j][i])
+    return merged_list</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="omama.utils" href="index.html">omama.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="omama.utils.data_helper.DataHelper" href="#omama.utils.data_helper.DataHelper">DataHelper</a></code></h4>
+<ul class="">
+<li><code><a title="omama.utils.data_helper.DataHelper.add_b_to_a" href="#omama.utils.data_helper.DataHelper.add_b_to_a">add_b_to_a</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.build_gt" href="#omama.utils.data_helper.DataHelper.build_gt">build_gt</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.check_data_instance" href="#omama.utils.data_helper.DataHelper.check_data_instance">check_data_instance</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.check_type" href="#omama.utils.data_helper.DataHelper.check_type">check_type</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.combine_best_results_and_resave" href="#omama.utils.data_helper.DataHelper.combine_best_results_and_resave">combine_best_results_and_resave</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.data_to_binary_bin_hists" href="#omama.utils.data_helper.DataHelper.data_to_binary_bin_hists">data_to_binary_bin_hists</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.file_to_list" href="#omama.utils.data_helper.DataHelper.file_to_list">file_to_list</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.get" href="#omama.utils.data_helper.DataHelper.get">get</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.get2D" href="#omama.utils.data_helper.DataHelper.get2D">get2D</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.get3D" href="#omama.utils.data_helper.DataHelper.get3D">get3D</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.get_files_in_collection" href="#omama.utils.data_helper.DataHelper.get_files_in_collection">get_files_in_collection</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.get_pixels" href="#omama.utils.data_helper.DataHelper.get_pixels">get_pixels</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.grid_view" href="#omama.utils.data_helper.DataHelper.grid_view">grid_view</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.image_collection_to_npy_file" href="#omama.utils.data_helper.DataHelper.image_collection_to_npy_file">image_collection_to_npy_file</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.list_to_caselist" href="#omama.utils.data_helper.DataHelper.list_to_caselist">list_to_caselist</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.merge_lists" href="#omama.utils.data_helper.DataHelper.merge_lists">merge_lists</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.namespaces_to_dict" href="#omama.utils.data_helper.DataHelper.namespaces_to_dict">namespaces_to_dict</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.parse_sop_uid_from_paths" href="#omama.utils.data_helper.DataHelper.parse_sop_uid_from_paths">parse_sop_uid_from_paths</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.read" href="#omama.utils.data_helper.DataHelper.read">read</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.remove_b_from_a" href="#omama.utils.data_helper.DataHelper.remove_b_from_a">remove_b_from_a</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.show_histogram" href="#omama.utils.data_helper.DataHelper.show_histogram">show_histogram</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.store" href="#omama.utils.data_helper.DataHelper.store">store</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.store_all" href="#omama.utils.data_helper.DataHelper.store_all">store_all</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.view" href="#omama.utils.data_helper.DataHelper.view">view</a></code></li>
+<li><code><a title="omama.utils.data_helper.DataHelper.view_grid" href="#omama.utils.data_helper.DataHelper.view_grid">view_grid</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

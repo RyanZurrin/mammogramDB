@@ -1,0 +1,43 @@
+In XGBOD algorithm
+In assign_from_kwargs
+key is:  max_depth
+In assign_from_kwargs
+key is:  learning_rate
+In assign_from_kwargs
+key is:  n_estimators
+In assign_from_kwargs
+key is:  silent
+In assign_from_kwargs
+key is:  objective
+In assign_from_kwargs
+key is:  booster
+In assign_from_kwargs
+key is:  n_jobs
+In assign_from_kwargs
+key is:  gamma
+In assign_from_kwargs
+key is:  min_child_weight
+In assign_from_kwargs
+key is:  max_delta_step
+In assign_from_kwargs
+key is:  subsample
+In assign_from_kwargs
+key is:  colsample_bytree
+In assign_from_kwargs
+key is:  colsample_bylevel
+In assign_from_kwargs
+key is:  reg_alpha
+In assign_from_kwargs
+key is:  reg_lambda
+In assign_from_kwargs
+key is:  scale_pos_weight
+In assign_from_kwargs
+key is:  base_score
+In assign_from_kwargs
+key is:  standardization_flag_list
+In assign_from_kwargs
+key is:  random_state
+In assign_from_kwargs
+key is:  nthread
+In assign_from_kwargs
+key is:  estimator_list

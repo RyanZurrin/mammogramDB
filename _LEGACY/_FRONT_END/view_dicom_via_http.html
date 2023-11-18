@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>dicom load test</title>
+
+        <script src="https://unpkg.com/cornerstone-core/dist/cornerstone.min.js"></script>
+        <script src="https://unpkg.com/cornerstone-wado-image-loader@3.1.2/dist/cornerstoneWADOImageLoader.min.js"></script>
+        <script src="https://unpkg.com/dicom-parser"></script>
+        <script src="https://unpkg.com/cornerstone-math"></script>
+        <script src="https://unpkg.com/cornerstone-tools"></script>
+        <script src="https://unpkg.com/hammerjs"></script>
+
+        <style>
+          body {
+            margin:0px;padding:0px;background:black;
+          }
+          #viewer {
+            width:100%;height:100%;
+          }
+        </style>
+
+        <script>
+
+          cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
+          cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
+          cornerstoneTools.external.Hammer = Hammer;
+          cornerstoneTools.external.cornerstone = cornerstone;
+          cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
+
+          window.onload = function() {
+
+            // we need to make sure the DIV viewer exists
+
+            var viewer = document.getElementById('viewer');
+            var imageId =
+                "dicomweb://"+window.location.host+"/test_dicoms/2.25.222025678829714800864976803919041227900.dcm";
+            // var imageId =
+            //     "dicomweb://"+window.location.host+"/get_dicom/?XXXX";
+
+            cornerstoneTools.init();  
+
+            cornerstone.enable(viewer);
+
+            cornerstone.loadImage(imageId).then(function (image) {
+
+                    var viewport = cornerstone.getDefaultViewportForImage(viewer, image);
+
+                    cornerstone.displayImage(viewer, image, viewport);
+
+                });
+
+          }
+        
+
+        </script>
+    </head>
+    <body>
+        <div id='viewer'></div>
+    </body>
+</html>

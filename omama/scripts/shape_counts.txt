@@ -1,0 +1,6 @@
+Shape (3062, 2394): Count 79618
+Shape (2294, 1914): Count 70386
+Shape (4096, 3328): Count 6920
+Shape (3328, 2560): Count 6122
+Shape (2457, 1996): Count 316
+Shape (2457, 1890): Count 206

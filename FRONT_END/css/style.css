@@ -1,0 +1,18 @@
+body {
+    margin:0px;padding:0px;background:black;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.infopanel {
+    position: absolute;
+    bottom: 10px;
+    left:10px;
+    color: white;
+    font-size: 10px;
+    font-family: sans-serif;
+    background-color: transparent;
+    z-index: 1000;
+}

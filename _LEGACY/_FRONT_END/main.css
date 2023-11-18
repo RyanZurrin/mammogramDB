@@ -1,0 +1,49 @@
+body {
+    margin:0px;padding:0px;background:black;
+}
+
+#tooltip {
+    position:absolute;
+    z-index:1000;
+    background-color: transparent;
+    padding:2px 5px;
+    font-size:12px;
+    line-height:1.2em;
+    display:none;
+}
+
+div.image.before {
+    content:url("images/tooltip.png");
+}
+
+#image-data, p{
+    position: absolute;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+#image-id {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    text-align: left;
+    color: yellow;
+}
+
+#image-score {
+    position: absolute;
+    bottom: 10px;
+    left: 300px;
+    text-align: left;
+    color: yellow;
+}
+
+#image-quality {
+    position: absolute;
+    bottom: 10px;
+    left: 350px;
+    text-align: left;
+    color: yellow;
+}

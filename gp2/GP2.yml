@@ -1,0 +1,20 @@
+name: GP2
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.9.7
+  - chardet
+  - jupyter
+  - jupyter-resource-usage
+  - matplotlib=3.5.1
+  - cudatoolkit=11.3.1
+  - cudnn=8.2.1
+  - pip=23.2.1
+  - pip:
+      - tensorflow==2.5.0
+      - tensorboard==2.8.0
+      - keras-unet
+      - keras-unet-collection
+      - protobuf==3.20.0

@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\begin{document}
+\begin{table}[]
+\centering\begin{tabular}{c|c|c}
+\toprule
+Algorithm & Feature & Accuracy \\
+\midrule
+KNN & Histogram & 0.6250 ± 0.0000 \\
+AvgKNN & Histogram & 0.6250 ± 0.0000 \\
+COF & SIFT & 0.5750 ± 0.0874 \\
+DeepSVDD & Histogram & 0.5500 ± 0.1054 \\
+LOF & SIFT & 0.5500 ± 0.0645 \\
+SOS & SIFT & 0.5250 ± 0.0527 \\
+ECOD & Histogram & 0.5000 ± 0.0000 \\
+MedKNN & Histogram & 0.5000 ± 0.0000 \\
+IForest & Histogram & 0.4750 ± 0.1291 \\
+OCSVM & Histogram & 0.4625 ± 0.0604 \\
+INNE & SIFT & 0.4625 ± 0.0604 \\
+KDE & Histogram & 0.4250 ± 0.0645 \\
+Sampling & Histogram & 0.4000 ± 0.1291 \\
+COPOD & Histogram & 0.3750 ± 0.0000 \\
+PCA & Histogram & 0.3750 ± 0.0000 \\
+SUOD & SIFT & 0.3375 ± 0.1029 \\
+FB & SIFT & 0.3125 ± 0.0884 \\
+LODA & Histogram & 0.3125 ± 0.1062 \\
+SOD & SIFT & 0.3000 ± 0.1208 \\
+VAE & Histogram & 0.2625 ± 0.0395 \\
+AE & Histogram & 0.2500 ± 0.0000 \\
+SOGAAL & ORB & 0.1375 ± 0.1243 \\
+CBLOF & SIFT & 0.1250 ± 0.0000 \\
+LMDD & SIFT & 0.1250 ± 0.0000 \\
+AnoGAN & SIFT & 0.1000 ± 0.0791 \\
+HBOS & Histogram & 0.0000 ± 0.0000 \\
+\bottomrule
+\end{tabular}
+\caption{Best results for 8\%}
+\label{tab:my_label}
+\end{table}
+\begin{table}[]
+\centering\begin{tabular}{c|c|c}
+\toprule
+Algorithm & Feature & Accuracy \\
+\midrule
+KNN & Histogram & 0.6923 ± 0.0000 \\
+AvgKNN & Histogram & 0.6923 ± 0.0000 \\
+COF & SIFT & 0.6769 ± 0.0607 \\
+LOF & SIFT & 0.6615 ± 0.0538 \\
+ECOD & Histogram & 0.6154 ± 0.0000 \\
+MedKNN & Histogram & 0.6154 ± 0.0000 \\
+OCSVM & Histogram & 0.6077 ± 0.0437 \\
+IForest & Histogram & 0.5692 ± 0.0743 \\
+SOS & SIFT & 0.5692 ± 0.0743 \\
+CBLOF & Histogram & 0.5385 ± 0.0000 \\
+INNE & SIFT & 0.5308 ± 0.1054 \\
+KDE & Histogram & 0.5000 ± 0.0654 \\
+DeepSVDD & Histogram & 0.4923 ± 0.1547 \\
+PCA & Histogram & 0.4692 ± 0.0243 \\
+LODA & Histogram & 0.4615 ± 0.0725 \\
+Sampling & SIFT & 0.4308 ± 0.1214 \\
+COPOD & Histogram & 0.3846 ± 0.0000 \\
+SOD & SIFT & 0.3692 ± 0.0487 \\
+SUOD & Histogram & 0.3692 ± 0.0794 \\
+FB & SIFT & 0.3154 ± 0.0243 \\
+AE & SIFT & 0.3077 ± 0.0000 \\
+VAE & SIFT & 0.3077 ± 0.0000 \\
+LMDD & SIFT & 0.1769 ± 0.1029 \\
+SOGAAL & ORB & 0.1385 ± 0.0794 \\
+AnoGAN & SIFT & 0.1077 ± 0.0397 \\
+HBOS & Histogram & 0.0000 ± 0.0000 \\
+\bottomrule
+\end{tabular}
+\caption{Best results for 13\%}
+\label{tab:my_label}
+\end{table}
+\begin{table}[]
+\centering\begin{tabular}{c|c|c}
+\toprule
+Algorithm & Feature & Accuracy \\
+\midrule
+KNN & Histogram & 0.8333 ± 0.0000 \\
+AvgKNN & Histogram & 0.8333 ± 0.0000 \\
+MedKNN & Histogram & 0.8333 ± 0.0000 \\
+COF & SIFT & 0.8167 ± 0.0351 \\
+OCSVM & Histogram & 0.8083 ± 0.0215 \\
+LOF & SIFT & 0.8042 ± 0.0281 \\
+INNE & SIFT & 0.7458 ± 0.0571 \\
+SOS & SIFT & 0.7333 ± 0.0448 \\
+KDE & Histogram & 0.7042 ± 0.0307 \\
+COPOD & Histogram & 0.6250 ± 0.0000 \\
+ECOD & Histogram & 0.6250 ± 0.0000 \\
+FB & Histogram & 0.6250 ± 0.0000 \\
+VAE & SIFT & 0.6208 ± 0.0132 \\
+IForest & Histogram & 0.6125 ± 0.0557 \\
+SOD & SIFT & 0.6083 ± 0.0215 \\
+SUOD & SIFT & 0.5958 ± 0.0395 \\
+DeepSVDD & Histogram & 0.5625 ± 0.2517 \\
+CBLOF & SIFT & 0.5542 ± 0.0395 \\
+LODA & Histogram & 0.5375 ± 0.0459 \\
+Sampling & Histogram & 0.5042 ± 0.0693 \\
+AE & SIFT & 0.4958 ± 0.0132 \\
+PCA & Histogram & 0.4875 ± 0.0201 \\
+SOGAAL & ORB & 0.2917 ± 0.1934 \\
+AnoGAN & ORB & 0.2083 ± 0.0000 \\
+LMDD & ORB & 0.2083 ± 0.0000 \\
+HBOS & Histogram & 0.0000 ± 0.0000 \\
+\bottomrule
+\end{tabular}
+\caption{Best results for 24\%}
+\label{tab:my_label}
+\end{table}
+\end{document}

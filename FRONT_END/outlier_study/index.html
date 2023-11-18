@@ -1,0 +1,112 @@
+<html>
+
+  <head>
+    <title>Outlier Study</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon  located-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <script>
+    foldername = 'userstudy5'
+
+    counter = 0;
+    markers = [];
+    current_img = 0;
+    images = [
+      foldername + '_images/start.png',
+      foldername + '_images/i.png',
+      foldername + '_images/i1.png',
+      foldername + '_images/i2.png',
+      foldername + '_images/i3.png',
+      foldername + '_images/i4.png',
+      foldername + '_images/i5.png',
+      foldername + '_images/i6.png',
+      foldername + '_images/i7.png',
+      foldername + '_images/i8.png',
+      foldername + '_images/i9.png'
+    ];
+
+    function clearMarkers() {
+      for (let i = 0; i < markers.length; i++) {
+        markers[i].remove();
+      }
+    }
+
+    function getNextImage() {
+      counter;
+      if (current_img === 0 && counter !== 0) {
+        counter = 0;
+      }
+      current_img++;
+      if (current_img >= images.length) {
+        alert('You found ' + counter + ' outliers! Thank you!');
+        clearMarkers();
+        img.src = 'end.png';
+        return;
+      }
+      img.src = images[current_img];
+      clearMarkers();
+    }
+
+    function processKeyPress(e) {
+
+      e.preventDefault();
+      if (e.code === 'Space') {
+        getNextImage();
+      }
+
+      if (e.code === 'KeyR') {
+        if (markers.length > 0) {
+          markers[markers.length - 1].remove();
+          markers.pop();
+          counter--;
+        }
+      }
+
+      if (e.code === 'ArrowRight') {
+        getNextImage();
+      }
+
+    }
+
+
+    window.onload = function() {
+      img = document.getElementById('i');
+
+
+      img.onclick = function (e) {
+        console.log(e.clientX, e.clientY);
+        const marker = document.getElementById('marker');
+        const newmarker = marker.cloneNode();
+        newmarker.style.position = 'absolute';
+        newmarker.style.left = e.pageX
+        newmarker.style.top = e.pageY
+        newmarker.style.display = 'block'
+        markers.push(newmarker);
+        document.body.appendChild(newmarker);
+        counter++;
+      }
+
+
+      window.onkeydown = function(e) {
+        processKeyPress(e);
+      };
+
+
+    }
+
+    </script>
+
+
+  </head>
+
+  <body>
+  <!-- load initial start images and center it in browser window and resize to make it fit with inline style-->
+    <img id="i" src="userstudy5_images/start.png" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; object-fit: contain;">
+
+    <div style='background-color: red;width:10px;height:10px;display:none' id='marker'></div>
+
+  </body>
+
+</html>

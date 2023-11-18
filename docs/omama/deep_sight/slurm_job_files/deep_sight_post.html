@@ -1,0 +1,2049 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>omama.deep_sight.slurm_job_files.deep_sight_post API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>omama.deep_sight.slurm_job_files.deep_sight_post</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import json
+import time
+from datetime import datetime
+import getpass
+import uuid
+import pydicom as dicom
+import omama.data as d
+from omama.algorithms import Algorithms
+import os
+
+# _____________________ variables below need to get set: _______________________
+ERROR_CODE_CSV_PATH = r&#34;/raid/mpsych/acceptance_criteria.csv&#34;
+
+DEEPSIGHT_SCRIPT = os.path.dirname(os.path.realpath(__file__)) + &#34;/deepsight2.sh&#34;
+
+OUTPUT_DIRECTORY = r&#34;/raid/mpsych/deepsight_out/&#34;
+
+CACHE_PATH = r&#34;/raid/mpsych/cache_files/predictions_cache.json&#34;
+
+CASELIST_FILE_NAME = r&#34;caselist.txt&#34;
+
+
+# _____________________ end of variables to set _______________________________!
+
+
+class DeepSightPost(Algorithms):
+    &#34;&#34;&#34;
+    DeepSight class is used to run the DeepSight classifier.
+    &#34;&#34;&#34;
+
+    sop_to_path_dict = {}
+
+    @staticmethod
+    def _generate_error_codes_dict(csv_path=None):
+        &#34;&#34;&#34;Generate a dictionary of error codes and their corresponding
+        descriptions.
+        Parameters
+        ----------
+        csv_path: str
+            path to the csv file containing the error codes
+        Returns
+        -------
+        error_codes_dict: dict
+            dictionary of error codes and their corresponding descriptions
+        &#34;&#34;&#34;
+        error_codes_dict = {}
+        if csv_path is None:
+            csv_path = ERROR_CODE_CSV_PATH
+        with open(csv_path, &#34;r&#34;) as csv_file:
+            lines = csv_file.readlines()
+            for line in lines:
+                values = line.split(&#34;,&#34;)
+                error_code = values[0]
+                description = values[1]
+                error_codes_dict[error_code] = description
+
+        return error_codes_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _make_caselist_file(cases, path, filename):
+        &#34;&#34;&#34;Make a file with the list of cases to be processed
+        Parameters
+        ----------
+        cases: list, str
+            list of cases to be processed or a path to a caselist file
+        path: str
+            path to the directory where the file will be created
+        filename: str
+            name of the file to be created
+        Returns
+        -------
+        path: str
+            path to the file that was created
+        &#34;&#34;&#34;
+        if isinstance(cases, str):
+            if cases.endswith(&#34;.txt&#34;):
+                print(&#34;path is &#34;, path)
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(cases, &#34;r&#34;) as f:
+                    lines = f.readlines()
+                with open(os.path.join(path, filename), &#34;w&#34;) as f:
+                    for line in lines:
+                        f.write(line)
+                return os.path.join(path, filename)
+            else:
+                # is a path to a dicom so make this into a caselist file
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(os.path.join(path, filename), &#34;w&#34;) as f:
+                    f.write(cases)
+                return os.path.join(path, filename)
+        # else is a list of strings
+        elif isinstance(cases, list):
+            if isinstance(cases[0], str):
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(os.path.join(path, filename), &#34;w&#34;) as f:
+                    for case in cases:
+                        if case != cases[-1]:
+                            f.write(case + &#34;\n&#34;)
+                        else:
+                            f.write(case)
+                return os.path.join(path, filename)
+            else:
+                with open(path + filename, &#34;w&#34;) as f:
+                    for case in cases:
+                        if case != cases[-1]:
+                            f.write(case.filePath + &#34;\n&#34;)
+                        else:
+                            f.write(case.filePath)
+                caselist_file = path + filename
+                return caselist_file
+        else:
+            with open(path + filename, &#34;w&#34;) as f:
+                if cases[-1] != &#34;\n&#34;:
+                    f.write(cases.filePath + &#34;\n&#34;)
+                else:
+                    f.write(cases.filePath)
+            caselist_file = path + filename
+            return caselist_file
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _make_study_uid_dict(cases):
+        &#34;&#34;&#34;Make a dict of StudyInstanceUIDs
+        Parameters
+        ----------
+        cases: list, str, SimpleNamespace
+            list of cases to be processed
+        Returns
+        -------
+        study_uid_dict: dict
+            dict of StudyInstanceUIDs
+        &#34;&#34;&#34;
+        study_uid_dict = {}
+
+        if isinstance(cases, str):
+            print(&#34;make study uid dict, string case&#34;)
+            if cases.endswith(&#34;.txt&#34;):
+                print(&#34;end with .txt&#34;)
+                i = 0
+                with open(cases, &#34;r&#34;) as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith(&#34;/&#34;):
+                            path = line
+                            ds = dicom.dcmread(path, stop_before_pixels=True)
+                            study_uid = os.path.split(os.path.split(path)[0])[1]
+                            sop = ds.SOPInstanceUID
+                            DeepSightPost.sop_to_path_dict[sop] = path
+                            study_uid_dict = DeepSightPost._modify_study_dict(
+                                study_uid_dict, study_uid, sop
+                            )
+                        i += 1
+            else:
+                # is a path to a single dicom so read the dicom and get the
+                # study uid and sop uid
+                ds = dicom.dcmread(cases, stop_before_pixels=True)
+                study_uid = os.path.split(os.path.split(cases)[0])[1]
+                sop = ds.SOPInstanceUID
+                DeepSightPost.sop_to_path_dict[sop] = cases
+                study_uid_dict = DeepSightPost._modify_study_dict(
+                    study_uid_dict, study_uid, sop
+                )
+        elif isinstance(cases, list):
+            # is a list of strings
+            if isinstance(cases[0], str):
+                for case in cases:
+                    ds = dicom.dcmread(case, stop_before_pixels=True)
+                    study_uid = os.path.split(os.path.split(case)[0])[1]
+                    sop = ds.SOPInstanceUID
+                    DeepSightPost.sop_to_path_dict[sop] = case
+                    study_uid_dict = DeepSightPost._modify_study_dict(
+                        study_uid_dict, study_uid, sop
+                    )
+            else:  # is a list of Data.get_image objects
+                for case in cases:
+                    study_uid = case.StudyInstanceUID
+                    path = case.filePath
+                    sop = case.SOPInstanceUID
+                    DeepSightPost.sop_to_path_dict[sop] = path
+                    study_uid_dict = DeepSightPost._modify_study_dict(
+                        study_uid_dict, study_uid, sop
+                    )
+        else:
+            # is a Data.get_image -&gt; SimpleNamespace object
+            study_uid = cases.StudyInstanceUID
+            path = cases.filePath
+            sop = cases.SOPInstanceUID
+            DeepSightPost.sop_to_path_dict[sop] = path
+            study_uid_dict = DeepSightPost._modify_study_dict(
+                study_uid_dict, study_uid, sop
+            )
+        print(len(study_uid_dict))
+        return study_uid_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _modify_study_dict(study_dict, uid, sop_uid):
+        &#34;&#34;&#34;Check if the study dict contains the value of the study uid. If
+        it does, add the sop uid to the list of sops. If it doesn&#39;t, add the
+        study uid to the dict and add the sop uid as the studies first sop.
+        Parameters
+        ----------
+        study_dict: dict
+            dict of study uids
+        uid: str
+            per-study identifier
+        sop_uid: str
+            per-image identifier
+        Returns
+        -------
+        study_dict: dict
+            dict of updated study uids
+        &#34;&#34;&#34;
+        if uid not in study_dict:
+            study_dict[uid] = [sop_uid]
+        else:
+            prev = study_dict[uid]
+            prev.append(sop_uid)
+            study_dict[uid] = prev
+
+        return study_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _make_log_file(t0, path, filename, task_num):
+        &#34;&#34;&#34;Make a file with log information
+        Parameters
+        ----------
+        t0: float
+            time when the script started
+        path: str
+            path to the directory where the file will be created
+        filename: str
+            name of the file to be created
+        task_num: int
+            number to identify the task that was run for cases of multiple tasks
+        &#34;&#34;&#34;
+        # make the log file using mkdir -p
+        os.system(&#34;touch &#34; + path + filename)
+        with open(path + filename, &#34;w&#34;) as f:
+            f.write(&#34;username: &#34; + getpass.getuser() + &#34;\n&#34;)
+            f.write(&#34;date_time: &#34; + str(datetime.now()) + &#34;\n&#34;)
+            # add the total time the script took to run
+            f.write(&#34;total_time: &#34; + str(time.time() - t0) + &#34;\n&#34;)
+            # add the current path to the log file
+            f.write(&#34;log_path: &#34; + path + &#34;\n&#34;)
+            if task_num is not None:
+                f.write(&#34;task_num: &#34; + str(task_num) + &#34;\n&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _generate_unique_filename():
+        &#34;&#34;&#34;Generate a unique filename using the uuid module
+        Returns
+        -------
+        filename: str
+            unique filename
+        &#34;&#34;&#34;
+        # # make sure the tempfile will not be deleted
+        # folder = tempfile.mkdtemp(suffix=None, prefix=None,
+        #                           dir=output_path)
+        # # only get the last part of the path
+        # folder = os.path.split(folder)[1]
+        return str(uuid.uuid4().hex)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _validate_unique_filename(path, filename):
+        &#34;&#34;&#34;Validate that the filename is unique
+        Parameters
+        ----------
+        path: str
+            path to the directory where the file will be created
+        filename: str
+            name of the file to be created
+        Returns
+        -------
+        bool
+            True if the filename is unique, False otherwise
+        &#34;&#34;&#34;
+        count = 0
+        for f in os.listdir(path):
+            if f.endswith(filename):
+                count += 1
+        if count &gt; 1:
+            return False
+        else:
+            return True
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _parse_log_to_dictionary(log):
+        &#34;&#34;&#34;Parse the log file into a dictionary
+        Parameters
+        ----------
+        log: str
+            log file to be parsed
+        Returns
+        -------
+        log_dict: dict
+            dictionary of log information
+        &#34;&#34;&#34;
+        log_dict = {}
+        for line in log.split(&#34;\n&#34;):
+            val = line.split(&#34;: &#34;)
+            if len(val) &gt; 1:
+                log_dict[val[0]] = val[1]
+        return log_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _get_all_logs(timing=False):
+        &#34;&#34;&#34;Get all the logs in the path and returns a dictionary of all the
+        appended logs in the path
+        Parameters
+        ----------
+        timing: bool
+            True if the timing information should be included, False otherwise
+        Returns
+        -------
+        log_dict: dict
+            dictionary of all the logs in the path
+        &#34;&#34;&#34;
+        t0 = time.time()
+        path = OUTPUT_DIRECTORY
+        if not os.path.exists(path):
+            print(&#34;Path does not exist&#34;)
+            return None
+        logs = {}
+        counter = 0
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.startswith(&#34;log&#34;):
+                    with open(os.path.join(root, file), &#34;r&#34;) as f:
+                        key = file.replace(&#34;.txt&#34;, &#34;&#34;) + &#34;_&#34; + str(counter)
+                        contents = f.read()
+                        case = DeepSightPost._parse_log_to_dictionary(contents)
+                        logs[key] = case
+                    counter += 1
+        if timing:
+            print(&#34;Time to get all logs: &#34;, time.time() - t0)
+        return logs
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def parse_sop_uid_from_paths(paths, substrs_to_remove=None, timing=False):
+        &#34;&#34;&#34;Parse the SOPInstanceUID from a list of paths and build a dictionary
+        of SOPInstanceUIDs to paths.
+        Parameters
+        ----------
+        paths : list
+            list of paths to dicom files
+        substrs_to_remove : str
+            strings to remove from the beginning of the file name
+        timing : bool
+            (default is False) If true will time execution of method,
+            else will not
+        Returns
+        -------
+        sop_uids : list
+            list of SOPInstanceUIDs
+        &#34;&#34;&#34;
+        t0 = d.time.time()
+        sop_uids = []
+        sop_to_path_dict = {}
+        if substrs_to_remove is None:
+            substrs_to_remove = [&#34;DXm.&#34;, &#34;BT.&#34;]
+        for path in paths:
+            sop_uid = os.path.basename(path)
+            for substr in substrs_to_remove:
+                sop_uid = sop_uid.replace(substr, &#34;&#34;)
+            sop_to_path_dict[sop_uid] = path
+            sop_uids.append(sop_uid)
+        if timing is True:
+            print(&#34;Time to parse SOP UIDs: &#34;, d.time.time() - t0)
+        return sop_uids, sop_to_path_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _create_errors_txt(path, sop_to_path_dict, preds):
+        &#34;&#34;&#34;Create a text file with the path of each dicom that had errors that
+        occurred during the processing of the DICOM files.
+        Parameters
+        ----------
+        path : str
+            path to the directory where the file will be created
+        sop_to_path_dict : dict
+            dictionary of SOPInstanceUIDs to paths
+        preds : dict
+            dictionary of SOPInstanceUIDs to predictions
+        &#34;&#34;&#34;
+        with open(path + &#34;errors.txt&#34;, &#34;w&#34;) as f:
+            # for every sop in the preds dictionary that has a score of -1,
+            # get the path from the sop_to_path_dict and write it to the file
+            for k, v in preds.items():
+                if v[&#34;score&#34;] == -1:
+                    if k in sop_to_path_dict:
+                        f.write(sop_to_path_dict[k] + &#34;\n&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _update_predictions_cache(predictions, cache_path, timing=False):
+        &#34;&#34;&#34;Update the predictions cache by appending the new predictions to the
+        existing cache json file.
+        Parameters
+        ----------
+        predictions : dict
+            dictionary of predictions
+        cache_path : str
+            path to the cache file
+        &#34;&#34;&#34;
+        t0 = d.time.time()
+        with open(cache_path, &#34;r&#34;) as f:
+            cache = json.load(f)
+        # add the new predictions to the cache dictionary
+        cache.update(predictions)
+        # write the new cache to the cache file
+        with open(cache_path, &#34;w&#34;) as f:
+            json.dump(cache, f)
+        if timing is True:
+            print(&#34;Time to update cache: &#34;, d.time.time() - t0)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _check_predictions_cache(caselist_file, cache_path=None, timing=False):
+        &#34;&#34;&#34;Check if the deepsight cache exists for the given SOP instance
+        Parameters
+        ----------
+        caselist_file: str
+            path to the caselist file
+        cache_path: str
+            path to the cache file
+        Returns
+        -------
+        dict, caselist_file
+            predictions dict and altered caselist_file
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if cache_path is None:
+            cache_path = CACHE_PATH
+        # load the caselist file into a list
+        with open(caselist_file, &#34;r&#34;) as f:
+            caselist = f.read().splitlines()
+
+        # parse the caselist list into a list of SOP instance UIDs and
+        # dictionary of SOP instance UIDs to paths
+        sop_uids, sop_to_path_dict = DeepSightPost.parse_sop_uid_from_paths(
+            caselist, timing=timing
+        )
+        # load the json file into a dictionary
+        pred_cache = json.loads(open(cache_path, &#34;r&#34;).read())
+        predictions_dict = {}
+
+        # check if the sop_uids are in the cache
+        for sop_uid in sop_uids:
+            if sop_uid in pred_cache:
+                predictions_dict[sop_uid] = pred_cache[sop_uid]
+                # remove the path that corresponds to the sop_uid from the
+                # caselist_dict
+                if sop_uid in sop_to_path_dict:
+                    del sop_to_path_dict[sop_uid]
+
+        run_deepsight = False
+        # if there are any SOP UIDs in the caselist_dict that were not found
+        # in the cache, then we need to run DeepSight on them so write only
+        # them paths to the caselist file overwriting the previous caselist
+        if len(sop_to_path_dict) &gt; 0:
+            run_deepsight = True
+            caselist = []
+            for sop_uid in sop_to_path_dict:
+                caselist.append(sop_to_path_dict[sop_uid])
+            with open(caselist_file, &#34;w&#34;) as f:
+                for line in caselist:
+                    f.write(line + &#34;\n&#34;)
+        if timing:
+            print(&#34;Time to check cache: &#34;, time.time() - t0)
+        # close any open files
+        f.close()
+        return predictions_dict, caselist_file, run_deepsight
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get_logs(username=None, date=None, task_num=None, timing=False):
+        &#34;&#34;&#34;Get the log files based on matching the username, the date or both
+        and returns a dictionary of the logs
+        Parameters
+        ----------
+        username: str
+            username to match
+        date: str
+            date to match
+        timing: bool
+            if True, print the time it took to get the logs
+        task_num: int
+            task number to match
+        Returns
+        -------
+        log_dict: dict
+            dictionary of all the logs in the path
+        &#34;&#34;&#34;
+        t0 = time.time()
+        # set path to the output directory
+        path = OUTPUT_DIRECTORY
+        if username is None and date is None:
+            # will get all logs
+            return DeepSightPost._get_all_logs(timing=timing)
+
+        logs = {}
+        counter = 0
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.startswith(&#34;log&#34;):
+                    with open(os.path.join(root, file), &#34;r&#34;) as f:
+                        log = f.read()
+                        key = file.replace(&#34;.txt&#34;, &#34;&#34;) + &#34;_&#34; + str(counter)
+                    if username is not None and date is not None:
+                        if username in log and date in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+                    elif username is not None:
+                        if username in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+                    elif date is not None:
+                        if date in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+                    elif task_num is not None:
+                        if str(task_num) in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+        if timing:
+            print(&#34;Time to get logs: &#34;, time.time() - t0)
+        return logs
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get_predictions(folder_name):
+        &#34;&#34;&#34;Get the predictions from the specified folder
+        Parameters
+        ----------
+        folder_name: str
+            folder where the predictions are stored
+        Returns
+        -------
+        predictions: dict
+            dictionary of the predictions
+        &#34;&#34;&#34;
+        predictions = {}
+        # walk the output directory looking for the folder with the folder_name
+        # and when found look inside for the predictions.json file and load
+        for root, dirs, files in os.walk(OUTPUT_DIRECTORY):
+            if folder_name in dirs:
+                predictions_path = os.path.join(root, folder_name, &#34;predictions.json&#34;)
+                with open(predictions_path, &#34;r&#34;) as f:
+                    predictions = json.load(f)
+        return predictions
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def run(
+        caselist_file_loc,
+        output_dir=None,
+        deepsight_out=None,
+        deepsight_script_path=None,
+        caselist_file_name=None,
+        ignore_checks=None,
+        output_in_terminal=False,
+        task_num=None,
+        pred_cache_path=None,
+        timing=False,
+    ):
+        &#34;&#34;&#34;Run the DeepSight algorithm on the cases
+        Parameters:
+        ----------
+            cases : list
+                cases to be processed
+            output_dir: str
+                path to the output directory
+            deepsight_script_path: str
+                path to the DeepSight script
+            caselist_file_name: str
+                name of the caselist file
+            ignore_checks : list
+                ignore checks
+            output_in_terminal: bool
+                output the deepsight generated text to the terminal
+            timing : bool
+                if True, print the time it took to run the algorithm
+        Returns: dict
+        ----------
+            predictions : dictionary of classifier predictions
+        &#34;&#34;&#34;
+        t0 = time.time()
+
+        if pred_cache_path is None:
+            pred_cache_path = CACHE_PATH
+
+        if deepsight_script_path is None:
+            deepsight_script_path = DEEPSIGHT_SCRIPT
+
+        # set the input nad output paths
+        if output_dir is None:
+            output_dir = OUTPUT_DIRECTORY
+
+        if caselist_file_name is None:
+            caselist_file_name = CASELIST_FILE_NAME
+
+        output_location = output_dir  # output_dir + unique_filename + &#39;/&#39;
+        deepsight_out = deepsight_out  # + date_time
+
+        # make the error code dictionary
+        error_codes_dict = (
+            DeepSightPost._generate_error_codes_dict()
+        )  # !!! Full set of error codes
+
+        case_list_contents = open(caselist_file_loc).read().splitlines()
+        # check for cache and get the flag to run the classifier
+        predictions, caselist_file, run_flag = DeepSightPost._check_predictions_cache(
+            caselist_file_loc, timing=timing
+        )
+
+        study_uid_dict = DeepSightPost._make_study_uid_dict(caselist_file_loc)
+
+        # if the classifier needs to be run
+        if run_flag:
+            run_size = len(case_list_contents) - len(predictions)
+            print(f&#34;Running DeepSight on {run_size} cases, please be patient...&#34;)
+            unfound_folders = []
+
+            # get a list of folders in the output directory
+            folders = sorted(os.listdir(deepsight_out))
+
+            # for each folder, get the list of files
+            for folder in folders:
+                # make sure it is a directory first
+                if os.path.isdir(os.path.join(deepsight_out, folder)):
+                    # with folder as key for study_uid_dict get the
+                    # SOPInstanceUID
+                    if folder in study_uid_dict:
+                        sop_instance_uid_list = study_uid_dict[folder]
+
+                        # read-in classifier results output
+                        f = open(deepsight_out + &#34;/&#34; + folder + &#34;/results_full.json&#34;)
+                        json_result = json.load(f)  # load the json file
+                        # prediction results are present
+                        if json_result[&#34;results_raw&#34;] is not None:
+                            # get the prediction with the highest score
+                            for sopuid in sop_instance_uid_list:
+                                if (
+                                    sopuid
+                                    in json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;]
+                                ):
+                                    coords = json_result[&#34;results_raw&#34;][
+                                        &#34;dicom_results&#34;
+                                    ][sopuid][&#34;none&#34;][0][&#34;coords&#34;]
+                                    score = json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;][
+                                        sopuid
+                                    ][&#34;none&#34;][0][&#34;score&#34;]
+                                    if (
+                                        &#34;slice&#34;
+                                        in json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;][
+                                            sopuid
+                                        ][&#34;none&#34;][0]
+                                    ):
+                                        slice = json_result[&#34;results_raw&#34;][
+                                            &#34;dicom_results&#34;
+                                        ][sopuid][&#34;none&#34;][0][&#34;slice&#34;]
+                                    else:
+                                        slice = 0
+                                    case = {
+                                        &#34;coords&#34;: coords,
+                                        &#34;score&#34;: score,
+                                        &#34;slice&#34;: slice,
+                                        &#34;errors&#34;: None,
+                                    }
+                                    # add the prediction to the dictionary
+                                    predictions[sopuid] = case
+                        errors_dict = {}
+                        id_to_sop_dict = {}
+                        metadata_dict = json.loads(json_result[&#34;_metadata&#34;])
+                        for k, v in metadata_dict[&#34;SOPInstanceUID&#34;].items():
+                            if metadata_dict[&#34;failed_checks&#34;][k] is not None:
+                                id_to_sop_dict[int(k)] = metadata_dict[
+                                    &#34;SOPInstanceUID&#34;
+                                ][k]
+                                for code in metadata_dict[&#34;failed_checks&#34;][k]:
+                                    if id_to_sop_dict[int(k)] in errors_dict:
+                                        errors_dict[id_to_sop_dict[int(k)]].append(
+                                            code
+                                            + &#34;: &#34;
+                                            + error_codes_dict[code].replace(&#34;\n&#34;, &#34;&#34;)
+                                        )
+                                    else:
+                                        errors_dict[id_to_sop_dict[int(k)]] = [
+                                            code
+                                            + &#34;: &#34;
+                                            + error_codes_dict[code].replace(&#34;\n&#34;, &#34;&#34;)
+                                        ]
+                                id_to_sop_dict[int(k)] = metadata_dict[
+                                    &#34;SOPInstanceUID&#34;
+                                ][k]
+                                if errors_dict[id_to_sop_dict[int(k)]] is not None:
+                                    case = {
+                                        &#34;coords&#34;: None,
+                                        &#34;score&#34;: -1,
+                                        &#34;slice&#34;: -1,
+                                        &#34;errors&#34;: errors_dict[id_to_sop_dict[int(k)]],
+                                    }
+                                    predictions[id_to_sop_dict[int(k)]] = case
+                        f.close()
+                    else:
+                        unfound_folders.append(folder)
+                else:
+                    print(f&#34;{folder} is not a directory&#34;)
+            print(f&#34;{len(unfound_folders)} folders were not found&#34;)
+            print(f&#34;folders: {unfound_folders}&#34;)
+
+            # update the predictions cache file
+            DeepSightPost._update_predictions_cache(
+                predictions, pred_cache_path, timing=timing
+            )
+        # create the errors.txt file
+        DeepSightPost._create_errors_txt(
+            output_location, DeepSightPost.sop_to_path_dict, predictions
+        )
+        # create the local predictions.json file for this run
+        with open(output_location + &#34;predictions.json&#34;, &#34;w&#34;) as fp:
+            json.dump(predictions, fp)
+        # add a log file to the output directory
+        DeepSightPost._make_log_file(t0, output_location, &#34;log.txt&#34;, task_num)
+        # write the original caselist file back to the caselist file
+        with open(output_location + &#34;caselist.txt&#34;, &#34;w&#34;) as f:
+            for line in case_list_contents:
+                # check if it is the last line and if it is, don&#39;t add a \n
+                if line != case_list_contents[-1]:
+                    f.write(line + &#34;\n&#34;)
+                else:
+                    f.write(line)
+        if timing:
+            print(f&#34;...took &#34; + str(time.time() - t0))
+        if len(predictions) == 0:
+            raise ValueError(
+                f&#34;No predictions made, please check file located at&#34;
+                f&#34; {output_location}deepsight_out.txt for possible errors&#34;
+            )
+        return predictions
+
+
+def build_predictions_cache(root_directory, location_directory):
+    &#34;&#34;&#34;
+    Walks a directory and all its subdirectories and builds a master dictionary
+    of all the predictions made by DeepSight to use in deepsight api calls.
+    &#34;&#34;&#34;
+    predictions_cache = {}
+    for root, dirs, files in os.walk(root_directory):
+        for file in files:
+            if file == &#34;predictions.json&#34;:
+                # open the predictions.json file
+                with open(os.path.join(root, file), &#34;r&#34;) as f:
+                    predictions = json.load(f)
+                    for k, v in predictions.items():
+                        predictions_cache[k] = v
+    with open(location_directory + &#34;predictions_cache.json&#34;, &#34;w&#34;) as fp:
+        json.dump(predictions_cache, fp)
+    return predictions_cache</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.build_predictions_cache"><code class="name flex">
+<span>def <span class="ident">build_predictions_cache</span></span>(<span>root_directory, location_directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Walks a directory and all its subdirectories and builds a master dictionary
+of all the predictions made by DeepSight to use in deepsight api calls.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def build_predictions_cache(root_directory, location_directory):
+    &#34;&#34;&#34;
+    Walks a directory and all its subdirectories and builds a master dictionary
+    of all the predictions made by DeepSight to use in deepsight api calls.
+    &#34;&#34;&#34;
+    predictions_cache = {}
+    for root, dirs, files in os.walk(root_directory):
+        for file in files:
+            if file == &#34;predictions.json&#34;:
+                # open the predictions.json file
+                with open(os.path.join(root, file), &#34;r&#34;) as f:
+                    predictions = json.load(f)
+                    for k, v in predictions.items():
+                        predictions_cache[k] = v
+    with open(location_directory + &#34;predictions_cache.json&#34;, &#34;w&#34;) as fp:
+        json.dump(predictions_cache, fp)
+    return predictions_cache</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost"><code class="flex name class">
+<span>class <span class="ident">DeepSightPost</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>DeepSight class is used to run the DeepSight classifier.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DeepSightPost(Algorithms):
+    &#34;&#34;&#34;
+    DeepSight class is used to run the DeepSight classifier.
+    &#34;&#34;&#34;
+
+    sop_to_path_dict = {}
+
+    @staticmethod
+    def _generate_error_codes_dict(csv_path=None):
+        &#34;&#34;&#34;Generate a dictionary of error codes and their corresponding
+        descriptions.
+        Parameters
+        ----------
+        csv_path: str
+            path to the csv file containing the error codes
+        Returns
+        -------
+        error_codes_dict: dict
+            dictionary of error codes and their corresponding descriptions
+        &#34;&#34;&#34;
+        error_codes_dict = {}
+        if csv_path is None:
+            csv_path = ERROR_CODE_CSV_PATH
+        with open(csv_path, &#34;r&#34;) as csv_file:
+            lines = csv_file.readlines()
+            for line in lines:
+                values = line.split(&#34;,&#34;)
+                error_code = values[0]
+                description = values[1]
+                error_codes_dict[error_code] = description
+
+        return error_codes_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _make_caselist_file(cases, path, filename):
+        &#34;&#34;&#34;Make a file with the list of cases to be processed
+        Parameters
+        ----------
+        cases: list, str
+            list of cases to be processed or a path to a caselist file
+        path: str
+            path to the directory where the file will be created
+        filename: str
+            name of the file to be created
+        Returns
+        -------
+        path: str
+            path to the file that was created
+        &#34;&#34;&#34;
+        if isinstance(cases, str):
+            if cases.endswith(&#34;.txt&#34;):
+                print(&#34;path is &#34;, path)
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(cases, &#34;r&#34;) as f:
+                    lines = f.readlines()
+                with open(os.path.join(path, filename), &#34;w&#34;) as f:
+                    for line in lines:
+                        f.write(line)
+                return os.path.join(path, filename)
+            else:
+                # is a path to a dicom so make this into a caselist file
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(os.path.join(path, filename), &#34;w&#34;) as f:
+                    f.write(cases)
+                return os.path.join(path, filename)
+        # else is a list of strings
+        elif isinstance(cases, list):
+            if isinstance(cases[0], str):
+                if not os.path.exists(path):
+                    os.makedirs(path)
+                with open(os.path.join(path, filename), &#34;w&#34;) as f:
+                    for case in cases:
+                        if case != cases[-1]:
+                            f.write(case + &#34;\n&#34;)
+                        else:
+                            f.write(case)
+                return os.path.join(path, filename)
+            else:
+                with open(path + filename, &#34;w&#34;) as f:
+                    for case in cases:
+                        if case != cases[-1]:
+                            f.write(case.filePath + &#34;\n&#34;)
+                        else:
+                            f.write(case.filePath)
+                caselist_file = path + filename
+                return caselist_file
+        else:
+            with open(path + filename, &#34;w&#34;) as f:
+                if cases[-1] != &#34;\n&#34;:
+                    f.write(cases.filePath + &#34;\n&#34;)
+                else:
+                    f.write(cases.filePath)
+            caselist_file = path + filename
+            return caselist_file
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _make_study_uid_dict(cases):
+        &#34;&#34;&#34;Make a dict of StudyInstanceUIDs
+        Parameters
+        ----------
+        cases: list, str, SimpleNamespace
+            list of cases to be processed
+        Returns
+        -------
+        study_uid_dict: dict
+            dict of StudyInstanceUIDs
+        &#34;&#34;&#34;
+        study_uid_dict = {}
+
+        if isinstance(cases, str):
+            print(&#34;make study uid dict, string case&#34;)
+            if cases.endswith(&#34;.txt&#34;):
+                print(&#34;end with .txt&#34;)
+                i = 0
+                with open(cases, &#34;r&#34;) as f:
+                    for line in f:
+                        line = line.strip()
+                        if line.startswith(&#34;/&#34;):
+                            path = line
+                            ds = dicom.dcmread(path, stop_before_pixels=True)
+                            study_uid = os.path.split(os.path.split(path)[0])[1]
+                            sop = ds.SOPInstanceUID
+                            DeepSightPost.sop_to_path_dict[sop] = path
+                            study_uid_dict = DeepSightPost._modify_study_dict(
+                                study_uid_dict, study_uid, sop
+                            )
+                        i += 1
+            else:
+                # is a path to a single dicom so read the dicom and get the
+                # study uid and sop uid
+                ds = dicom.dcmread(cases, stop_before_pixels=True)
+                study_uid = os.path.split(os.path.split(cases)[0])[1]
+                sop = ds.SOPInstanceUID
+                DeepSightPost.sop_to_path_dict[sop] = cases
+                study_uid_dict = DeepSightPost._modify_study_dict(
+                    study_uid_dict, study_uid, sop
+                )
+        elif isinstance(cases, list):
+            # is a list of strings
+            if isinstance(cases[0], str):
+                for case in cases:
+                    ds = dicom.dcmread(case, stop_before_pixels=True)
+                    study_uid = os.path.split(os.path.split(case)[0])[1]
+                    sop = ds.SOPInstanceUID
+                    DeepSightPost.sop_to_path_dict[sop] = case
+                    study_uid_dict = DeepSightPost._modify_study_dict(
+                        study_uid_dict, study_uid, sop
+                    )
+            else:  # is a list of Data.get_image objects
+                for case in cases:
+                    study_uid = case.StudyInstanceUID
+                    path = case.filePath
+                    sop = case.SOPInstanceUID
+                    DeepSightPost.sop_to_path_dict[sop] = path
+                    study_uid_dict = DeepSightPost._modify_study_dict(
+                        study_uid_dict, study_uid, sop
+                    )
+        else:
+            # is a Data.get_image -&gt; SimpleNamespace object
+            study_uid = cases.StudyInstanceUID
+            path = cases.filePath
+            sop = cases.SOPInstanceUID
+            DeepSightPost.sop_to_path_dict[sop] = path
+            study_uid_dict = DeepSightPost._modify_study_dict(
+                study_uid_dict, study_uid, sop
+            )
+        print(len(study_uid_dict))
+        return study_uid_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _modify_study_dict(study_dict, uid, sop_uid):
+        &#34;&#34;&#34;Check if the study dict contains the value of the study uid. If
+        it does, add the sop uid to the list of sops. If it doesn&#39;t, add the
+        study uid to the dict and add the sop uid as the studies first sop.
+        Parameters
+        ----------
+        study_dict: dict
+            dict of study uids
+        uid: str
+            per-study identifier
+        sop_uid: str
+            per-image identifier
+        Returns
+        -------
+        study_dict: dict
+            dict of updated study uids
+        &#34;&#34;&#34;
+        if uid not in study_dict:
+            study_dict[uid] = [sop_uid]
+        else:
+            prev = study_dict[uid]
+            prev.append(sop_uid)
+            study_dict[uid] = prev
+
+        return study_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _make_log_file(t0, path, filename, task_num):
+        &#34;&#34;&#34;Make a file with log information
+        Parameters
+        ----------
+        t0: float
+            time when the script started
+        path: str
+            path to the directory where the file will be created
+        filename: str
+            name of the file to be created
+        task_num: int
+            number to identify the task that was run for cases of multiple tasks
+        &#34;&#34;&#34;
+        # make the log file using mkdir -p
+        os.system(&#34;touch &#34; + path + filename)
+        with open(path + filename, &#34;w&#34;) as f:
+            f.write(&#34;username: &#34; + getpass.getuser() + &#34;\n&#34;)
+            f.write(&#34;date_time: &#34; + str(datetime.now()) + &#34;\n&#34;)
+            # add the total time the script took to run
+            f.write(&#34;total_time: &#34; + str(time.time() - t0) + &#34;\n&#34;)
+            # add the current path to the log file
+            f.write(&#34;log_path: &#34; + path + &#34;\n&#34;)
+            if task_num is not None:
+                f.write(&#34;task_num: &#34; + str(task_num) + &#34;\n&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _generate_unique_filename():
+        &#34;&#34;&#34;Generate a unique filename using the uuid module
+        Returns
+        -------
+        filename: str
+            unique filename
+        &#34;&#34;&#34;
+        # # make sure the tempfile will not be deleted
+        # folder = tempfile.mkdtemp(suffix=None, prefix=None,
+        #                           dir=output_path)
+        # # only get the last part of the path
+        # folder = os.path.split(folder)[1]
+        return str(uuid.uuid4().hex)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _validate_unique_filename(path, filename):
+        &#34;&#34;&#34;Validate that the filename is unique
+        Parameters
+        ----------
+        path: str
+            path to the directory where the file will be created
+        filename: str
+            name of the file to be created
+        Returns
+        -------
+        bool
+            True if the filename is unique, False otherwise
+        &#34;&#34;&#34;
+        count = 0
+        for f in os.listdir(path):
+            if f.endswith(filename):
+                count += 1
+        if count &gt; 1:
+            return False
+        else:
+            return True
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _parse_log_to_dictionary(log):
+        &#34;&#34;&#34;Parse the log file into a dictionary
+        Parameters
+        ----------
+        log: str
+            log file to be parsed
+        Returns
+        -------
+        log_dict: dict
+            dictionary of log information
+        &#34;&#34;&#34;
+        log_dict = {}
+        for line in log.split(&#34;\n&#34;):
+            val = line.split(&#34;: &#34;)
+            if len(val) &gt; 1:
+                log_dict[val[0]] = val[1]
+        return log_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _get_all_logs(timing=False):
+        &#34;&#34;&#34;Get all the logs in the path and returns a dictionary of all the
+        appended logs in the path
+        Parameters
+        ----------
+        timing: bool
+            True if the timing information should be included, False otherwise
+        Returns
+        -------
+        log_dict: dict
+            dictionary of all the logs in the path
+        &#34;&#34;&#34;
+        t0 = time.time()
+        path = OUTPUT_DIRECTORY
+        if not os.path.exists(path):
+            print(&#34;Path does not exist&#34;)
+            return None
+        logs = {}
+        counter = 0
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.startswith(&#34;log&#34;):
+                    with open(os.path.join(root, file), &#34;r&#34;) as f:
+                        key = file.replace(&#34;.txt&#34;, &#34;&#34;) + &#34;_&#34; + str(counter)
+                        contents = f.read()
+                        case = DeepSightPost._parse_log_to_dictionary(contents)
+                        logs[key] = case
+                    counter += 1
+        if timing:
+            print(&#34;Time to get all logs: &#34;, time.time() - t0)
+        return logs
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def parse_sop_uid_from_paths(paths, substrs_to_remove=None, timing=False):
+        &#34;&#34;&#34;Parse the SOPInstanceUID from a list of paths and build a dictionary
+        of SOPInstanceUIDs to paths.
+        Parameters
+        ----------
+        paths : list
+            list of paths to dicom files
+        substrs_to_remove : str
+            strings to remove from the beginning of the file name
+        timing : bool
+            (default is False) If true will time execution of method,
+            else will not
+        Returns
+        -------
+        sop_uids : list
+            list of SOPInstanceUIDs
+        &#34;&#34;&#34;
+        t0 = d.time.time()
+        sop_uids = []
+        sop_to_path_dict = {}
+        if substrs_to_remove is None:
+            substrs_to_remove = [&#34;DXm.&#34;, &#34;BT.&#34;]
+        for path in paths:
+            sop_uid = os.path.basename(path)
+            for substr in substrs_to_remove:
+                sop_uid = sop_uid.replace(substr, &#34;&#34;)
+            sop_to_path_dict[sop_uid] = path
+            sop_uids.append(sop_uid)
+        if timing is True:
+            print(&#34;Time to parse SOP UIDs: &#34;, d.time.time() - t0)
+        return sop_uids, sop_to_path_dict
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _create_errors_txt(path, sop_to_path_dict, preds):
+        &#34;&#34;&#34;Create a text file with the path of each dicom that had errors that
+        occurred during the processing of the DICOM files.
+        Parameters
+        ----------
+        path : str
+            path to the directory where the file will be created
+        sop_to_path_dict : dict
+            dictionary of SOPInstanceUIDs to paths
+        preds : dict
+            dictionary of SOPInstanceUIDs to predictions
+        &#34;&#34;&#34;
+        with open(path + &#34;errors.txt&#34;, &#34;w&#34;) as f:
+            # for every sop in the preds dictionary that has a score of -1,
+            # get the path from the sop_to_path_dict and write it to the file
+            for k, v in preds.items():
+                if v[&#34;score&#34;] == -1:
+                    if k in sop_to_path_dict:
+                        f.write(sop_to_path_dict[k] + &#34;\n&#34;)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _update_predictions_cache(predictions, cache_path, timing=False):
+        &#34;&#34;&#34;Update the predictions cache by appending the new predictions to the
+        existing cache json file.
+        Parameters
+        ----------
+        predictions : dict
+            dictionary of predictions
+        cache_path : str
+            path to the cache file
+        &#34;&#34;&#34;
+        t0 = d.time.time()
+        with open(cache_path, &#34;r&#34;) as f:
+            cache = json.load(f)
+        # add the new predictions to the cache dictionary
+        cache.update(predictions)
+        # write the new cache to the cache file
+        with open(cache_path, &#34;w&#34;) as f:
+            json.dump(cache, f)
+        if timing is True:
+            print(&#34;Time to update cache: &#34;, d.time.time() - t0)
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def _check_predictions_cache(caselist_file, cache_path=None, timing=False):
+        &#34;&#34;&#34;Check if the deepsight cache exists for the given SOP instance
+        Parameters
+        ----------
+        caselist_file: str
+            path to the caselist file
+        cache_path: str
+            path to the cache file
+        Returns
+        -------
+        dict, caselist_file
+            predictions dict and altered caselist_file
+        &#34;&#34;&#34;
+        t0 = time.time()
+        if cache_path is None:
+            cache_path = CACHE_PATH
+        # load the caselist file into a list
+        with open(caselist_file, &#34;r&#34;) as f:
+            caselist = f.read().splitlines()
+
+        # parse the caselist list into a list of SOP instance UIDs and
+        # dictionary of SOP instance UIDs to paths
+        sop_uids, sop_to_path_dict = DeepSightPost.parse_sop_uid_from_paths(
+            caselist, timing=timing
+        )
+        # load the json file into a dictionary
+        pred_cache = json.loads(open(cache_path, &#34;r&#34;).read())
+        predictions_dict = {}
+
+        # check if the sop_uids are in the cache
+        for sop_uid in sop_uids:
+            if sop_uid in pred_cache:
+                predictions_dict[sop_uid] = pred_cache[sop_uid]
+                # remove the path that corresponds to the sop_uid from the
+                # caselist_dict
+                if sop_uid in sop_to_path_dict:
+                    del sop_to_path_dict[sop_uid]
+
+        run_deepsight = False
+        # if there are any SOP UIDs in the caselist_dict that were not found
+        # in the cache, then we need to run DeepSight on them so write only
+        # them paths to the caselist file overwriting the previous caselist
+        if len(sop_to_path_dict) &gt; 0:
+            run_deepsight = True
+            caselist = []
+            for sop_uid in sop_to_path_dict:
+                caselist.append(sop_to_path_dict[sop_uid])
+            with open(caselist_file, &#34;w&#34;) as f:
+                for line in caselist:
+                    f.write(line + &#34;\n&#34;)
+        if timing:
+            print(&#34;Time to check cache: &#34;, time.time() - t0)
+        # close any open files
+        f.close()
+        return predictions_dict, caselist_file, run_deepsight
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get_logs(username=None, date=None, task_num=None, timing=False):
+        &#34;&#34;&#34;Get the log files based on matching the username, the date or both
+        and returns a dictionary of the logs
+        Parameters
+        ----------
+        username: str
+            username to match
+        date: str
+            date to match
+        timing: bool
+            if True, print the time it took to get the logs
+        task_num: int
+            task number to match
+        Returns
+        -------
+        log_dict: dict
+            dictionary of all the logs in the path
+        &#34;&#34;&#34;
+        t0 = time.time()
+        # set path to the output directory
+        path = OUTPUT_DIRECTORY
+        if username is None and date is None:
+            # will get all logs
+            return DeepSightPost._get_all_logs(timing=timing)
+
+        logs = {}
+        counter = 0
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file.startswith(&#34;log&#34;):
+                    with open(os.path.join(root, file), &#34;r&#34;) as f:
+                        log = f.read()
+                        key = file.replace(&#34;.txt&#34;, &#34;&#34;) + &#34;_&#34; + str(counter)
+                    if username is not None and date is not None:
+                        if username in log and date in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+                    elif username is not None:
+                        if username in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+                    elif date is not None:
+                        if date in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+                    elif task_num is not None:
+                        if str(task_num) in log:
+                            case = DeepSightPost._parse_log_to_dictionary(log)
+                            logs[key] = case
+                            counter += 1
+        if timing:
+            print(&#34;Time to get logs: &#34;, time.time() - t0)
+        return logs
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def get_predictions(folder_name):
+        &#34;&#34;&#34;Get the predictions from the specified folder
+        Parameters
+        ----------
+        folder_name: str
+            folder where the predictions are stored
+        Returns
+        -------
+        predictions: dict
+            dictionary of the predictions
+        &#34;&#34;&#34;
+        predictions = {}
+        # walk the output directory looking for the folder with the folder_name
+        # and when found look inside for the predictions.json file and load
+        for root, dirs, files in os.walk(OUTPUT_DIRECTORY):
+            if folder_name in dirs:
+                predictions_path = os.path.join(root, folder_name, &#34;predictions.json&#34;)
+                with open(predictions_path, &#34;r&#34;) as f:
+                    predictions = json.load(f)
+        return predictions
+
+    # --------------------------------------------------------------------------
+    @staticmethod
+    def run(
+        caselist_file_loc,
+        output_dir=None,
+        deepsight_out=None,
+        deepsight_script_path=None,
+        caselist_file_name=None,
+        ignore_checks=None,
+        output_in_terminal=False,
+        task_num=None,
+        pred_cache_path=None,
+        timing=False,
+    ):
+        &#34;&#34;&#34;Run the DeepSight algorithm on the cases
+        Parameters:
+        ----------
+            cases : list
+                cases to be processed
+            output_dir: str
+                path to the output directory
+            deepsight_script_path: str
+                path to the DeepSight script
+            caselist_file_name: str
+                name of the caselist file
+            ignore_checks : list
+                ignore checks
+            output_in_terminal: bool
+                output the deepsight generated text to the terminal
+            timing : bool
+                if True, print the time it took to run the algorithm
+        Returns: dict
+        ----------
+            predictions : dictionary of classifier predictions
+        &#34;&#34;&#34;
+        t0 = time.time()
+
+        if pred_cache_path is None:
+            pred_cache_path = CACHE_PATH
+
+        if deepsight_script_path is None:
+            deepsight_script_path = DEEPSIGHT_SCRIPT
+
+        # set the input nad output paths
+        if output_dir is None:
+            output_dir = OUTPUT_DIRECTORY
+
+        if caselist_file_name is None:
+            caselist_file_name = CASELIST_FILE_NAME
+
+        output_location = output_dir  # output_dir + unique_filename + &#39;/&#39;
+        deepsight_out = deepsight_out  # + date_time
+
+        # make the error code dictionary
+        error_codes_dict = (
+            DeepSightPost._generate_error_codes_dict()
+        )  # !!! Full set of error codes
+
+        case_list_contents = open(caselist_file_loc).read().splitlines()
+        # check for cache and get the flag to run the classifier
+        predictions, caselist_file, run_flag = DeepSightPost._check_predictions_cache(
+            caselist_file_loc, timing=timing
+        )
+
+        study_uid_dict = DeepSightPost._make_study_uid_dict(caselist_file_loc)
+
+        # if the classifier needs to be run
+        if run_flag:
+            run_size = len(case_list_contents) - len(predictions)
+            print(f&#34;Running DeepSight on {run_size} cases, please be patient...&#34;)
+            unfound_folders = []
+
+            # get a list of folders in the output directory
+            folders = sorted(os.listdir(deepsight_out))
+
+            # for each folder, get the list of files
+            for folder in folders:
+                # make sure it is a directory first
+                if os.path.isdir(os.path.join(deepsight_out, folder)):
+                    # with folder as key for study_uid_dict get the
+                    # SOPInstanceUID
+                    if folder in study_uid_dict:
+                        sop_instance_uid_list = study_uid_dict[folder]
+
+                        # read-in classifier results output
+                        f = open(deepsight_out + &#34;/&#34; + folder + &#34;/results_full.json&#34;)
+                        json_result = json.load(f)  # load the json file
+                        # prediction results are present
+                        if json_result[&#34;results_raw&#34;] is not None:
+                            # get the prediction with the highest score
+                            for sopuid in sop_instance_uid_list:
+                                if (
+                                    sopuid
+                                    in json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;]
+                                ):
+                                    coords = json_result[&#34;results_raw&#34;][
+                                        &#34;dicom_results&#34;
+                                    ][sopuid][&#34;none&#34;][0][&#34;coords&#34;]
+                                    score = json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;][
+                                        sopuid
+                                    ][&#34;none&#34;][0][&#34;score&#34;]
+                                    if (
+                                        &#34;slice&#34;
+                                        in json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;][
+                                            sopuid
+                                        ][&#34;none&#34;][0]
+                                    ):
+                                        slice = json_result[&#34;results_raw&#34;][
+                                            &#34;dicom_results&#34;
+                                        ][sopuid][&#34;none&#34;][0][&#34;slice&#34;]
+                                    else:
+                                        slice = 0
+                                    case = {
+                                        &#34;coords&#34;: coords,
+                                        &#34;score&#34;: score,
+                                        &#34;slice&#34;: slice,
+                                        &#34;errors&#34;: None,
+                                    }
+                                    # add the prediction to the dictionary
+                                    predictions[sopuid] = case
+                        errors_dict = {}
+                        id_to_sop_dict = {}
+                        metadata_dict = json.loads(json_result[&#34;_metadata&#34;])
+                        for k, v in metadata_dict[&#34;SOPInstanceUID&#34;].items():
+                            if metadata_dict[&#34;failed_checks&#34;][k] is not None:
+                                id_to_sop_dict[int(k)] = metadata_dict[
+                                    &#34;SOPInstanceUID&#34;
+                                ][k]
+                                for code in metadata_dict[&#34;failed_checks&#34;][k]:
+                                    if id_to_sop_dict[int(k)] in errors_dict:
+                                        errors_dict[id_to_sop_dict[int(k)]].append(
+                                            code
+                                            + &#34;: &#34;
+                                            + error_codes_dict[code].replace(&#34;\n&#34;, &#34;&#34;)
+                                        )
+                                    else:
+                                        errors_dict[id_to_sop_dict[int(k)]] = [
+                                            code
+                                            + &#34;: &#34;
+                                            + error_codes_dict[code].replace(&#34;\n&#34;, &#34;&#34;)
+                                        ]
+                                id_to_sop_dict[int(k)] = metadata_dict[
+                                    &#34;SOPInstanceUID&#34;
+                                ][k]
+                                if errors_dict[id_to_sop_dict[int(k)]] is not None:
+                                    case = {
+                                        &#34;coords&#34;: None,
+                                        &#34;score&#34;: -1,
+                                        &#34;slice&#34;: -1,
+                                        &#34;errors&#34;: errors_dict[id_to_sop_dict[int(k)]],
+                                    }
+                                    predictions[id_to_sop_dict[int(k)]] = case
+                        f.close()
+                    else:
+                        unfound_folders.append(folder)
+                else:
+                    print(f&#34;{folder} is not a directory&#34;)
+            print(f&#34;{len(unfound_folders)} folders were not found&#34;)
+            print(f&#34;folders: {unfound_folders}&#34;)
+
+            # update the predictions cache file
+            DeepSightPost._update_predictions_cache(
+                predictions, pred_cache_path, timing=timing
+            )
+        # create the errors.txt file
+        DeepSightPost._create_errors_txt(
+            output_location, DeepSightPost.sop_to_path_dict, predictions
+        )
+        # create the local predictions.json file for this run
+        with open(output_location + &#34;predictions.json&#34;, &#34;w&#34;) as fp:
+            json.dump(predictions, fp)
+        # add a log file to the output directory
+        DeepSightPost._make_log_file(t0, output_location, &#34;log.txt&#34;, task_num)
+        # write the original caselist file back to the caselist file
+        with open(output_location + &#34;caselist.txt&#34;, &#34;w&#34;) as f:
+            for line in case_list_contents:
+                # check if it is the last line and if it is, don&#39;t add a \n
+                if line != case_list_contents[-1]:
+                    f.write(line + &#34;\n&#34;)
+                else:
+                    f.write(line)
+        if timing:
+            print(f&#34;...took &#34; + str(time.time() - t0))
+        if len(predictions) == 0:
+            raise ValueError(
+                f&#34;No predictions made, please check file located at&#34;
+                f&#34; {output_location}deepsight_out.txt for possible errors&#34;
+            )
+        return predictions</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="omama.algorithms.Algorithms" href="../../algorithms.html#omama.algorithms.Algorithms">Algorithms</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.sop_to_path_dict"><code class="name">var <span class="ident">sop_to_path_dict</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.get_logs"><code class="name flex">
+<span>def <span class="ident">get_logs</span></span>(<span>username=None, date=None, task_num=None, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the log files based on matching the username, the date or both
+and returns a dictionary of the logs
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>username</code></strong> :&ensp;<code>str</code></dt>
+<dd>username to match</dd>
+<dt><strong><code>date</code></strong> :&ensp;<code>str</code></dt>
+<dd>date to match</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>if True, print the time it took to get the logs</dd>
+<dt><strong><code>task_num</code></strong> :&ensp;<code>int</code></dt>
+<dd>task number to match</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>log_dict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>dictionary of all the logs in the path</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_logs(username=None, date=None, task_num=None, timing=False):
+    &#34;&#34;&#34;Get the log files based on matching the username, the date or both
+    and returns a dictionary of the logs
+    Parameters
+    ----------
+    username: str
+        username to match
+    date: str
+        date to match
+    timing: bool
+        if True, print the time it took to get the logs
+    task_num: int
+        task number to match
+    Returns
+    -------
+    log_dict: dict
+        dictionary of all the logs in the path
+    &#34;&#34;&#34;
+    t0 = time.time()
+    # set path to the output directory
+    path = OUTPUT_DIRECTORY
+    if username is None and date is None:
+        # will get all logs
+        return DeepSightPost._get_all_logs(timing=timing)
+
+    logs = {}
+    counter = 0
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if file.startswith(&#34;log&#34;):
+                with open(os.path.join(root, file), &#34;r&#34;) as f:
+                    log = f.read()
+                    key = file.replace(&#34;.txt&#34;, &#34;&#34;) + &#34;_&#34; + str(counter)
+                if username is not None and date is not None:
+                    if username in log and date in log:
+                        case = DeepSightPost._parse_log_to_dictionary(log)
+                        logs[key] = case
+                        counter += 1
+                elif username is not None:
+                    if username in log:
+                        case = DeepSightPost._parse_log_to_dictionary(log)
+                        logs[key] = case
+                        counter += 1
+                elif date is not None:
+                    if date in log:
+                        case = DeepSightPost._parse_log_to_dictionary(log)
+                        logs[key] = case
+                        counter += 1
+                elif task_num is not None:
+                    if str(task_num) in log:
+                        case = DeepSightPost._parse_log_to_dictionary(log)
+                        logs[key] = case
+                        counter += 1
+    if timing:
+        print(&#34;Time to get logs: &#34;, time.time() - t0)
+    return logs</code></pre>
+</details>
+</dd>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.get_predictions"><code class="name flex">
+<span>def <span class="ident">get_predictions</span></span>(<span>folder_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the predictions from the specified folder
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>folder_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>folder where the predictions are stored</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>predictions</code></strong> :&ensp;<code>dict</code></dt>
+<dd>dictionary of the predictions</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def get_predictions(folder_name):
+    &#34;&#34;&#34;Get the predictions from the specified folder
+    Parameters
+    ----------
+    folder_name: str
+        folder where the predictions are stored
+    Returns
+    -------
+    predictions: dict
+        dictionary of the predictions
+    &#34;&#34;&#34;
+    predictions = {}
+    # walk the output directory looking for the folder with the folder_name
+    # and when found look inside for the predictions.json file and load
+    for root, dirs, files in os.walk(OUTPUT_DIRECTORY):
+        if folder_name in dirs:
+            predictions_path = os.path.join(root, folder_name, &#34;predictions.json&#34;)
+            with open(predictions_path, &#34;r&#34;) as f:
+                predictions = json.load(f)
+    return predictions</code></pre>
+</details>
+</dd>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.parse_sop_uid_from_paths"><code class="name flex">
+<span>def <span class="ident">parse_sop_uid_from_paths</span></span>(<span>paths, substrs_to_remove=None, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parse the SOPInstanceUID from a list of paths and build a dictionary
+of SOPInstanceUIDs to paths.
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>paths</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of paths to dicom files</dd>
+<dt><strong><code>substrs_to_remove</code></strong> :&ensp;<code>str</code></dt>
+<dd>strings to remove from the beginning of the file name</dd>
+<dt><strong><code>timing</code></strong> :&ensp;<code>bool</code></dt>
+<dd>(default is False) If true will time execution of method,
+else will not</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sop_uids</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of SOPInstanceUIDs</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def parse_sop_uid_from_paths(paths, substrs_to_remove=None, timing=False):
+    &#34;&#34;&#34;Parse the SOPInstanceUID from a list of paths and build a dictionary
+    of SOPInstanceUIDs to paths.
+    Parameters
+    ----------
+    paths : list
+        list of paths to dicom files
+    substrs_to_remove : str
+        strings to remove from the beginning of the file name
+    timing : bool
+        (default is False) If true will time execution of method,
+        else will not
+    Returns
+    -------
+    sop_uids : list
+        list of SOPInstanceUIDs
+    &#34;&#34;&#34;
+    t0 = d.time.time()
+    sop_uids = []
+    sop_to_path_dict = {}
+    if substrs_to_remove is None:
+        substrs_to_remove = [&#34;DXm.&#34;, &#34;BT.&#34;]
+    for path in paths:
+        sop_uid = os.path.basename(path)
+        for substr in substrs_to_remove:
+            sop_uid = sop_uid.replace(substr, &#34;&#34;)
+        sop_to_path_dict[sop_uid] = path
+        sop_uids.append(sop_uid)
+    if timing is True:
+        print(&#34;Time to parse SOP UIDs: &#34;, d.time.time() - t0)
+    return sop_uids, sop_to_path_dict</code></pre>
+</details>
+</dd>
+<dt id="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>caselist_file_loc, output_dir=None, deepsight_out=None, deepsight_script_path=None, caselist_file_name=None, ignore_checks=None, output_in_terminal=False, task_num=None, pred_cache_path=None, timing=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run the DeepSight algorithm on the cases
+Parameters:</p>
+<hr>
+<pre><code>cases : list
+    cases to be processed
+output_dir: str
+    path to the output directory
+deepsight_script_path: str
+    path to the DeepSight script
+caselist_file_name: str
+    name of the caselist file
+ignore_checks : list
+    ignore checks
+output_in_terminal: bool
+    output the deepsight generated text to the terminal
+timing : bool
+    if True, print the time it took to run the algorithm
+</code></pre>
+<h2 id="returns-dict">Returns: dict</h2>
+<pre><code>predictions : dictionary of classifier predictions
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def run(
+    caselist_file_loc,
+    output_dir=None,
+    deepsight_out=None,
+    deepsight_script_path=None,
+    caselist_file_name=None,
+    ignore_checks=None,
+    output_in_terminal=False,
+    task_num=None,
+    pred_cache_path=None,
+    timing=False,
+):
+    &#34;&#34;&#34;Run the DeepSight algorithm on the cases
+    Parameters:
+    ----------
+        cases : list
+            cases to be processed
+        output_dir: str
+            path to the output directory
+        deepsight_script_path: str
+            path to the DeepSight script
+        caselist_file_name: str
+            name of the caselist file
+        ignore_checks : list
+            ignore checks
+        output_in_terminal: bool
+            output the deepsight generated text to the terminal
+        timing : bool
+            if True, print the time it took to run the algorithm
+    Returns: dict
+    ----------
+        predictions : dictionary of classifier predictions
+    &#34;&#34;&#34;
+    t0 = time.time()
+
+    if pred_cache_path is None:
+        pred_cache_path = CACHE_PATH
+
+    if deepsight_script_path is None:
+        deepsight_script_path = DEEPSIGHT_SCRIPT
+
+    # set the input nad output paths
+    if output_dir is None:
+        output_dir = OUTPUT_DIRECTORY
+
+    if caselist_file_name is None:
+        caselist_file_name = CASELIST_FILE_NAME
+
+    output_location = output_dir  # output_dir + unique_filename + &#39;/&#39;
+    deepsight_out = deepsight_out  # + date_time
+
+    # make the error code dictionary
+    error_codes_dict = (
+        DeepSightPost._generate_error_codes_dict()
+    )  # !!! Full set of error codes
+
+    case_list_contents = open(caselist_file_loc).read().splitlines()
+    # check for cache and get the flag to run the classifier
+    predictions, caselist_file, run_flag = DeepSightPost._check_predictions_cache(
+        caselist_file_loc, timing=timing
+    )
+
+    study_uid_dict = DeepSightPost._make_study_uid_dict(caselist_file_loc)
+
+    # if the classifier needs to be run
+    if run_flag:
+        run_size = len(case_list_contents) - len(predictions)
+        print(f&#34;Running DeepSight on {run_size} cases, please be patient...&#34;)
+        unfound_folders = []
+
+        # get a list of folders in the output directory
+        folders = sorted(os.listdir(deepsight_out))
+
+        # for each folder, get the list of files
+        for folder in folders:
+            # make sure it is a directory first
+            if os.path.isdir(os.path.join(deepsight_out, folder)):
+                # with folder as key for study_uid_dict get the
+                # SOPInstanceUID
+                if folder in study_uid_dict:
+                    sop_instance_uid_list = study_uid_dict[folder]
+
+                    # read-in classifier results output
+                    f = open(deepsight_out + &#34;/&#34; + folder + &#34;/results_full.json&#34;)
+                    json_result = json.load(f)  # load the json file
+                    # prediction results are present
+                    if json_result[&#34;results_raw&#34;] is not None:
+                        # get the prediction with the highest score
+                        for sopuid in sop_instance_uid_list:
+                            if (
+                                sopuid
+                                in json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;]
+                            ):
+                                coords = json_result[&#34;results_raw&#34;][
+                                    &#34;dicom_results&#34;
+                                ][sopuid][&#34;none&#34;][0][&#34;coords&#34;]
+                                score = json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;][
+                                    sopuid
+                                ][&#34;none&#34;][0][&#34;score&#34;]
+                                if (
+                                    &#34;slice&#34;
+                                    in json_result[&#34;results_raw&#34;][&#34;dicom_results&#34;][
+                                        sopuid
+                                    ][&#34;none&#34;][0]
+                                ):
+                                    slice = json_result[&#34;results_raw&#34;][
+                                        &#34;dicom_results&#34;
+                                    ][sopuid][&#34;none&#34;][0][&#34;slice&#34;]
+                                else:
+                                    slice = 0
+                                case = {
+                                    &#34;coords&#34;: coords,
+                                    &#34;score&#34;: score,
+                                    &#34;slice&#34;: slice,
+                                    &#34;errors&#34;: None,
+                                }
+                                # add the prediction to the dictionary
+                                predictions[sopuid] = case
+                    errors_dict = {}
+                    id_to_sop_dict = {}
+                    metadata_dict = json.loads(json_result[&#34;_metadata&#34;])
+                    for k, v in metadata_dict[&#34;SOPInstanceUID&#34;].items():
+                        if metadata_dict[&#34;failed_checks&#34;][k] is not None:
+                            id_to_sop_dict[int(k)] = metadata_dict[
+                                &#34;SOPInstanceUID&#34;
+                            ][k]
+                            for code in metadata_dict[&#34;failed_checks&#34;][k]:
+                                if id_to_sop_dict[int(k)] in errors_dict:
+                                    errors_dict[id_to_sop_dict[int(k)]].append(
+                                        code
+                                        + &#34;: &#34;
+                                        + error_codes_dict[code].replace(&#34;\n&#34;, &#34;&#34;)
+                                    )
+                                else:
+                                    errors_dict[id_to_sop_dict[int(k)]] = [
+                                        code
+                                        + &#34;: &#34;
+                                        + error_codes_dict[code].replace(&#34;\n&#34;, &#34;&#34;)
+                                    ]
+                            id_to_sop_dict[int(k)] = metadata_dict[
+                                &#34;SOPInstanceUID&#34;
+                            ][k]
+                            if errors_dict[id_to_sop_dict[int(k)]] is not None:
+                                case = {
+                                    &#34;coords&#34;: None,
+                                    &#34;score&#34;: -1,
+                                    &#34;slice&#34;: -1,
+                                    &#34;errors&#34;: errors_dict[id_to_sop_dict[int(k)]],
+                                }
+                                predictions[id_to_sop_dict[int(k)]] = case
+                    f.close()
+                else:
+                    unfound_folders.append(folder)
+            else:
+                print(f&#34;{folder} is not a directory&#34;)
+        print(f&#34;{len(unfound_folders)} folders were not found&#34;)
+        print(f&#34;folders: {unfound_folders}&#34;)
+
+        # update the predictions cache file
+        DeepSightPost._update_predictions_cache(
+            predictions, pred_cache_path, timing=timing
+        )
+    # create the errors.txt file
+    DeepSightPost._create_errors_txt(
+        output_location, DeepSightPost.sop_to_path_dict, predictions
+    )
+    # create the local predictions.json file for this run
+    with open(output_location + &#34;predictions.json&#34;, &#34;w&#34;) as fp:
+        json.dump(predictions, fp)
+    # add a log file to the output directory
+    DeepSightPost._make_log_file(t0, output_location, &#34;log.txt&#34;, task_num)
+    # write the original caselist file back to the caselist file
+    with open(output_location + &#34;caselist.txt&#34;, &#34;w&#34;) as f:
+        for line in case_list_contents:
+            # check if it is the last line and if it is, don&#39;t add a \n
+            if line != case_list_contents[-1]:
+                f.write(line + &#34;\n&#34;)
+            else:
+                f.write(line)
+    if timing:
+        print(f&#34;...took &#34; + str(time.time() - t0))
+    if len(predictions) == 0:
+        raise ValueError(
+            f&#34;No predictions made, please check file located at&#34;
+            f&#34; {output_location}deepsight_out.txt for possible errors&#34;
+        )
+    return predictions</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="omama.deep_sight.slurm_job_files" href="index.html">omama.deep_sight.slurm_job_files</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.build_predictions_cache" href="#omama.deep_sight.slurm_job_files.deep_sight_post.build_predictions_cache">build_predictions_cache</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost" href="#omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost">DeepSightPost</a></code></h4>
+<ul class="">
+<li><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.get_logs" href="#omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.get_logs">get_logs</a></code></li>
+<li><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.get_predictions" href="#omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.get_predictions">get_predictions</a></code></li>
+<li><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.parse_sop_uid_from_paths" href="#omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.parse_sop_uid_from_paths">parse_sop_uid_from_paths</a></code></li>
+<li><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.run" href="#omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.run">run</a></code></li>
+<li><code><a title="omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.sop_to_path_dict" href="#omama.deep_sight.slurm_job_files.deep_sight_post.DeepSightPost.sop_to_path_dict">sop_to_path_dict</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
